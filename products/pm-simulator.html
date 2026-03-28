@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PM Simulator 專案經理模擬器 — 用真實職場情境練出頂尖 PM 實力 | Myndare</title>
+  <meta name="description" content="PM Simulator 是一款 RPG 風格的專案管理學習遊戲，以 AI 驅動 NPC 對話、800+ 真實職場情境，練出頂尖 PM 實力。Coming Soon。">
+  <meta property="og:title" content="PM Simulator 專案經理模擬器 — 用真實職場情境練出頂尖 PM 實力">
+  <meta property="og:description" content="RPG 風格的專案管理學習遊戲。AI 驅動 NPC、真實職場情境、推理扣分板機制。Coming Soon。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://myndare.com/products/pm-simulator.html">
+  <meta property="og:image" content="https://myndare.com/Myndare.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PM Simulator 專案經理模擬器 — 用真實職場情境練出頂尖 PM 實力">
+  <meta name="twitter:description" content="RPG 風格的專案管理學習遊戲。AI 驅動 NPC、真實職場情境、推理扣分板機制。">
+  <meta name="twitter:image" content="https://myndare.com/Myndare.png">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "PM Simulator 專案經理模擬器",
+    "url": "https://myndare.com/products/pm-simulator.html",
+    "description": "RPG 風格的專案管理學習遊戲，以 AI 驅動 NPC 對話和 800+ 真實職場情境，幫助玩家練出頂尖 PM 實力。",
+    "genre": "Educational, Simulation, RPG",
+    "gamePlatform": "Web Browser",
+    "applicationCategory": "Game",
+    "author": {
+      "@type": "Organization",
+      "name": "Myndare",
+      "url": "https://myndare.com"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "PM Simulator 是什麼類型的遊戲？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PM Simulator 是一款結合互動小說、管理模擬和推理扣分的混合類型遊戲。玩家在開放世界中扮演一名專案經理，面對真實職場情境做出決策，AI 驅動的 NPC 會根據你的選擇給出不同反應。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "需要有專案管理經驗才能玩嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "不需要。遊戲設計從零開始引導，新手可以在遊戲中自然學習 PM 知識與軟實力；有經驗的 PM 則可以挑戰高難度情境，驗證自己的判斷力。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "PM Simulator 什麼時候上線？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "目前正在積極開發中，預計先推出 Web 版 MVP，讓玩家搶先體驗核心玩法。可以加入等候名單，上線時第一時間通知你。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --teal: #2dd4bf;
+      --teal-dim: rgba(45, 212, 191, 0.15);
+      --teal-glow: rgba(45, 212, 191, 0.4);
+      --purple: #a78bfa;
+      --purple-dim: rgba(167, 139, 250, 0.15);
+      --deep-blue: #0f172a;
+      --deep-blue-mid: #1e293b;
+      --deep-blue-light: #334155;
+      --mint: #6ee7b7;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--deep-blue); }
+    body {
+      font-family: 'Noto Sans TC', 'Outfit', sans-serif;
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(167,139,250,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 20% 80%, rgba(45,212,191,0.05) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    section, nav, footer { position: relative; z-index: 1; }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(45, 212, 191, 0.1);
+    }
+    .nav-logo a { display: block; line-height: 0; }
+    .nav-logo img { height: 40px; width: auto; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    .section-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 1rem;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 5rem 2rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      width: 100%;
+    }
+    .hero-text { flex: 1; }
+    .hero-badge {
+      display: inline-block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      border: 1px solid rgba(167,139,250,0.3);
+      border-radius: 100px;
+      padding: 0.3rem 0.9rem;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.1s;
+    }
+    .hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+    .hero h1 .en {
+      display: block;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .hero h1 .accent {
+      background: linear-gradient(135deg, var(--purple), var(--teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-tagline {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      color: var(--text-secondary);
+      font-weight: 300;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.35s;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.5s;
+    }
+    .hero-icon {
+      flex: 0 0 auto;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.4s;
+    }
+    .hero-icon .icon-box {
+      width: clamp(180px, 22vw, 260px);
+      height: clamp(180px, 22vw, 260px);
+      background: var(--purple-dim);
+      border: 1px solid rgba(167,139,250,0.2);
+      border-radius: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(4rem, 8vw, 6rem);
+      filter: drop-shadow(0 0 30px rgba(167,139,250,0.2));
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: linear-gradient(135deg, var(--purple), #8b5cf6);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(167,139,250,0.4); }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.85rem 2rem;
+      background: transparent;
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.95rem;
+      border: 1px solid var(--deep-blue-light);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .btn-ghost:hover { border-color: var(--purple); color: var(--purple); }
+
+    section {
+      padding: 5rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    section h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 600;
+      margin-bottom: 2.5rem;
+      line-height: 1.3;
+    }
+
+    .section-divider { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+    .section-divider hr { border: none; border-top: 1px solid rgba(45,212,191,0.08); }
+
+    /* Features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: var(--deep-blue-mid);
+      border: 1px solid rgba(167,139,250,0.1);
+      border-radius: 12px;
+      padding: 1.8rem;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .feature-card:hover { border-color: rgba(167,139,250,0.35); transform: translateY(-2px); }
+    .feature-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: var(--purple-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    .feature-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Scenarios */
+    .scenario-list { display: flex; flex-direction: column; gap: 1.2rem; }
+    .scenario-item {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      background: var(--deep-blue-mid);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .scenario-num {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      background: var(--purple-dim);
+      border: 1px solid rgba(167,139,250,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: var(--purple);
+      font-size: 0.95rem;
+    }
+    .scenario-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .scenario-item p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+
+    /* Audience */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .audience-card {
+      background: var(--deep-blue-mid);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 1.8rem;
+      text-align: center;
+    }
+    .audience-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .audience-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .audience-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+    /* CTA */
+    .cta-section { text-align: center; }
+    .cta-section h2 { text-align: center; }
+    .waitlist-input-row {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .cta-note { font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 1rem; }
+    .faq-item {
+      background: var(--deep-blue-mid);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .faq-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.6rem; }
+    .faq-item p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid rgba(45,212,191,0.08);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    footer p { font-size: 0.85rem; color: var(--text-muted); margin: 0.2rem 0; }
+    footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--teal); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.2rem; }
+      .nav-links { display: none; }
+      .hero { padding: 5rem 1.2rem 3rem; }
+      .hero-inner { flex-direction: column; gap: 2rem; }
+      .hero-icon { display: none; }
+      section { padding: 3.5rem 1.2rem; }
+      .features-grid { grid-template-columns: 1fr; }
+      .audience-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">
+      <a href="../index.html"><img src="../Myndare.png" alt="Myndare"></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="../index.html#philosophy">理念</a></li>
+      <li><a href="../index.html#products">產品</a></li>
+      <li><a href="../index.html#about">關於</a></li>
+      <li><a href="../contact.html">聯絡</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="hero-badge">Web Game · Coming Soon</span>
+        <h1>
+          <span class="en">PM Simulator</span>
+          <span class="accent">專案經理模擬器</span>
+        </h1>
+        <p class="hero-tagline">用真實職場情境，練出頂尖 PM 實力</p>
+        <div class="hero-cta">
+          <a href="#features" class="btn-primary">了解特色 ↓</a>
+          <a href="#cta" class="btn-ghost">加入等候名單</a>
+        </div>
+      </div>
+      <div class="hero-icon">
+        <div class="icon-box">🗂️</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"><hr></div>
+
+  <!-- Features -->
+  <section id="features">
+    <div class="section-label reveal">Features</div>
+    <h2 class="reveal">不是教科書，是真實的職場練兵場</h2>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">🎮</div>
+        <h3>RPG 風格開放世界</h3>
+        <p>你就是那個 PM。在虛擬的職場開放世界中，自由探索任務、建立關係、面對危機。每一個決策都會影響專案走向。</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🤖</div>
+        <h3>AI 驅動 NPC 對話</h3>
+        <p>工程師、設計師、利害關係人都由 AI 驅動，反應真實、個性鮮明。沒有標準答案，只有更好或更壞的選擇。</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">📊</div>
+        <h3>800+ 真實職場情境</h3>
+        <p>所有劇情來自創辦人 7+ 年、800+ 專案的第一手經驗。踩過的坑、處理過的危機，都變成你練功的素材。</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🔍</div>
+        <h3>推理扣分板機制</h3>
+        <p>每個決策都會被評分。推理板讓你回顧「為什麼這個選擇是錯的」，從失敗中學到教科書學不到的東西。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"><hr></div>
+
+  <!-- Scenarios -->
+  <section id="scenarios">
+    <div class="section-label reveal">Scenarios</div>
+    <h2 class="reveal">你會遇到什麼情境？</h2>
+    <div class="scenario-list">
+      <div class="scenario-item reveal">
+        <div class="scenario-num">01</div>
+        <div>
+          <h3>死亡行軍——專案即將延期</h3>
+          <p>距離 deadline 剩 3 週，功能還剩一半。工程師說加班沒問題，但客戶要求不能減範疇。你要怎麼處理？學會取捨、溝通與風險管理。</p>
+        </div>
+      </div>
+      <div class="scenario-item reveal">
+        <div class="scenario-num">02</div>
+        <div>
+          <h3>跨部門資源爭奪戰</h3>
+          <p>你的專案和另一個高優先度的內部項目搶同一個工程師。主管沒有明確表態，資源就這樣懸在空中。學會向上管理與跨部門協調。</p>
+        </div>
+      </div>
+      <div class="scenario-item reveal">
+        <div class="scenario-num">03</div>
+        <div>
+          <h3>需求範疇蔓延危機</h3>
+          <p>客戶在第三週提出「小小的新需求」，但你知道那會讓整個時程崩潰。拒絕太強硬，答應又會讓團隊崩潰。你怎麼說？</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"><hr></div>
+
+  <!-- Audience -->
+  <section id="audience">
+    <div class="section-label reveal">Who Is This For</div>
+    <h2 class="reveal">這款遊戲適合你嗎？</h2>
+    <div class="audience-grid">
+      <div class="audience-card reveal">
+        <div class="audience-icon">🌱</div>
+        <h3>PM 新手</h3>
+        <p>沒有實戰經驗？在遊戲中安全地犯錯，比在真實專案中踩坑學得更快。</p>
+      </div>
+      <div class="audience-card reveal">
+        <div class="audience-icon">🔄</div>
+        <h3>想轉職 PM 的人</h3>
+        <p>了解 PM 日常究竟在做什麼，確認自己是否真的適合這條路，再做決定。</p>
+      </div>
+      <div class="audience-card reveal">
+        <div class="audience-icon">🚀</div>
+        <h3>想提升軟實力的主管</h3>
+        <p>溝通、談判、危機處理——這些軟實力在遊戲中反覆練習，比讀書更有效。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"><hr></div>
+
+  <!-- CTA -->
+  <section id="cta" class="cta-section">
+    <div class="section-label reveal" style="text-align:center;">Coming Soon</div>
+    <h2 class="reveal">加入等候名單</h2>
+    <p class="reveal" style="color:var(--text-secondary); max-width:480px; margin:0 auto 1.5rem;">
+      PM Simulator 正在積極開發中，Web 版 MVP 即將推出。搶先加入，第一時間獲得測試資格。
+    </p>
+    <div class="reveal">
+      <a href="mailto:hello@myndare.com?subject=PM Simulator 等候名單&body=我想加入 PM Simulator 等候名單！" class="btn-primary">
+        📬 加入等候名單
+      </a>
+    </div>
+    <p class="cta-note reveal">只在 MVP 上線時通知，不發送其他廣告信。</p>
+  </section>
+
+  <div class="section-divider"><hr></div>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-label reveal">FAQ</div>
+    <h2 class="reveal">常見問題</h2>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <h3>PM Simulator 是什麼類型的遊戲？</h3>
+        <p>結合互動小說、管理模擬和推理扣分的混合類型遊戲。玩家扮演一名專案經理，在開放世界中面對真實職場情境做出決策，AI 驅動的 NPC 會根據你的選擇給出不同反應。</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>需要有專案管理經驗才能玩嗎？</h3>
+        <p>不需要。遊戲設計從零開始引導，新手可以在遊戲中自然學習 PM 知識與軟實力；有經驗的 PM 則可以挑戰高難度情境，驗證自己的判斷力。</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>PM Simulator 什麼時候上線？</h3>
+        <p>目前正在積極開發中，預計先推出 Web 版 MVP，讓玩家搶先體驗核心玩法。加入等候名單後，上線時會第一時間通知你。</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-brand">MYNDARE</div>
+    <p><a href="mailto:hello@myndare.com">hello@myndare.com</a></p>
+    <p style="margin-top:0.8rem;">© 2026 Myndare</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

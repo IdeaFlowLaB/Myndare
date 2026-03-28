@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>聯絡與合作 — Myndare</title>
+  <meta name="description" content="歡迎與 Myndare 洽談產品合作、內容邀稿、技術顧問或演講邀約。直接寫信給我們：hello@myndare.com">
+  <meta property="og:title" content="聊聊合作的可能 — Myndare">
+  <meta property="og:description" content="歡迎產品合作、內容邀稿、技術顧問、演講邀約。hello@myndare.com">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://myndare.com/contact.html">
+  <meta property="og:image" content="https://myndare.com/Myndare.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="聊聊合作的可能 — Myndare">
+  <meta name="twitter:description" content="歡迎產品合作、內容邀稿、技術顧問、演講邀約。hello@myndare.com">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "聯絡 Myndare",
+    "url": "https://myndare.com/contact.html",
+    "description": "與 Myndare 洽談合作：產品合作、內容邀稿、技術顧問、演講邀約。",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Myndare",
+      "email": "hello@myndare.com",
+      "url": "https://myndare.com",
+      "sameAs": ["https://github.com/IdeaFlowLaB"]
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --teal: #2dd4bf;
+      --teal-dim: rgba(45, 212, 191, 0.15);
+      --teal-glow: rgba(45, 212, 191, 0.4);
+      --purple: #a78bfa;
+      --purple-dim: rgba(167, 139, 250, 0.15);
+      --deep-blue: #0f172a;
+      --deep-blue-mid: #1e293b;
+      --deep-blue-light: #334155;
+      --mint: #6ee7b7;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--deep-blue); }
+    body {
+      font-family: 'Noto Sans TC', 'Outfit', sans-serif;
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 30%, rgba(45,212,191,0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 80% 70%, rgba(167,139,250,0.05) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    nav, main, footer { position: relative; z-index: 1; }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(45, 212, 191, 0.1);
+    }
+    .nav-logo a { display: block; line-height: 0; }
+    .nav-logo img { height: 40px; width: auto; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    main {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem 2rem 4rem;
+    }
+
+    .contact-wrapper {
+      max-width: 680px;
+      width: 100%;
+    }
+
+    .section-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.1s;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+
+    .intro {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.3s;
+    }
+
+    /* Contact Links */
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.4s;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      background: var(--deep-blue-mid);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      text-decoration: none;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .contact-link:hover {
+      border-color: rgba(45,212,191,0.3);
+      transform: translateX(4px);
+    }
+    .contact-link-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: var(--teal-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .contact-link-text { flex: 1; }
+    .contact-link-label {
+      font-size: 0.75rem;
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.15rem;
+    }
+    .contact-link-value {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    .contact-link-arrow {
+      color: var(--text-muted);
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+    .contact-link:hover .contact-link-arrow { color: var(--teal); }
+
+    /* Collab Types */
+    .collab-section {
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.55s;
+    }
+    .collab-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .collab-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .collab-tag {
+      padding: 0.5rem 1.1rem;
+      background: var(--deep-blue-mid);
+      border: 1px solid rgba(45,212,191,0.15);
+      border-radius: 100px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      font-family: 'Outfit', sans-serif;
+    }
+
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid rgba(45,212,191,0.08);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    footer p { font-size: 0.85rem; color: var(--text-muted); margin: 0.2rem 0; }
+    footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--teal); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.2rem; }
+      .nav-links { display: none; }
+      main { padding: 6rem 1.2rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">
+      <a href="index.html"><img src="Myndare.png" alt="Myndare"></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html#philosophy">理念</a></li>
+      <li><a href="index.html#products">產品</a></li>
+      <li><a href="index.html#about">關於</a></li>
+      <li><a href="contact.html" style="color:var(--teal);">聯絡</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="contact-wrapper">
+      <div class="section-label">Contact</div>
+      <h1>聊聊合作<br>的可能</h1>
+      <p class="intro">
+        我們是一個小而精的 AI 工具品牌，熱衷於打造真正有用的產品。
+        無論你想聊產品合作、內容創作，還是技術顧問，都歡迎直接聯絡。
+        我們認真看待每一封信。
+      </p>
+
+      <div class="contact-links">
+        <a href="mailto:hello@myndare.com" class="contact-link">
+          <div class="contact-link-icon">✉️</div>
+          <div class="contact-link-text">
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-value">hello@myndare.com</div>
+          </div>
+          <div class="contact-link-arrow">→</div>
+        </a>
+        <a href="https://github.com/IdeaFlowLaB" target="_blank" rel="noopener" class="contact-link">
+          <div class="contact-link-icon">🐙</div>
+          <div class="contact-link-text">
+            <div class="contact-link-label">GitHub</div>
+            <div class="contact-link-value">github.com/IdeaFlowLaB</div>
+          </div>
+          <div class="contact-link-arrow">→</div>
+        </a>
+      </div>
+
+      <div class="collab-section">
+        <div class="collab-title">合作類型</div>
+        <div class="collab-tags">
+          <span class="collab-tag">🤝 產品合作</span>
+          <span class="collab-tag">✍️ 內容邀稿</span>
+          <span class="collab-tag">💡 技術顧問</span>
+          <span class="collab-tag">🎤 演講邀約</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-brand">MYNDARE</div>
+    <p><a href="mailto:hello@myndare.com">hello@myndare.com</a></p>
+    <p style="margin-top:0.8rem;">© 2026 Myndare</p>
+  </footer>
+
+</body>
+</html>
