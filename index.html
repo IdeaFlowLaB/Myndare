@@ -9,6 +9,8 @@
   <meta property="og:description" content="簡潔的 AI 工具，幫助你安靜地成長茁壯。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://myndare.com">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -124,12 +126,10 @@
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(45, 212, 191, 0.1);
     }
-    .nav-logo {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      color: var(--teal);
+    .nav-logo img {
+      height: 40px;
+      width: auto;
+      display: block;
     }
     .nav-links {
       display: flex;
@@ -538,7 +538,9 @@
 
   <!-- Nav -->
   <nav>
-    <div class="nav-logo">MYNDARE</div>
+    <div class="nav-logo">
+      <img src="Myndare.png" alt="Myndare">
+    </div>
     <ul class="nav-links">
       <li><a href="#philosophy">理念</a></li>
       <li><a href="#products">產品</a></li>
