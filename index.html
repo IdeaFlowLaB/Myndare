@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Myndare — 用 AI 點燃你的成長之旅</title>
+  <meta name="description" content="Myndare 打造簡潔、安靜、實用的 AI 工具，讓你專注本業、持續成長，不製造焦慮。">
+  <meta property="og:title" content="Myndare — 用 AI 點燃你的成長之旅">
+  <meta property="og:description" content="簡潔的 AI 工具，幫助你安靜地成長茁壯。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://myndare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Schema.org JSON-LD for AEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Myndare",
+    "url": "https://myndare.com",
+    "description": "Myndare 打造簡潔、安靜、實用的 AI 工具，讓你專注本業、持續成長。",
+    "foundingDate": "2026",
+    "sameAs": []
+  }
+  </script>
+
+  <style>
+    :root {
+      --teal: #2dd4bf;
+      --teal-dim: rgba(45, 212, 191, 0.15);
+      --teal-glow: rgba(45, 212, 191, 0.4);
+      --purple: #a78bfa;
+      --purple-dim: rgba(167, 139, 250, 0.15);
+      --deep-blue: #0f172a;
+      --deep-blue-mid: #1e293b;
+      --deep-blue-light: #334155;
+      --mint: #6ee7b7;
+      --mint-dim: rgba(110, 231, 183, 0.12);
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--deep-blue);
+    }
+
+    body {
+      font-family: 'Noto Sans TC', 'Outfit', sans-serif;
+      background: var(--deep-blue);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    /* ===== AMBIENT BACKGROUND ===== */
+    .ambient {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .ambient .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      animation: drift 20s ease-in-out infinite;
+    }
+    .ambient .orb-1 {
+      width: 600px; height: 600px;
+      background: var(--teal-dim);
+      top: -10%; right: -5%;
+      animation-delay: 0s;
+    }
+    .ambient .orb-2 {
+      width: 500px; height: 500px;
+      background: var(--purple-dim);
+      bottom: 10%; left: -10%;
+      animation-delay: -7s;
+    }
+    .ambient .orb-3 {
+      width: 400px; height: 400px;
+      background: var(--mint-dim);
+      top: 50%; right: 20%;
+      animation-delay: -14s;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -20px) scale(1.05); }
+      66% { transform: translate(-20px, 15px) scale(0.95); }
+    }
+
+    /* ===== GRID OVERLAY ===== */
+    .grid-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(45, 212, 191, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45, 212, 191, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(45, 212, 191, 0.1);
+    }
+    .nav-logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--teal);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      transition: color 0.3s;
+      letter-spacing: 0.02em;
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    /* ===== SECTIONS COMMON ===== */
+    section {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--teal);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 5rem;
+    }
+    .hero-tagline {
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.3s;
+    }
+    .hero-tagline .accent {
+      background: linear-gradient(135deg, var(--teal), var(--mint));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      color: var(--text-secondary);
+      max-width: 560px;
+      line-height: 1.8;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.6s;
+    }
+    .hero-cta-row {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.9s;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: linear-gradient(135deg, var(--teal), #14b8a6);
+      color: var(--deep-blue);
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px var(--teal-glow);
+    }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: transparent;
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.95rem;
+      border: 1px solid var(--deep-blue-light);
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .btn-ghost:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    .hero-decoration {
+      position: absolute;
+      right: -5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 320px;
+      height: 320px;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+    .hero-decoration svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== DIVIDER ===== */
+    .section-divider {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .section-divider hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(45, 212, 191, 0.2), transparent);
+    }
+
+    /* ===== PHILOSOPHY ===== */
+    .philosophy {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+    .philosophy h2 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 600;
+      margin-bottom: 2rem;
+      line-height: 1.4;
+    }
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .phil-card {
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px solid rgba(45, 212, 191, 0.08);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .phil-card:hover {
+      border-color: rgba(45, 212, 191, 0.25);
+      transform: translateY(-4px);
+    }
+    .phil-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      font-size: 1.2rem;
+    }
+    .phil-icon.teal { background: var(--teal-dim); color: var(--teal); }
+    .phil-icon.purple { background: var(--purple-dim); color: var(--purple); }
+    .phil-icon.mint { background: var(--mint-dim); color: var(--mint); }
+    .phil-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .phil-card p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ===== PRODUCTS ===== */
+    .products {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+    .products h2 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .products > p {
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      font-size: 1.05rem;
+    }
+    .product-list {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .product-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      background: rgba(30, 41, 59, 0.4);
+      border: 1px solid rgba(45, 212, 191, 0.06);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .product-card:hover {
+      border-color: rgba(167, 139, 250, 0.3);
+      transform: translateY(-3px);
+    }
+    .product-icon {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+    .product-icon.icon-license { background: linear-gradient(135deg, var(--teal-dim), var(--mint-dim)); }
+    .product-icon.icon-pm { background: linear-gradient(135deg, var(--purple-dim), rgba(99, 102, 241, 0.15)); }
+    .product-info h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .product-info .product-name-en {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.6rem;
+    }
+    .product-info p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .product-badge {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+    }
+    .badge-live {
+      background: var(--teal-dim);
+      color: var(--teal);
+    }
+    .badge-coming {
+      background: var(--purple-dim);
+      color: var(--purple);
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+    .about h2 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .stat-box {
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px solid rgba(45, 212, 191, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--teal), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(45, 212, 191, 0.08);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--teal);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.8rem;
+    }
+    .footer-contact a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+    .footer-contact a:hover { color: var(--teal); }
+    .footer-copy {
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.2rem; }
+      .nav-links { display: none; }
+      section { padding: 0 1.2rem; }
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .product-card {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .hero-decoration { display: none; }
+      .hero-cta-row { flex-direction: column; }
+      .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Background -->
+  <div class="ambient">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="grid-overlay"></div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo">MYNDARE</div>
+    <ul class="nav-links">
+      <li><a href="#philosophy">理念</a></li>
+      <li><a href="#products">產品</a></li>
+      <li><a href="#about">關於</a></li>
+      <li><a href="mailto:hello@myndare.com">聯絡</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="section-label">Myndare</div>
+    <h1 class="hero-tagline">
+      用 AI 點燃<br>你的<span class="accent">成長之旅</span>
+    </h1>
+    <p class="hero-sub">
+      我們打造安靜、簡潔的工具，<br>
+      讓 AI 為你做事，而不是為你製造焦慮。<br>
+      專注本業，持續成長。
+    </p>
+    <div class="hero-cta-row">
+      <a href="#products" class="btn-primary">探索產品 ↓</a>
+      <a href="#philosophy" class="btn-ghost">了解理念</a>
+    </div>
+
+    <!-- Decorative element -->
+    <div class="hero-decoration">
+      <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="160" cy="160" r="140" stroke="rgba(45,212,191,0.3)" stroke-width="0.5"/>
+        <circle cx="160" cy="160" r="100" stroke="rgba(167,139,250,0.2)" stroke-width="0.5"/>
+        <circle cx="160" cy="160" r="60" stroke="rgba(110,231,183,0.2)" stroke-width="0.5"/>
+        <line x1="20" y1="160" x2="300" y2="160" stroke="rgba(45,212,191,0.1)" stroke-width="0.5"/>
+        <line x1="160" y1="20" x2="160" y2="300" stroke="rgba(45,212,191,0.1)" stroke-width="0.5"/>
+      </svg>
+    </div>
+  </section>
+
+  <div class="section-divider"><hr></div>
+
+  <!-- Philosophy -->
+  <section class="philosophy" id="philosophy">
+    <div class="reveal">
+      <div class="section-label">Our Philosophy</div>
+      <h2>科技應該安靜地運作，<br>讓你專心做重要的事。</h2>
+    </div>
+    <div class="philosophy-grid">
+      <div class="phil-card reveal">
+        <div class="phil-icon teal">◉</div>
+        <h3>簡單至上</h3>
+        <p>功能不求多，但每一個都打中痛點。不堆功能、不搞噱頭，只留下你真正需要的。</p>
+      </div>
+      <div class="phil-card reveal">
+        <div class="phil-icon purple">◈</div>
+        <h3>成長不焦慮</h3>
+        <p>AI 是你的安靜助手，不是催促你的鬧鐘。我們相信成長來自內在驅動，不是外在壓力。</p>
+      </div>
+      <div class="phil-card reveal">
+        <div class="phil-icon mint">▣</div>
+        <h3>專注本業</h3>
+        <p>好工具讓你忘記工具的存在。用完就走，安靜待命，不打擾你的心流狀態。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"><hr></div>
+
+  <!-- Products -->
+  <section class="products" id="products">
+    <div class="reveal">
+      <div class="section-label">Products</div>
+      <h2>為成長而生的工具</h2>
+      <p>每一個產品都解決一個明確的問題，簡單到你不需要看說明書。</p>
+    </div>
+    <div class="product-list">
+      <div class="product-card reveal">
+        <div class="product-icon icon-license">🪪</div>
+        <div class="product-info">
+          <h3>證照王</h3>
+          <div class="product-name-en">License King</div>
+          <p>一個 App 管理你所有的專業證照與執照。到期提醒、掃描建檔、家人共管，再也不怕證照過期。</p>
+          <span class="product-badge badge-live">開發中</span>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-icon icon-pm">🎮</div>
+        <div class="product-info">
+          <h3>專案經理模擬器</h3>
+          <div class="product-name-en">PM Simulator</div>
+          <p>RPG 風格的專案管理學習遊戲。用真實職場情境練功，從菜鳥 PM 成長為頂尖管理者。</p>
+          <span class="product-badge badge-coming">Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"><hr></div>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="reveal">
+      <div class="section-label">About</div>
+      <h2>關於 Myndare</h2>
+    </div>
+    <div class="about-content reveal">
+      <div class="about-text">
+        <p>
+          Myndare 的每一個產品，都來自創辦人在職場上遇到的真實問題。
+          不是為了做產品而做，而是因為找不到好用的工具，所以自己動手打造。
+        </p>
+        <p>
+          7 年以上的系統整合與專案管理經驗，管理超過數百個專案的實戰歷練。
+          我們相信最好的工具，是用過之後會說「這就是我要的」的那種。
+        </p>
+        <p>
+          不追風口、不做華而不實的功能。安靜地做好每一件小事，
+          讓使用者把時間花在真正重要的地方。
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-box">
+          <div class="stat-number">7+</div>
+          <div class="stat-label">年產業經驗</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">800+</div>
+          <div class="stat-label">專案管理經歷</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">PMP</div>
+          <div class="stat-label">專案管理認證</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">2</div>
+          <div class="stat-label">產品開發中</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-brand">MYNDARE</div>
+    <div class="footer-contact">
+      <a href="mailto:hello@myndare.com">hello@myndare.com</a>
+    </div>
+    <div class="footer-copy">© 2026 Myndare. 用 AI 點燃你的成長之旅。</div>
+  </footer>
+
+  <!-- Scroll reveal script -->
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
