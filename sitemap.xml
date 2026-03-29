@@ -36,4 +36,28 @@
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://myndare.com/blog/wbs-common-mistakes.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://myndare.com/blog/pm-first-day.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://myndare.com/blog/taiwan-license-renewal.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://myndare.com/blog/av-integration-pitfalls.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

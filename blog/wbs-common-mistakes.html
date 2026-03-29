@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>為什麼專案一直延期？WBS 拆解的 3 個常見錯誤 | Myndare Blog</title>
+  <meta name="description" content="專案延期最常見的根本原因之一，是 WBS 拆解時就埋下的地雷。本文分析 3 個最常見的 WBS 錯誤：任務粒度不一致、忽略相依性、沒有交付物導向。">
+  <meta property="og:title" content="為什麼專案一直延期？WBS 拆解的 3 個常見錯誤">
+  <meta property="og:description" content="WBS 拆解失誤是專案延期的隱形元凶。分析 3 個最常見錯誤，幫你在規劃階段就避免延期風險。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://myndare.com/blog/wbs-common-mistakes.html">
+  <meta property="og:image" content="https://myndare.com/Myndare.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="為什麼專案一直延期？WBS 拆解的 3 個常見錯誤">
+  <meta name="twitter:description" content="WBS 錯誤是專案延期的隱形原因。3 個常見問題與修正方法完整解析。">
+  <meta name="twitter:image" content="https://myndare.com/Myndare.png">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="192x192" href="../favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "為什麼專案一直延期？WBS 拆解的 3 個常見錯誤",
+    "description": "WBS 拆解失誤是專案延期的隱形元凶。分析任務粒度不一致、忽略相依性、不以交付物為導向這 3 個常見錯誤，並提供修正方法。",
+    "url": "https://myndare.com/blog/wbs-common-mistakes.html",
+    "datePublished": "2026-03-29",
+    "dateModified": "2026-03-29",
+    "author": {
+      "@type": "Person",
+      "name": "Wade Wang",
+      "jobTitle": "Founder, Myndare"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Myndare",
+      "url": "https://myndare.com",
+      "logo": "https://myndare.com/Myndare.png"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://myndare.com/blog/wbs-common-mistakes.html"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "首頁",
+        "item": "https://myndare.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://myndare.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "為什麼專案一直延期？WBS 拆解的 3 個常見錯誤",
+        "item": "https://myndare.com/blog/wbs-common-mistakes.html"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "WBS 應該拆解到多細？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "WBS 最底層的工作包（Work Package）通常建議在 8-80 小時之間。太細會讓追蹤變成負擔，太粗則無法有效監控進度。一個實用原則是「2 週法則」：每個工作包應該在 2 週內可以完成並驗收，超過就需要繼續拆解。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "WBS 和任務清單有什麼不同？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "WBS（工作分解結構）是以交付物為導向的階層式分解，強調「要做出什麼」。任務清單是以行動為導向的清單，強調「要做什麼動作」。WBS 是專案計畫的基礎，任務清單是從 WBS 衍生出來的執行清單。只有任務清單沒有 WBS，很容易遺漏重要的交付物。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "專案延期最常見的原因是什麼？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "專案延期最常見的根本原因包括：範疇蔓延（Scope Creep）、初期工時估算過於樂觀、任務相依性沒有明確管理、以及資源衝突（同一個人被分配到太多並行任務）。WBS 拆解品質直接影響工時估算的準確度，是預防延期的關鍵前期工作。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --teal: #2dd4bf;
+      --teal-dim: rgba(45, 212, 191, 0.15);
+      --teal-glow: rgba(45, 212, 191, 0.4);
+      --purple: #a78bfa;
+      --purple-dim: rgba(167, 139, 250, 0.15);
+      --deep-blue: #0f172a;
+      --deep-blue-mid: #1e293b;
+      --deep-blue-light: #334155;
+      --mint: #6ee7b7;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--deep-blue); }
+    body {
+      font-family: 'Noto Sans TC', 'Outfit', sans-serif;
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(45,212,191,0.04) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    nav, main, footer { position: relative; z-index: 1; }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(45, 212, 191, 0.1);
+    }
+    .nav-logo a { display: block; line-height: 0; }
+    .nav-logo img { height: 40px; width: auto; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 7rem 2rem 5rem;
+    }
+
+    .breadcrumb {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--teal); }
+    .breadcrumb span { color: var(--deep-blue-light); }
+
+    .article-header { margin-bottom: 2.5rem; }
+    .article-meta {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .article-date {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .article-tag {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.7rem;
+      border-radius: 100px;
+      border: 1px solid rgba(45,212,191,0.25);
+      color: var(--teal);
+    }
+    .article-tag.purple {
+      border-color: rgba(167,139,250,0.25);
+      color: var(--purple);
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+    .article-summary {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      padding: 1.2rem 1.5rem;
+      border-left: 3px solid var(--teal);
+      background: var(--teal-dim);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .article-body { margin-top: 2.5rem; }
+    .article-body h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      font-weight: 600;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(45,212,191,0.15);
+      color: var(--text-primary);
+    }
+    .article-body h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 1.8rem 0 0.7rem;
+      color: var(--teal);
+    }
+    .article-body p {
+      font-size: 0.97rem;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+    .article-body strong { color: var(--text-primary); font-weight: 600; }
+    .article-body ul, .article-body ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .article-body li {
+      font-size: 0.97rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 0.3rem;
+    }
+
+    .info-box {
+      background: var(--deep-blue-mid);
+      border: 1px solid rgba(45,212,191,0.15);
+      border-radius: 10px;
+      padding: 1.3rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .info-box-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    .info-box p, .info-box li {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .info-box ul { padding-left: 1.2rem; }
+
+    .warning-box {
+      background: rgba(167,139,250,0.08);
+      border: 1px solid rgba(167,139,250,0.2);
+      border-radius: 10px;
+      padding: 1.3rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .warning-box .info-box-label { color: var(--purple); }
+    .warning-box p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+
+    .mistake-block {
+      margin: 2rem 0;
+    }
+    .mistake-header {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    .mistake-number {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: rgba(167,139,250,0.3);
+      line-height: 1;
+      min-width: 2.5rem;
+    }
+    .mistake-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      padding-top: 0.3rem;
+    }
+    .mistake-subtitle {
+      font-size: 0.88rem;
+      color: var(--purple);
+      margin-top: 0.2rem;
+    }
+
+    .compare-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.2rem 0;
+    }
+    .compare-bad, .compare-good {
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+    }
+    .compare-bad {
+      background: rgba(167,139,250,0.06);
+      border: 1px solid rgba(167,139,250,0.15);
+    }
+    .compare-good {
+      background: var(--teal-dim);
+      border: 1px solid rgba(45,212,191,0.15);
+    }
+    .compare-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .compare-bad .compare-label { color: var(--purple); }
+    .compare-good .compare-label { color: var(--teal); }
+    .compare-bad ul, .compare-good ul { padding-left: 1rem; }
+    .compare-bad li, .compare-good li {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 0.3rem;
+    }
+
+    .faq-section { margin-top: 3rem; }
+    .faq-section h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(45,212,191,0.15);
+    }
+    .faq-list { display: flex; flex-direction: column; gap: 1rem; }
+    .faq-item {
+      background: var(--deep-blue-mid);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 1.4rem;
+    }
+    .faq-item h3 { font-size: 0.97rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); }
+    .faq-item p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+
+    .article-cta {
+      margin-top: 3rem;
+      background: linear-gradient(135deg, var(--teal-dim), var(--purple-dim));
+      border: 1px solid rgba(45,212,191,0.2);
+      border-radius: 14px;
+      padding: 2rem;
+      text-align: center;
+    }
+    .article-cta h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.6rem; }
+    .article-cta p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.2rem; line-height: 1.6; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.8rem;
+      background: linear-gradient(135deg, var(--teal), #14b8a6);
+      color: var(--deep-blue);
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--teal-glow); }
+
+    .author-block {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(45,212,191,0.1);
+    }
+    .author-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--teal-dim);
+      border: 1px solid rgba(45,212,191,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .author-name { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .author-bio { font-size: 0.82rem; color: var(--text-muted); }
+
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid rgba(45,212,191,0.08);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    footer p { font-size: 0.85rem; color: var(--text-muted); margin: 0.2rem 0; }
+    footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--teal); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.2rem; }
+      .nav-links { display: none; }
+      main { padding: 5.5rem 1.2rem 4rem; }
+      .compare-block { grid-template-columns: 1fr; }
+      .mistake-number { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">
+      <a href="../index.html"><img src="../Myndare.png" alt="Myndare"></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="../index.html#philosophy">理念</a></li>
+      <li><a href="../index.html#products">產品</a></li>
+      <li><a href="../index.html#about">關於</a></li>
+      <li><a href="../contact.html">聯絡</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="../index.html">首頁</a>
+      <span>/</span>
+      <a href="index.html">Blog</a>
+      <span>/</span>
+      <span>為什麼專案一直延期？</span>
+    </nav>
+
+    <header class="article-header">
+      <div class="article-meta">
+        <span class="article-date">2026-03-29</span>
+        <span class="article-tag">WBS</span>
+        <span class="article-tag">專案時程</span>
+        <span class="article-tag purple">PM Simulator</span>
+      </div>
+      <h1>為什麼專案一直延期？<br>WBS 拆解的 3 個常見錯誤</h1>
+      <p class="article-summary">
+        專案延期的根本原因，很多時候在規劃階段就已經埋下。WBS（工作分解結構）拆解的品質，直接決定了你的工時估算是否可靠、進度追蹤是否有效。以下 3 個錯誤，是我在 800+ 個專案中反覆見到、也反覆造成延期的問題。
+      </p>
+    </header>
+
+    <article class="article-body">
+
+      <h2>WBS 拆解不好，時程再精細也沒用</h2>
+      <p>
+        很多 PM 把時間花在精細化甘特圖、或是反覆調整里程碑日期，但根本問題是 WBS 就拆得不對。
+        WBS 是<strong>整個專案計畫的基礎</strong>——工時估算、資源分配、進度追蹤、風險識別，都依賴 WBS 的品質。
+        WBS 爛，上面蓋的一切都是沙堆上的城堡。
+      </p>
+
+      <div class="info-box">
+        <div class="info-box-label">📌 WBS 是什麼？</div>
+        <p>WBS（Work Breakdown Structure，工作分解結構）是把專案範疇拆解成較小、可管理的工作單元的階層式結構。最底層的單元稱為「工作包（Work Package）」，是可以分配給個人或小組、並可以估算工時和成本的最小單位。</p>
+      </div>
+
+      <h2>錯誤 #1：任務粒度不一致</h2>
+
+      <div class="mistake-block">
+        <div class="mistake-header">
+          <div class="mistake-number">01</div>
+          <div>
+            <div class="mistake-title">同一層的任務，大小差了十倍</div>
+            <div class="mistake-subtitle">最常見、影響最深的 WBS 問題</div>
+          </div>
+        </div>
+
+        <p>
+          看一個很典型的例子：有人把「建立整個資料庫架構」和「寄一封確認信給客戶」放在 WBS 的同一層。前者可能需要 3 週，後者 10 分鐘。當這兩個任務出現在同一張甘特圖，進度追蹤就變得毫無意義——大任務塞在裡面，讓整個計畫看起來進展順利，直到截止日前一週才爆出來。
+        </p>
+
+        <div class="compare-block">
+          <div class="compare-bad">
+            <div class="compare-label">❌ 粒度不一致</div>
+            <ul>
+              <li>設計整個前端介面（3 週）</li>
+              <li>更新一個按鈕顏色（5 分鐘）</li>
+              <li>整合第三方支付系統（2 週）</li>
+              <li>寄測試邀請給 5 位用戶（30 分鐘）</li>
+            </ul>
+          </div>
+          <div class="compare-good">
+            <div class="compare-label">✓ 粒度一致</div>
+            <ul>
+              <li>完成登入/登出流程設計稿（3 天）</li>
+              <li>完成首頁元件設計稿（2 天）</li>
+              <li>串接支付 API 並完成測試（4 天）</li>
+              <li>完成用戶測試招募與邀請（1 天）</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>
+          <strong>修正方法：</strong>使用「8-80 小時法則」——每個工作包（最底層任務）的估算工時，應該在 8 到 80 小時之間。少於 8 小時的任務可以合併，超過 80 小時的任務需要繼續拆解。
+        </p>
+      </div>
+
+      <h2>錯誤 #2：忽略任務相依性</h2>
+
+      <div class="mistake-block">
+        <div class="mistake-header">
+          <div class="mistake-number">02</div>
+          <div>
+            <div class="mistake-title">把所有任務都列成「可以同時進行」</div>
+            <div class="mistake-subtitle">製造假的並行，讓關鍵路徑消失</div>
+          </div>
+        </div>
+
+        <p>
+          WBS 拆解完成後，第二步是梳理任務間的相依關係（Dependency）。哪些任務必須在另一個任務完成後才能開始？哪些可以真正並行？
+        </p>
+        <p>
+          常見的錯誤是：為了讓計畫看起來「時程緊湊」，把很多任務標記為可以同時進行。結果是——資源根本不夠，關鍵路徑沒被識別出來，最先遇到阻礙的那個任務延期，帶動後面一串任務全部延期。
+        </p>
+
+        <div class="warning-box">
+          <div class="info-box-label">⚠️ 關鍵路徑是什麼？</div>
+          <p>關鍵路徑（Critical Path）是專案中最長的任務鏈，任何一個節點延期，都會直接導致整個專案延期。識別關鍵路徑是時程管理的基礎——你需要知道哪些任務是「絕對不能延的」，才能做好緩衝時間的分配。</p>
+        </div>
+
+        <p>
+          <strong>修正方法：</strong>對 WBS 最底層的每個工作包，明確標記「前置任務（Predecessor）」。完成這個步驟後，用網絡圖（AON 圖）或甘特圖的連結線呈現相依關係，找出關鍵路徑，並在關鍵路徑上的任務加入適當的緩衝（Buffer）。
+        </p>
+      </div>
+
+      <h2>錯誤 #3：WBS 以「活動」為導向，而非「交付物」</h2>
+
+      <div class="mistake-block">
+        <div class="mistake-header">
+          <div class="mistake-number">03</div>
+          <div>
+            <div class="mistake-title">「開會」、「討論」、「研究」出現在 WBS</div>
+            <div class="mistake-subtitle">活動型 WBS 無法有效驗收</div>
+          </div>
+        </div>
+
+        <p>
+          這是學術和教科書最強調的一個原則，但在實際工作中最常被忽略。WBS 的設計理念是<strong>以交付物（Deliverable）為導向</strong>——每個工作包的名稱，應該是一個你可以驗收、可以說「完成了」的東西，而不是一個動詞的活動描述。
+        </p>
+
+        <div class="compare-block">
+          <div class="compare-bad">
+            <div class="compare-label">❌ 活動導向</div>
+            <ul>
+              <li>研究競品功能</li>
+              <li>開需求確認會議</li>
+              <li>討論技術架構</li>
+              <li>準備測試環境</li>
+            </ul>
+          </div>
+          <div class="compare-good">
+            <div class="compare-label">✓ 交付物導向</div>
+            <ul>
+              <li>競品分析報告（5 個競品，含截圖）</li>
+              <li>簽核完成的需求確認文件</li>
+              <li>技術架構決策紀錄（含選型理由）</li>
+              <li>可執行的測試環境（附設定文件）</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>
+          活動型 WBS 的問題是：你永遠不知道這個任務「完成了沒有」。「研究競品功能」這件事可以做 3 天，也可以做 3 個月，沒有明確的驗收標準。交付物型 WBS 讓完成條件清晰，也讓驗收變得可能。
+        </p>
+
+        <p>
+          <strong>修正方法：</strong>檢視 WBS 中每個工作包的名稱。如果它是一個動詞（研究、討論、開會、準備），問自己：「完成這個活動的輸出是什麼？」把輸出作為工作包的名稱。
+        </p>
+      </div>
+
+      <h2>好的 WBS 自我檢查清單</h2>
+
+      <div class="info-box">
+        <div class="info-box-label">✅ WBS 品質自我檢查</div>
+        <ul>
+          <li>每個工作包都是「交付物」而非「活動」描述</li>
+          <li>最底層工作包估算工時在 8-80 小時之間</li>
+          <li>同一層的工作包粒度大致一致</li>
+          <li>每個工作包都有明確的完成條件（DoD）</li>
+          <li>已標記所有工作包的前置任務</li>
+          <li>關鍵路徑已識別並標記</li>
+          <li>WBS 100% 覆蓋所有在範疇內的工作（100% Rule）</li>
+        </ul>
+      </div>
+
+      <h2>延期不是壞運氣，是設計問題</h2>
+      <p>
+        我見過很多 PM 把延期歸因於「需求一直改」、「資源不夠」、「客戶不配合」。這些當然都是真實的挑戰，但它們大多不是延期的根本原因，而是讓延期被放大的因素。
+      </p>
+      <p>
+        一個設計良好的 WBS，可以讓你在需求變更時快速評估影響範圍；可以讓資源分配更精準；可以讓你在問題早期就看到訊號，而不是在截止日前一週才爆出來。
+      </p>
+      <p>
+        <strong>給時程留 buffer 不是你的工作，建立一個可以預測問題的計畫才是。</strong>
+      </p>
+
+      <!-- FAQ -->
+      <div class="faq-section">
+        <h2>常見問題</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>WBS 應該拆解到多細？</h3>
+            <p>WBS 最底層的工作包（Work Package）通常建議在 8-80 小時之間。太細會讓追蹤變成負擔，太粗則無法有效監控進度。一個實用原則是「2 週法則」：每個工作包應該在 2 週內可以完成並驗收，超過就需要繼續拆解。</p>
+          </div>
+          <div class="faq-item">
+            <h3>WBS 和任務清單有什麼不同？</h3>
+            <p>WBS（工作分解結構）是以交付物為導向的階層式分解，強調「要做出什麼」。任務清單是以行動為導向的清單，強調「要做什麼動作」。WBS 是專案計畫的基礎，任務清單是從 WBS 衍生出來的執行清單。只有任務清單沒有 WBS，很容易遺漏重要的交付物。</p>
+          </div>
+          <div class="faq-item">
+            <h3>專案延期最常見的原因是什麼？</h3>
+            <p>專案延期最常見的根本原因包括：範疇蔓延（Scope Creep）、初期工時估算過於樂觀、任務相依性沒有明確管理、以及資源衝突（同一個人被分配到太多並行任務）。WBS 拆解品質直接影響工時估算的準確度，是預防延期的關鍵前期工作。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="article-cta">
+        <h3>在真實情境中練習 WBS 和專案決策？</h3>
+        <p>PM Simulator 用 RPG 遊戲的方式，讓你在真實職場情境中練習 WBS 拆解、資源分配、以及危機處理——失誤在遊戲裡，成長帶到職場上。</p>
+        <a href="../products/pm-simulator.html" class="btn-primary">了解 PM Simulator →</a>
+      </div>
+
+      <!-- Author -->
+      <div class="author-block">
+        <div class="author-avatar">👨‍💼</div>
+        <div>
+          <div class="author-name">Wade Wang</div>
+          <div class="author-bio">Myndare 創辦人 · 7+ 年專案管理經驗 · PMP 認證持有者</div>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-brand">MYNDARE</div>
+    <p><a href="mailto:hello@myndare.com">hello@myndare.com</a></p>
+    <p style="margin-top:0.8rem;">© 2026 Myndare</p>
+  </footer>
+
+</body>
+</html>
