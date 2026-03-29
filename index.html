@@ -572,10 +572,71 @@
       transform: translateY(0);
     }
 
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-secondary);
+      border-radius: 2px;
+      transition: transform 0.25s, opacity 0.25s, background 0.2s;
+    }
+    .nav-hamburger:hover span { background: var(--teal); }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu overlay */
+    .nav-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 65px; left: 0; right: 0;
+      background: rgba(15, 23, 42, 0.98);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(45, 212, 191, 0.1);
+      padding: 1rem 1.5rem 1.5rem;
+      z-index: 99;
+    }
+    .nav-mobile-menu.open { display: block; }
+    .nav-mobile-menu a {
+      display: block;
+      padding: 0.85rem 0;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: color 0.2s;
+    }
+    .nav-mobile-menu a:last-child { border-bottom: none; }
+    .nav-mobile-menu a:hover { color: var(--teal); }
+    .nav-mobile-menu .mobile-sub {
+      padding-left: 1rem;
+      font-size: 0.9rem;
+    }
+    .nav-mobile-menu .mobile-label {
+      display: block;
+      padding: 0.85rem 0 0.4rem;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.2rem; }
       .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
       section { padding: 0 1.2rem; }
       .hero {
         flex-direction: column;
@@ -627,7 +688,21 @@
       <li><a href="#about">關於</a></li>
       <li><a href="contact.html">聯絡</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="開啟選單">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="#philosophy">理念</a>
+    <span class="mobile-label">產品</span>
+    <a href="products/license-king.html" class="mobile-sub">🪪 證照王</a>
+    <a href="products/pm-simulator.html" class="mobile-sub">🎮 PM Simulator</a>
+    <a href="blog/index.html">Blog</a>
+    <a href="#about">關於</a>
+    <a href="contact.html">聯絡</a>
+  </div>
 
   <!-- Hero -->
   <section class="hero">
@@ -774,6 +849,21 @@
       });
     }, { threshold: 0.15 });
     reveals.forEach(el => observer.observe(el));
+  </script>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
   </script>
 
 </body>
