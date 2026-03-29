@@ -150,6 +150,7 @@
       display: flex;
       gap: 2rem;
       list-style: none;
+      align-items: center;
     }
     .nav-links a {
       color: var(--text-secondary);
@@ -160,6 +161,49 @@
       letter-spacing: 0.02em;
     }
     .nav-links a:hover { color: var(--teal); }
+
+    /* Dropdown */
+    .nav-dropdown {
+      position: relative;
+    }
+    .nav-dropdown > a {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .nav-dropdown > a::after {
+      content: '▾';
+      font-size: 0.7rem;
+      opacity: 0.6;
+      transition: transform 0.2s;
+    }
+    .nav-dropdown:hover > a::after { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 0.8rem);
+      right: 0;
+      background: rgba(15, 23, 42, 0.97);
+      border: 1px solid rgba(45, 212, 191, 0.15);
+      border-radius: 10px;
+      padding: 0.5rem;
+      min-width: 160px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 0.6rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-dropdown-menu a:hover {
+      background: rgba(45, 212, 191, 0.08);
+      color: var(--teal);
+    }
 
     /* ===== SECTIONS COMMON ===== */
     section {
@@ -572,9 +616,16 @@
     </div>
     <ul class="nav-links">
       <li><a href="#philosophy">理念</a></li>
-      <li><a href="#products">產品</a></li>
+      <li class="nav-dropdown">
+        <a href="#products">產品</a>
+        <div class="nav-dropdown-menu">
+          <a href="products/license-king.html">🪪 證照王</a>
+          <a href="products/pm-simulator.html">🎮 PM Simulator</a>
+        </div>
+      </li>
+      <li><a href="blog/index.html">Blog</a></li>
       <li><a href="#about">關於</a></li>
-      <li><a href="mailto:hello@myndare.com">聯絡</a></li>
+      <li><a href="contact.html">聯絡</a></li>
     </ul>
   </nav>
 
