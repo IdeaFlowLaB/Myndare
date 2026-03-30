@@ -27,8 +27,8 @@
     "headline": "會議室 AV 系統整合常見的 5 個坑（與如何避開）",
     "description": "7 年 AV 系統整合實戰經驗整理的 5 個最常踩的坑，從需求對齊到驗收標準，幫你在規劃階段就避免代價高昂的錯誤。",
     "url": "https://myndare.com/blog/av-integration-pitfalls.html",
-    "datePublished": "2026-03-29",
-    "dateModified": "2026-03-29",
+    "datePublished": "2026-03-20",
+    "dateModified": "2026-03-20",
     "author": {
       "@type": "Person",
       "name": "Wade Wang",
@@ -92,7 +92,7 @@
         "name": "AV 系統整合專案的驗收應該包含哪些項目？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "驗收應包含：音訊測試（清晰度、回聲消除、麥克風覆蓋範圍）、視訊測試（解析度、幀率、燈光環境下的效果）、控制系統測試（觸控面板操作、一鍵會議功能）、網路連線測試（頻寬、延遲），以及壓力測試（模擬實際會議場景）。"
+          "text": "驗收應包含：音訊測試（清晰度、回聲消除、麥克風覆蓋範圍）、視訊測試（解析度、幀率、燈光環境下的效果）、控制系統測試（觸控面板操作、一鍵會議功能）、網路連線測試（頻寬、延遲），以及壓力測試（模擬實際會議場景）。這些標準應在合約中明訂，避免廠商以「設備都亮了」就主張完工。UAT（使用者接受測試）應在正式驗收前完成，確保真實使用情境沒有問題。"
         }
       },
       {
@@ -368,6 +368,40 @@
     .faq-item h3 { font-size: 0.97rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); }
     .faq-item p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
 
+    /* Related Posts */
+    .related-posts {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(45,212,191,0.1);
+    }
+    .related-posts h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.2rem;
+    }
+    .related-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .related-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      background: rgba(30, 41, 59, 0.4);
+      border: 1px solid rgba(45,212,191,0.06);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .related-item:hover {
+      border-color: rgba(45,212,191,0.25);
+      background: rgba(30, 41, 59, 0.7);
+    }
+    .related-title { font-size: 0.92rem; color: var(--text-primary); line-height: 1.5; }
+    .related-date { font-size: 0.78rem; color: var(--text-muted); white-space: nowrap; flex-shrink: 0; }
+
     .article-cta {
       margin-top: 3rem;
       background: linear-gradient(135deg, var(--teal-dim), var(--purple-dim));
@@ -494,7 +528,7 @@
 
     <header class="article-header">
       <div class="article-meta">
-        <span class="article-date">2026-03-29</span>
+        <span class="article-date">2026-03-20</span>
         <span class="article-tag">AV 整合</span>
         <span class="article-tag">系統整合</span>
         <span class="article-tag purple">實戰經驗</span>
@@ -513,6 +547,9 @@
       </p>
       <p>
         以下 5 個坑，是我在超過 800 個專案中反覆見到的問題。有些坑一踩就是幾十萬的返工成本，有些坑則是讓辛苦建好的系統被棄用。
+      </p>
+      <p>
+        我自己在早期的幾個專案裡，也踩過其中幾個坑——尤其是需求對齊和聲學處理這兩塊。這篇文章不是教科書上的理論，是真實專案裡付出代價才學到的東西，希望對正在規劃會議室整合的你有用。
       </p>
 
       <h2>坑 #1：需求調查做得太晚，或根本沒做</h2>
@@ -618,12 +655,31 @@
           </div>
           <div class="faq-item">
             <h3>AV 系統整合專案的驗收應該包含哪些項目？</h3>
-            <p>驗收應包含：音訊測試（清晰度、回聲消除、麥克風覆蓋範圍）、視訊測試（解析度、幀率、燈光環境下的效果）、控制系統測試（觸控面板操作、一鍵會議功能）、網路連線測試（頻寬、延遲），以及壓力測試（模擬實際會議場景）。</p>
+            <p>驗收應包含：音訊測試（清晰度、回聲消除、麥克風覆蓋範圍）、視訊測試（解析度、幀率、燈光環境下的效果）、控制系統測試（觸控面板操作、一鍵會議功能）、網路連線測試（頻寬、延遲），以及壓力測試（模擬實際會議場景）。這些標準應在合約中明訂，避免廠商以「設備都亮了」就主張完工。UAT（使用者接受測試）應在正式驗收前完成，確保真實使用情境沒有問題。</p>
           </div>
           <div class="faq-item">
             <h3>為什麼 AV 系統裝好之後使用率很低？</h3>
             <p>最常見的原因是使用者培訓不足。很多公司在系統上線後只做了一次示範，沒有提供操作手冊或後續支援。建議製作簡短的 QR Code 操作指南張貼在會議室，並設立一個易於聯繫的第一線支援窗口。</p>
           </div>
+        </div>
+      </div>
+
+      <!-- Related Posts -->
+      <div class="related-posts">
+        <h3>相關文章</h3>
+        <div class="related-list">
+          <a href="wbs-common-mistakes.html" class="related-item">
+            <div class="related-title">為什麼專案一直延期？WBS 拆解的 3 個常見錯誤</div>
+            <div class="related-date">2026-03-29</div>
+          </a>
+          <a href="pm-first-day.html" class="related-item">
+            <div class="related-title">專案經理第一天上班該做什麼？資深 PM 的 7 個建議</div>
+            <div class="related-date">2026-03-26</div>
+          </a>
+          <a href="pmp-renewal-guide.html" class="related-item">
+            <div class="related-title">PMP 證照過期怎麼辦？完整續證流程與 PDU 取得攻略</div>
+            <div class="related-date">2026-03-17</div>
+          </a>
         </div>
       </div>
 

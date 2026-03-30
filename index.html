@@ -483,6 +483,103 @@
       color: var(--purple);
     }
 
+    /* ===== LATEST POSTS ===== */
+    .latest-posts {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+    .latest-posts h2 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .latest-posts > .reveal > p {
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      font-size: 1.05rem;
+    }
+    .post-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .post-card {
+      display: flex;
+      flex-direction: column;
+      background: rgba(30, 41, 59, 0.4);
+      border: 1px solid rgba(45, 212, 191, 0.06);
+      border-radius: 14px;
+      padding: 1.75rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .post-card:hover {
+      border-color: rgba(45, 212, 191, 0.3);
+      transform: translateY(-4px);
+    }
+    .post-card-date {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+    .post-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+    .post-card p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      flex-grow: 1;
+      margin-bottom: 1rem;
+    }
+    .post-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .post-tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      background: var(--teal-dim);
+      color: var(--teal);
+    }
+    .post-tag.purple {
+      background: var(--purple-dim);
+      color: var(--purple);
+    }
+    .post-view-all {
+      text-align: center;
+    }
+    .post-view-all a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--teal);
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(45, 212, 191, 0.3);
+      padding-bottom: 2px;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .post-view-all a:hover {
+      color: var(--mint);
+      border-color: var(--mint);
+    }
+    @media (max-width: 768px) {
+      .post-grid { grid-template-columns: 1fr; }
+    }
+
     /* ===== ABOUT ===== */
     .about {
       padding-top: 6rem;
@@ -782,6 +879,52 @@
           <span class="product-badge badge-coming">Coming Soon</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <div class="section-divider"><hr></div>
+
+  <!-- Latest Posts -->
+  <section class="latest-posts" id="latest-posts">
+    <div class="reveal">
+      <div class="section-label">Latest Posts</div>
+      <h2>來自實戰的分享</h2>
+      <p>專案管理 · 證照攻略 · 職場成長</p>
+    </div>
+    <div class="post-grid reveal">
+      <a href="blog/wbs-common-mistakes.html" class="post-card">
+        <div class="post-card-date">2026-03-29</div>
+        <h3>為什麼專案一直延期？WBS 拆解的 3 個常見錯誤</h3>
+        <p>WBS 拆解的品質，直接決定工時估算是否可靠、進度追蹤是否有效。這 3 個錯誤，你可能正在犯。</p>
+        <div class="post-card-tags">
+          <span class="post-tag">WBS</span>
+          <span class="post-tag">專案時程</span>
+          <span class="post-tag purple">PM Simulator</span>
+        </div>
+      </a>
+      <a href="blog/pm-first-day.html" class="post-card">
+        <div class="post-card-date">2026-03-26</div>
+        <h3>專案經理第一天上班該做什麼？資深 PM 的 7 個建議</h3>
+        <p>PM 第一天報到，最重要的事是先聽、後問、不急著改。你的價值不在展示你懂多少。</p>
+        <div class="post-card-tags">
+          <span class="post-tag">專案管理</span>
+          <span class="post-tag">PM 新手</span>
+          <span class="post-tag purple">PM Simulator</span>
+        </div>
+      </a>
+      <a href="blog/taiwan-license-renewal.html" class="post-card">
+        <div class="post-card-date">2026-03-23</div>
+        <h3>台灣常見專業證照到期日整理：哪些需要定期換證？</h3>
+        <p>技術士終身有效，但 PMP、消防設備士等都需要定期換證。各類證照的換證規定，一次整理清楚。</p>
+        <div class="post-card-tags">
+          <span class="post-tag">證照管理</span>
+          <span class="post-tag">換證</span>
+          <span class="post-tag purple">證照王</span>
+        </div>
+      </a>
+    </div>
+    <div class="post-view-all reveal">
+      <a href="blog/index.html">查看所有文章 →</a>
     </div>
   </section>
 

@@ -25,9 +25,15 @@ RPG 風格的專案管理學習遊戲，用真實職場情境練習 PM 技能。
 - 狀態：Coming Soon
 - 網址：https://myndare.com/products/pm-simulator.html
 
+## Blog 主題
+
+- 專案管理實戰心得
+- 台灣專業證照管理指南
+- 職場成長與軟實力
+
 ## 創辦人
 
-Wade Wang — 7+ 年系統整合與專案管理經驗，PMP 認證持有者。
+Wade Wang — 7+ 年系統整合與專案管理經驗（AV/SI 會議多媒體自動化），PMP 認證持有者，管理 800+ 專案。
 專長領域：AV 系統整合、專案管理、AI 工具開發。
 
 ## 聯絡
@@ -35,6 +41,7 @@ Wade Wang — 7+ 年系統整合與專案管理經驗，PMP 認證持有者。
 - 網站：https://myndare.com
 - Email：hello@myndare.com
 - GitHub：https://github.com/IdeaFlowLaB
+- LinkedIn：https://www.linkedin.com/in/shigang-wade-wang/
 
 ## 內容資源
 
