@@ -147,6 +147,36 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--teal); }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 0.25rem; }
+    .nav-dropdown > a::after { content: '▾'; font-size: 0.7rem; transition: transform 0.2s; }
+    .nav-dropdown:hover > a::after { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15,23,42,0.98);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(45,212,191,0.15);
+      border-radius: 10px;
+      padding: 0.5rem;
+      min-width: 160px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 0.6rem 0.9rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-dropdown-menu a:hover { background: rgba(45,212,191,0.08); color: var(--teal); }
 
     /* Layout */
     .container {
@@ -503,7 +533,13 @@
     </div>
     <ul class="nav-links">
       <li><a href="../index.html#philosophy">理念</a></li>
-      <li><a href="../index.html#products">產品</a></li>
+      <li class="nav-dropdown">
+        <a href="../index.html#products">產品</a>
+        <div class="nav-dropdown-menu">
+          <a href="../products/license-king.html">🪪 證照王</a>
+          <a href="../products/pm-simulator.html">🎮 PM Simulator</a>
+        </div>
+      </li>
       <li><a href="../blog/index.html">Blog</a></li>
       <li><a href="../index.html#about">關於</a></li>
       <li><a href="../contact.html">聯絡</a></li>
