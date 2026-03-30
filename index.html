@@ -181,12 +181,12 @@
     .nav-dropdown-menu {
       display: none;
       position: absolute;
-      top: calc(100% + 0.8rem);
+      top: 100%;
       right: 0;
       background: rgba(15, 23, 42, 0.97);
       border: 1px solid rgba(45, 212, 191, 0.15);
       border-radius: 10px;
-      padding: 0.5rem;
+      padding: 0.8rem 0.5rem 0.5rem;
       min-width: 160px;
       backdrop-filter: blur(20px);
       box-shadow: 0 16px 40px rgba(0,0,0,0.4);
@@ -425,6 +425,8 @@
     .product-card {
       display: flex;
       align-items: flex-start;
+      text-decoration: none;
+      color: inherit;
       gap: 1.5rem;
       background: rgba(30, 41, 59, 0.4);
       border: 1px solid rgba(45, 212, 191, 0.06);
@@ -861,7 +863,7 @@
       <p>每一個產品都解決一個明確的問題，簡單到你不需要看說明書。</p>
     </div>
     <div class="product-list">
-      <div class="product-card reveal">
+      <a href="products/license-king.html" class="product-card reveal">
         <div class="product-icon icon-license">🪪</div>
         <div class="product-info">
           <h3>證照王</h3>
@@ -869,8 +871,8 @@
           <p>一個 App 管理你所有的專業證照與執照。到期提醒、掃描建檔、家人共管，再也不怕證照過期。</p>
           <span class="product-badge badge-live">開發中</span>
         </div>
-      </div>
-      <div class="product-card reveal">
+      </a>
+      <a href="products/pm-simulator.html" class="product-card reveal">
         <div class="product-icon icon-pm">🎮</div>
         <div class="product-info">
           <h3>專案經理模擬器</h3>
@@ -878,7 +880,7 @@
           <p>RPG 風格的專案管理學習遊戲。用真實職場情境練功，從菜鳥 PM 成長為頂尖管理者。</p>
           <span class="product-badge badge-coming">Coming Soon</span>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 
