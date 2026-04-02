@@ -7,13 +7,13 @@
   <title>AI 將取代你 | Myndare Blog</title>
   <meta name="description" content="「AI 取代人」這句話聽爛了。但真正該問的不是 AI 能不能取代你，而是脫掉工具的外衣之後，你還剩下什麼。">
   <meta property="og:title" content="AI 將取代你">
-  <meta property="og:description" content="AI 可以取代你的輸出，但取代不了你的能力。脫掉工具的外衣，你還剩下什麼？">
+  <meta property="og:description" content="「AI 取代人」這句話聽爛了。但真正該問的不是 AI 能不能取代你，而是脫掉工具的外衣之後，你還剩下什麼。">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://myndare.com/blog/ai-will-replace-you.html">
   <meta property="og:image" content="https://myndare.com/Myndare.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="AI 將取代你">
-  <meta name="twitter:description" content="AI 可以取代你的輸出，但取代不了你的能力。脫掉工具的外衣，你還剩下什麼？">
+  <meta name="twitter:description" content="「AI 取代人」這句話聽爛了。但真正該問的不是 AI 能不能取代你，而是脫掉工具的外衣之後，你還剩下什麼。">
   <meta name="twitter:image" content="https://myndare.com/Myndare.png">
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <link rel="icon" type="image/png" sizes="192x192" href="../favicon.png">
@@ -82,10 +82,10 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "AI 真的會取代 PM 嗎？",
+        "name": "AI 真的會取代專案經理嗎？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "AI 可以取代 PM 的部分輸出，例如報告撰寫、數據分析、進度追蹤。但需要協調、判斷、在複雜人際關係中找到出路的能力，仍然需要人來完成。"
+          "text": "AI 可以取代部分輸出型工作，例如產出報告、排程建議、文件整理等。但專案經理的核心價值在於協調、判斷與人際溝通，這些能力目前仍無法被 AI 取代。"
         }
       },
       {
@@ -93,15 +93,15 @@
         "name": "在 AI 時代，考證照還有意義嗎？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "有。證照是你累積過的紀錄，是你和世界之間可以被共同承認的東西。工具誰都能用，但你是誰，只有你自己能回答。證照是最直接說明自己能力的方式之一。"
+          "text": "有意義。證照是你能力的具體證明，是你和世界之間可以被共同承認的紀錄。當工具人人都能用，能清楚說明自己能力的人，反而更有優勢。"
         }
       },
       {
         "@type": "Question",
-        "name": "有沒有專為個人設計的證照管理工具？",
+        "name": "證照王是什麼？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "證照王是一款專為個人用戶設計的證照管理 App，免費、無廣告，可以統一管理所有專業證照的到期日與提醒。"
+          "text": "證照王是一款專為個人用戶設計的證照管理 App，免費且無廣告。幫助你統一管理所有專業證照的到期日、換證提醒與學習紀錄。"
         }
       }
     ]
@@ -176,6 +176,7 @@
       padding: 7rem 2rem 5rem;
     }
 
+    /* Breadcrumb */
     .breadcrumb {
       display: flex;
       gap: 0.4rem;
@@ -189,6 +190,7 @@
     .breadcrumb a:hover { color: var(--teal); }
     .breadcrumb span { color: var(--deep-blue-light); }
 
+    /* Article Header */
     .article-header { margin-bottom: 2.5rem; }
     .article-meta {
       display: flex;
@@ -233,6 +235,7 @@
       border-radius: 0 8px 8px 0;
     }
 
+    /* Article Body */
     .article-body { margin-top: 2.5rem; }
     .article-body h2 {
       font-family: 'Outfit', sans-serif;
@@ -243,6 +246,12 @@
       border-bottom: 1px solid rgba(45,212,191,0.15);
       color: var(--text-primary);
     }
+    .article-body h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 1.8rem 0 0.7rem;
+      color: var(--teal);
+    }
     .article-body p {
       font-size: 0.97rem;
       color: var(--text-secondary);
@@ -250,7 +259,53 @@
       margin-bottom: 1rem;
     }
     .article-body strong { color: var(--text-primary); font-weight: 600; }
+    .article-body ul, .article-body ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .article-body li {
+      font-size: 0.97rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 0.3rem;
+    }
 
+    /* Info Box */
+    .info-box {
+      background: var(--deep-blue-mid);
+      border: 1px solid rgba(45,212,191,0.15);
+      border-radius: 10px;
+      padding: 1.3rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .info-box-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    .info-box p, .info-box li {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .info-box ul { padding-left: 1.2rem; }
+
+    /* Warning Box */
+    .warning-box {
+      background: rgba(167,139,250,0.08);
+      border: 1px solid rgba(167,139,250,0.2);
+      border-radius: 10px;
+      padding: 1.3rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .warning-box .info-box-label { color: var(--purple); }
+    .warning-box p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+
+    /* FAQ */
     .faq-section { margin-top: 3rem; }
     .faq-section h2 {
       font-family: 'Outfit', sans-serif;
@@ -270,6 +325,7 @@
     .faq-item h3 { font-size: 0.97rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); }
     .faq-item p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
 
+    /* Related Posts */
     .related-posts {
       margin-top: 3rem;
       padding-top: 2rem;
@@ -303,6 +359,7 @@
     .related-title { font-size: 0.92rem; color: var(--text-primary); line-height: 1.5; }
     .related-date { font-size: 0.78rem; color: var(--text-muted); white-space: nowrap; flex-shrink: 0; }
 
+    /* CTA */
     .article-cta {
       margin-top: 3rem;
       background: linear-gradient(135deg, var(--teal-dim), var(--purple-dim));
@@ -328,6 +385,7 @@
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--teal-glow); }
 
+    /* Author */
     .author-block {
       display: flex;
       align-items: center;
@@ -367,6 +425,7 @@
     footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--teal); }
 
+    /* Hamburger */
     .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
     .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text-secondary); border-radius: 2px; transition: transform 0.25s, opacity 0.25s, background 0.2s; }
     .nav-hamburger:hover span { background: var(--teal); }
@@ -418,6 +477,7 @@
 
   <main>
 
+    <!-- Breadcrumb -->
     <nav class="breadcrumb" aria-label="breadcrumb">
       <a href="../index.html">首頁</a>
       <span>/</span>
@@ -426,6 +486,7 @@
       <span>AI 將取代你</span>
     </nav>
 
+    <!-- Article Header -->
     <header class="article-header">
       <div class="article-meta">
         <span class="article-date">2026-04-02</span>
@@ -435,10 +496,11 @@
       </div>
       <h1>AI 將取代你</h1>
       <p class="article-summary">
-        「AI 取代人」這句話聽爛了。但真正該問的不是 AI 能不能取代你，而是<strong>脫掉工具的外衣之後，你還剩下什麼</strong>。
+        「AI 取代人」這句話聽爛了。但真正該問的不是 AI 能不能取代你，而是脫掉工具的外衣之後，你還剩下什麼。
       </p>
     </header>
 
+    <!-- Article Body -->
     <article class="article-body">
 
       <h2>AI 取代了你什麼？</h2>
@@ -452,21 +514,31 @@
         工具一直都在更新。方法永遠有更厲害的人提出更厲害的版本。軟體也是。
       </p>
       <p>
-        把這些外衣都脫掉之後，我們剩下什麼？
+        <strong>把這些外衣都脫掉之後，我們剩下什麼？</strong>
       </p>
 
       <h2>能力，不是輸出</h2>
       <p>
-        我是一名有 PMP 的 PM。<strong>AI 可以取代我的輸出，但取代不了我的能力。</strong>那些需要協調、需要判斷、需要在複雜的人際之間找到出路的事，還是得回到人身上。
+        我是一名有 PMP 的 PM。AI 可以取代我的輸出，但取代不了我的能力。那些需要協調、需要判斷、需要在複雜的人際之間找到出路的事，還是得回到人身上。
       </p>
+
+      <div class="info-box">
+        <div class="info-box-label">💡 思考</div>
+        <p>AI 擅長的是可被結構化的工作：產出報告、整理資料、排程建議。但專案中真正困難的部分——利害關係人的角力、模糊需求的判斷、團隊士氣的維護——這些仍然是人的領域。</p>
+      </div>
 
       <h2>證照，是你對世界的說明</h2>
       <p>
-        但光是有能力還不夠。這個時代，你還得說得清楚自己的能力是什麼。而證照，是其中一種最直接的方式。不需要太多解釋，那張證照就在那裡——<strong>是你累積過的紀錄，也是你和這個世界之間可以被共同承認的東西</strong>。
+        但光是有能力還不夠。這個時代，你還得說得清楚自己的能力是什麼。而證照，是其中一種最直接的方式。不需要太多解釋，那張證照就在那裡——是你累積過的紀錄，也是你和這個世界之間可以被共同承認的東西。
       </p>
       <p>
-        人自己累積的東西，在這個時代反而格外重要。因為工具誰都能用，但你是誰，只有你自己能回答。
+        人自己累積的東西，在這個時代反而格外重要。因為<strong>工具誰都能用，但你是誰，只有你自己能回答</strong>。
       </p>
+
+      <div class="warning-box">
+        <div class="info-box-label">⚠️ 反思</div>
+        <p>當每個人都能用 AI 生成一份漂亮的專案計畫書，面試官看的不再是你的輸出品質，而是你能不能解釋你為什麼這樣做——那才是能力的證明。</p>
+      </div>
 
       <h2>所以我做了一個工具</h2>
       <p>
@@ -479,24 +551,26 @@
         如果你也有同樣的困擾，歡迎下載。
       </p>
 
+      <!-- FAQ -->
       <div class="faq-section">
         <h2>常見問題</h2>
         <div class="faq-list">
           <div class="faq-item">
-            <h3>AI 真的會取代 PM 嗎？</h3>
-            <p>AI 可以取代 PM 的部分輸出，例如報告撰寫、數據分析、進度追蹤。但需要協調、判斷、在複雜人際關係中找到出路的能力，仍然需要人來完成。</p>
+            <h3>AI 真的會取代專案經理嗎？</h3>
+            <p>AI 可以取代部分輸出型工作，例如產出報告、排程建議、文件整理等。但專案經理的核心價值在於協調、判斷與人際溝通，這些能力目前仍無法被 AI 取代。</p>
           </div>
           <div class="faq-item">
             <h3>在 AI 時代，考證照還有意義嗎？</h3>
-            <p>有。證照是你累積過的紀錄，是你和世界之間可以被共同承認的東西。工具誰都能用，但你是誰，只有你自己能回答。證照是最直接說明自己能力的方式之一。</p>
+            <p>有意義。證照是你能力的具體證明，是你和世界之間可以被共同承認的紀錄。當工具人人都能用，能清楚說明自己能力的人，反而更有優勢。</p>
           </div>
           <div class="faq-item">
-            <h3>有沒有專為個人設計的證照管理工具？</h3>
-            <p>證照王是一款專為個人用戶設計的證照管理 App，免費、無廣告，可以統一管理所有專業證照的到期日與提醒。</p>
+            <h3>證照王是什麼？</h3>
+            <p>證照王是一款專為個人用戶設計的證照管理 App，免費且無廣告。幫助你統一管理所有專業證照的到期日、換證提醒與學習紀錄。</p>
           </div>
         </div>
       </div>
 
+      <!-- Related Posts -->
       <div class="related-posts">
         <h3>相關文章</h3>
         <div class="related-list">
@@ -515,12 +589,14 @@
         </div>
       </div>
 
+      <!-- CTA -->
       <div class="article-cta">
-        <h3>管理你的證照，從現在開始</h3>
-        <p>證照王 App 幫你管理所有專業證照，到期前自動提醒，免費、無廣告。</p>
+        <h3>用證照王管理你的專業證照</h3>
+        <p>免費、無廣告。統一管理所有證照到期日，到期前自動提醒，讓你專注在真正重要的事。</p>
         <a href="../products/license-king.html" class="btn-primary">了解證照王 →</a>
       </div>
 
+      <!-- Author -->
       <div class="author-block">
         <div class="author-avatar">👨‍💼</div>
         <div>
