@@ -11,7 +11,7 @@
 
 ## 產品
 
-### 證照王 (License King)
+### 證照王(License King)
 iOS App，管理所有專業證照與執照。
 - 功能：到期提醒、掃描建檔、OCR 辨識、家人共管、WidgetKit 桌面小工具
 - 平台：iOS（App Store）
