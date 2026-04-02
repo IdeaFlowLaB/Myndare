@@ -11,7 +11,7 @@
 
 ## 產品
 
-### 證照王(License King)
+### 證照王 License King
 iOS App，管理所有專業證照與執照。
 - 功能：到期提醒、掃描建檔、OCR 辨識、家人共管、WidgetKit 桌面小工具
 - 平台：iOS（App Store）
@@ -20,7 +20,7 @@ iOS App，管理所有專業證照與執照。
 
 ### 專案經理模擬器 (PM Simulator)
 RPG 風格的專案管理學習遊戲，用真實職場情境練習 PM 技能。
-- 特色：AI 驅動 NPC 對話、真實職場情境（來自 800+ 專案經驗）、推理扣分板機制
+- 特色：AI 驅動 NPC 對話、真實職場情境（來自 1000+ 專案經驗）、推理扣分板機制
 - 平台：Web（開發中）
 - 狀態：Coming Soon
 - 網址：https://myndare.com/products/pm-simulator.html
@@ -33,14 +33,13 @@ RPG 風格的專案管理學習遊戲，用真實職場情境練習 PM 技能。
 
 ## 創辦人
 
-Wade Wang — 7+ 年系統整合與專案管理經驗（AV/SI 會議多媒體自動化），PMP 認證持有者，管理 800+ 專案。
+Wade Wang — 10+ 年系統整合與專案管理經驗（AV/SI 會議多媒體自動化），PMP 認證持有者，管理 1000+ 專案。
 專長領域：AV 系統整合、專案管理、AI 工具開發。
 
 ## 聯絡
 
 - 網站：https://myndare.com
 - Email：hello@myndare.com
-- GitHub：https://github.com/IdeaFlowLaB
 - LinkedIn：https://www.linkedin.com/in/shigang-wade-wang/
 
 ## 內容資源
