@@ -239,6 +239,38 @@
     footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--teal); }
 
+    /* Category Filters */
+    .category-filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.15s;
+    }
+    .category-btn {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 0.45rem 1.1rem;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .category-btn:hover {
+      border-color: rgba(45,212,191,0.3);
+      color: var(--teal);
+    }
+    .category-btn.active {
+      border-color: var(--teal);
+      background: var(--teal-dim);
+      color: var(--teal);
+    }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -301,9 +333,16 @@
       <p>專案管理 · AI 工具 · 個人成長 — Wade Wang 的第一手分享</p>
     </div>
 
+    <div class="category-filters">
+      <button class="category-btn active" data-filter="all">全部</button>
+      <button class="category-btn" data-filter="證照管理">證照管理</button>
+      <button class="category-btn" data-filter="專案管理">專案管理</button>
+      <button class="category-btn" data-filter="實戰經驗">實戰經驗</button>
+    </div>
+
     <div class="article-list">
 
-      <a href="wbs-common-mistakes.html" class="article-card">
+      <a href="wbs-common-mistakes.html" class="article-card" data-category="專案管理">
         <div class="article-meta">
           <span class="article-date">2026-03-29</span>
           <div class="article-tags">
@@ -317,7 +356,7 @@
         <span class="article-read-more">閱讀全文 →</span>
       </a>
 
-      <a href="pm-first-day.html" class="article-card">
+      <a href="pm-first-day.html" class="article-card" data-category="專案管理">
         <div class="article-meta">
           <span class="article-date">2026-03-26</span>
           <div class="article-tags">
@@ -331,7 +370,7 @@
         <span class="article-read-more">閱讀全文 →</span>
       </a>
 
-      <a href="taiwan-license-renewal.html" class="article-card">
+      <a href="taiwan-license-renewal.html" class="article-card" data-category="證照管理">
         <div class="article-meta">
           <span class="article-date">2026-03-23</span>
           <div class="article-tags">
@@ -345,7 +384,7 @@
         <span class="article-read-more">閱讀全文 →</span>
       </a>
 
-      <a href="av-integration-pitfalls.html" class="article-card">
+      <a href="av-integration-pitfalls.html" class="article-card" data-category="實戰經驗">
         <div class="article-meta">
           <span class="article-date">2026-03-20</span>
           <div class="article-tags">
@@ -359,7 +398,7 @@
         <span class="article-read-more">閱讀全文 →</span>
       </a>
 
-      <a href="pmp-renewal-guide.html" class="article-card">
+      <a href="pmp-renewal-guide.html" class="article-card" data-category="證照管理">
         <div class="article-meta">
           <span class="article-date">2026-03-17</span>
           <div class="article-tags">
@@ -389,6 +428,24 @@
       hamburger.classList.toggle('open');
       mobileMenu.classList.toggle('open');
     });
+    // Category filter
+    const filterBtns = document.querySelectorAll('.category-btn');
+    const articleCards = document.querySelectorAll('.article-card');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        articleCards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
     mobileMenu.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         hamburger.classList.remove('open');
