@@ -3,9 +3,10 @@
  * update-home.js
  *
  * 掃描 blog/*.html，從每篇文章的 JSON-LD Article schema 抓出 metadata，
- * 然後做兩件事：
+ * 然後做三件事：
  *   1. 重新產生 index.html 中的 latest-posts 區塊（最新 3 篇）
  *   2. 重新產生 feed.xml（RSS 2.0，全部文章）
+ *   3. 同步 sitemap.xml 中首頁 / blog 首頁的 <lastmod>，用最新文章日期
  *
  * 用法：node scripts/update-home.js
  *
@@ -18,6 +19,9 @@
  * 因為 og:description 通常比較精簡、適合卡片顯示跟 RSS preview。
  *
  * marker：index.html 中 <!-- AUTO:LATEST_POSTS:START --> 跟 END 之間的內容會被取代。
+ *
+ * Deterministic 原則：所有日期都用「最新文章 datePublished」而不是 today，
+ * 這樣只要 blog/ 沒有實質變動，重複跑這個腳本不會產生任何 diff。
  */
 
 const fs = require('fs');
@@ -27,9 +31,18 @@ const ROOT = path.resolve(__dirname, '..');
 const BLOG_DIR = path.join(ROOT, 'blog');
 const INDEX_FILE = path.join(ROOT, 'index.html');
 const FEED_FILE = path.join(ROOT, 'feed.xml');
+const SITEMAP_FILE = path.join(ROOT, 'sitemap.xml');
 const MARKER_START = '<!-- AUTO:LATEST_POSTS:START -->';
 const MARKER_END = '<!-- AUTO:LATEST_POSTS:END -->';
 const TOP_N = 3;
+
+// 這兩個 URL 的 lastmod 跟「最新文章日期」綁定，因為它們的內容都會
+// 隨最新文章變動：首頁有「最新 3 篇」區塊、blog 首頁是文章列表。
+// 其他頁面（contact、licenseking、產品頁等）的 lastmod 維持手動管理。
+const SITEMAP_FOLLOW_LATEST_LOCS = new Set([
+  'https://myndare.com/',
+  'https://myndare.com/blog/',
+]);
 
 const SITE_URL = 'https://myndare.com';
 const FEED_URL = `${SITE_URL}/feed.xml`;
@@ -66,6 +79,21 @@ function extractMeta(html, name) {
     if (m) return m[1];
   }
   return null;
+}
+
+// 偵測檔案主要使用的換行字元（CRLF or LF）。Windows + git autocrlf=true
+// 環境下，working tree 會是 CRLF，但 Node 的 template literal 都是 LF。
+// 為了避免「寫回去之後變成混合 CRLF/LF」造成 git 誤判 modified，
+// 我們在讀檔時偵測一次，輸出時統一成同一種。
+function detectLineEnding(text) {
+  const crlfCount = (text.match(/\r\n/g) || []).length;
+  const lfOnlyCount = (text.match(/\n/g) || []).length - crlfCount;
+  return crlfCount > lfOnlyCount ? '\r\n' : '\n';
+}
+
+function normalizeLineEndings(text, target) {
+  const lf = text.replace(/\r\n/g, '\n');
+  return target === '\r\n' ? lf.replace(/\n/g, '\r\n') : lf;
 }
 
 function escapeHtml(s) {
@@ -165,6 +193,7 @@ ${tagsHtml}
 
 function updateIndex(latestPosts) {
   const indexHtml = fs.readFileSync(INDEX_FILE, 'utf8');
+  const eol = detectLineEnding(indexHtml);
 
   const startIdx = indexHtml.indexOf(MARKER_START);
   const endIdx = indexHtml.indexOf(MARKER_END);
@@ -182,7 +211,7 @@ function updateIndex(latestPosts) {
   const cards = latestPosts.map(renderPostCard).join('\n');
   const newSection = `${before}\n${cards}\n      ${after}`;
 
-  fs.writeFileSync(INDEX_FILE, newSection, 'utf8');
+  fs.writeFileSync(INDEX_FILE, normalizeLineEndings(newSection, eol), 'utf8');
 }
 
 function renderFeedItem(post) {
@@ -227,7 +256,49 @@ ${items}
 </rss>
 `;
 
-  fs.writeFileSync(FEED_FILE, xml, 'utf8');
+  // feed.xml 若已存在，沿用既有換行；不存在則用 LF（XML 慣例）
+  let eol = '\n';
+  if (fs.existsSync(FEED_FILE)) {
+    eol = detectLineEnding(fs.readFileSync(FEED_FILE, 'utf8'));
+  }
+  fs.writeFileSync(FEED_FILE, normalizeLineEndings(xml, eol), 'utf8');
+}
+
+// 把 sitemap.xml 中跟「最新文章」綁定的 <url> 區塊（首頁、blog 首頁）的
+// <lastmod> 改成最新文章日期。其他 <url> 區塊一個字都不動。
+//
+// 用 regex 對每個 <url>...</url> 區塊獨立處理，避免一次 replace 整份檔案
+// 造成跨區塊污染。回傳「實際被改的 loc 列表」方便 main() 顯示給使用者看。
+function updateSitemap(latestDate) {
+  const xml = fs.readFileSync(SITEMAP_FILE, 'utf8');
+  const eol = detectLineEnding(xml);
+  const changes = [];
+
+  const updated = xml.replace(/<url>[\s\S]*?<\/url>/g, (block) => {
+    const locMatch = block.match(/<loc>([^<]+)<\/loc>/);
+    if (!locMatch) return block;
+
+    const loc = locMatch[1].trim();
+    if (!SITEMAP_FOLLOW_LATEST_LOCS.has(loc)) return block;
+
+    const lastmodMatch = block.match(/<lastmod>([^<]+)<\/lastmod>/);
+    if (!lastmodMatch) return block;
+
+    const oldDate = lastmodMatch[1].trim();
+    if (oldDate === latestDate) return block;
+
+    changes.push({ loc, from: oldDate, to: latestDate });
+    return block.replace(
+      /<lastmod>[^<]+<\/lastmod>/,
+      `<lastmod>${latestDate}</lastmod>`
+    );
+  });
+
+  if (changes.length > 0) {
+    fs.writeFileSync(SITEMAP_FILE, normalizeLineEndings(updated, eol), 'utf8');
+  }
+
+  return changes;
 }
 
 function main() {
@@ -249,6 +320,21 @@ function main() {
   console.log('\n更新 feed.xml...');
   generateFeed(allPosts);
   console.log(`  ✓ 完成（${allPosts.length} 篇）`);
+
+  console.log('\n更新 sitemap.xml lastmod...');
+  const latestDate = allPosts[0]?.datePublished;
+  if (!latestDate) {
+    console.log('  ⚠ 沒有任何文章，跳過');
+  } else {
+    const changes = updateSitemap(latestDate);
+    if (changes.length === 0) {
+      console.log(`  ✓ 已是最新（${latestDate}），無需修改`);
+    } else {
+      for (const c of changes) {
+        console.log(`  ✓ ${c.loc}  ${c.from} → ${c.to}`);
+      }
+    }
+  }
 }
 
 main();
