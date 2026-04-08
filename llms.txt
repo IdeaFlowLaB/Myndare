@@ -13,10 +13,13 @@
 
 ### 證照王 License King
 iOS App，管理所有專業證照與執照。
-- 功能：到期提醒、掃描建檔、OCR 辨識、家人共管、WidgetKit 桌面小工具
+- 功能：到期提醒、掃描建檔、OCR 辨識、家人共管、WidgetKit 桌面小工具、條碼重新生成、雲端同步
 - 平台：iOS（App Store）
-- 定價：前 20 張證照免費
-- 網址：https://myndare.com/products/license-king.html
+- 定價：免費版 7 張、個人方案 NT$30/月（年繳 NT$300）、家庭方案 NT$90/月（5 人共用）
+- 網址：https://myndare.com/licenseking/
+- 隱私權政策：https://myndare.com/licenseking/privacy/
+- 使用條款：https://myndare.com/licenseking/terms/
+- 客服支援：https://myndare.com/licenseking/support/
 
 ### 專案經理模擬器 (PM Simulator)
 RPG 風格的專案管理學習遊戲，用真實職場情境練習 PM 技能。
