@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Myndare Blog</title>
+    <link>https://myndare.com/blog/</link>
+    <description>專案管理實戰、AI 工具應用、個人成長心法。PMP 認證 PM 的第一手分享。</description>
+    <language>zh-tw</language>
+    <lastBuildDate>Fri, 03 Apr 2026 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://myndare.com/feed.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <url>https://myndare.com/Myndare.png</url>
+      <title>Myndare Blog</title>
+      <link>https://myndare.com/blog/</link>
+    </image>
+    <item>
+      <title>AI 將取代你</title>
+      <link>https://myndare.com/blog/ai-will-replace-you.html</link>
+      <guid isPermaLink="true">https://myndare.com/blog/ai-will-replace-you.html</guid>
+      <description>「AI 取代人」這句話聽爛了。但真正該問的不是 AI 能不能取代你，而是脫掉工具的外衣之後，你還剩下什麼。</description>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0800</pubDate>
+      <author>hello@myndare.com (Wade Wang)</author>
+      <category>AI</category>
+      <category>個人成長</category>
+      <category>證照王</category>
+    </item>
+    <item>
+      <title>一個中階主管的自白：我管了十幾個工程師，卻不知道他們的證照什麼時候到期</title>
+      <link>https://myndare.com/blog/license-king-story.html</link>
+      <guid isPermaLink="true">https://myndare.com/blog/license-king-story.html</guid>
+      <description>做工程主管這幾年，追蹤員工證照到期日一直是個解決不好的問題。最後靠 AI 自己做了證照王。</description>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0800</pubDate>
+      <author>hello@myndare.com (Wade Wang)</author>
+      <category>證照管理</category>
+      <category>證照王</category>
+    </item>
+    <item>
+      <title>為什麼專案一直延期？WBS 拆解的 3 個常見錯誤</title>
+      <link>https://myndare.com/blog/wbs-common-mistakes.html</link>
+      <guid isPermaLink="true">https://myndare.com/blog/wbs-common-mistakes.html</guid>
+      <description>WBS 拆解失誤是專案延期的隱形元凶。分析 3 個最常見錯誤，幫你在規劃階段就避免延期風險。</description>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 +0800</pubDate>
+      <author>hello@myndare.com (Wade Wang)</author>
+      <category>WBS</category>
+      <category>專案時程</category>
+      <category>PM Simulator</category>
+    </item>
+    <item>
+      <title>專案經理第一天上班該做什麼？資深 PM 的 7 個建議</title>
+      <link>https://myndare.com/blog/pm-first-day.html</link>
+      <guid isPermaLink="true">https://myndare.com/blog/pm-first-day.html</guid>
+      <description>PM 第一天上班先做什麼？資深 PM 整理 7 個實戰建議，從建立關係到搞懂現有專案，幫你少踩坑。</description>
+      <pubDate>Thu, 26 Mar 2026 00:00:00 +0800</pubDate>
+      <author>hello@myndare.com (Wade Wang)</author>
+      <category>專案管理</category>
+      <category>PM 新手</category>
+      <category>PM Simulator</category>
+    </item>
+    <item>
+      <title>台灣常見專業證照到期日整理：哪些需要定期換證？</title>
+      <link>https://myndare.com/blog/taiwan-license-renewal.html</link>
+      <guid isPermaLink="true">https://myndare.com/blog/taiwan-license-renewal.html</guid>
+      <description>台灣各類專業證照換證週期完整整理，從職業証照到國際認證，一篇搞清楚哪些需要定期更新。</description>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0800</pubDate>
+      <author>hello@myndare.com (Wade Wang)</author>
+      <category>證照管理</category>
+      <category>換證</category>
+      <category>證照王</category>
+    </item>
+    <item>
+      <title>會議室 AV 系統整合常見的 5 個坑（與如何避開）</title>
+      <link>https://myndare.com/blog/av-integration-pitfalls.html</link>
+      <guid isPermaLink="true">https://myndare.com/blog/av-integration-pitfalls.html</guid>
+      <description>10 年 AV 系統整合經驗整理出最常見的 5 個坑，幫你在規劃階段就避免代價高昂的錯誤。</description>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0800</pubDate>
+      <author>hello@myndare.com (Wade Wang)</author>
+      <category>AV 整合</category>
+      <category>系統整合</category>
+      <category>實戰經驗</category>
+    </item>
+    <item>
+      <title>PMP 證照過期怎麼辦？完整續證流程與 PDU 取得攻略</title>
+      <link>https://myndare.com/blog/pmp-renewal-guide.html</link>
+      <guid isPermaLink="true">https://myndare.com/blog/pmp-renewal-guide.html</guid>
+      <description>PMP 證照過期，60 天寬限期內可補件。本文整理完整續證流程與 PDU 取得攻略。</description>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 +0800</pubDate>
+      <author>hello@myndare.com (Wade Wang)</author>
+      <category>PMP</category>
+      <category>證照管理</category>
+      <category>證照王</category>
+    </item>
+  </channel>
+</rss>
