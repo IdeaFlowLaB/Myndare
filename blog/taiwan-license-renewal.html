@@ -383,6 +383,40 @@
     .faq-item h3 { font-size: 0.97rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); }
     .faq-item p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
 
+    /* Related Posts */
+    .related-posts {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(45,212,191,0.1);
+    }
+    .related-posts h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.2rem;
+    }
+    .related-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .related-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      background: rgba(30, 41, 59, 0.4);
+      border: 1px solid rgba(45,212,191,0.06);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .related-item:hover {
+      border-color: rgba(45,212,191,0.25);
+      background: rgba(30, 41, 59, 0.7);
+    }
+    .related-title { font-size: 0.92rem; color: var(--text-primary); line-height: 1.5; }
+    .related-date { font-size: 0.78rem; color: var(--text-muted); white-space: nowrap; flex-shrink: 0; }
+
     .article-cta {
       margin-top: 3rem;
       background: linear-gradient(135deg, var(--teal-dim), var(--purple-dim));
@@ -756,6 +790,25 @@
             <h3>如果有很多張證照，要怎麼管理到期日？</h3>
             <p>建議建立一個集中的證照管理系統，記錄每張證照的到期日、換證所需條件，並設定提前 3-6 個月的提醒。可以使用手機 App 的行事曆提醒，或是專為證照管理設計的應用程式，避免在忙碌中忘記重要的換證截止日。</p>
           </div>
+        </div>
+      </div>
+
+      <!-- Related Posts -->
+      <div class="related-posts">
+        <h3>相關文章</h3>
+        <div class="related-list">
+          <a href="pmp-renewal-guide.html" class="related-item">
+            <div class="related-title">PMP 證照過期怎麼辦？完整續證流程與 PDU 取得攻略</div>
+            <div class="related-date">2026-03-17</div>
+          </a>
+          <a href="license-king-story.html" class="related-item">
+            <div class="related-title">一個中階主管的自白：我管了十幾個工程師，卻不知道他們的證照什麼時候到期</div>
+            <div class="related-date">2026-04-02</div>
+          </a>
+          <a href="ai-will-replace-you.html" class="related-item">
+            <div class="related-title">AI 將取代你</div>
+            <div class="related-date">2026-04-03</div>
+          </a>
         </div>
       </div>
 

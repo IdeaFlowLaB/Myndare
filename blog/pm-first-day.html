@@ -358,6 +358,40 @@
     .faq-item h3 { font-size: 0.97rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); }
     .faq-item p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
 
+    /* Related Posts */
+    .related-posts {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(45,212,191,0.1);
+    }
+    .related-posts h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.2rem;
+    }
+    .related-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .related-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      background: rgba(30, 41, 59, 0.4);
+      border: 1px solid rgba(45,212,191,0.06);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .related-item:hover {
+      border-color: rgba(45,212,191,0.25);
+      background: rgba(30, 41, 59, 0.7);
+    }
+    .related-title { font-size: 0.92rem; color: var(--text-primary); line-height: 1.5; }
+    .related-date { font-size: 0.78rem; color: var(--text-muted); white-space: nowrap; flex-shrink: 0; }
+
     .article-cta {
       margin-top: 3rem;
       background: linear-gradient(135deg, var(--teal-dim), var(--purple-dim));
@@ -624,6 +658,25 @@
             <h3>沒有 PM 正式背景也能做好 PM 嗎？</h3>
             <p>可以。PM 的核心能力是溝通、協調和問題解決，不是工具操作。很多優秀的 PM 來自工程、設計、業務等不同背景。重要的是建立系統化的思維，並願意持續從實戰中學習。</p>
           </div>
+        </div>
+      </div>
+
+      <!-- Related Posts -->
+      <div class="related-posts">
+        <h3>相關文章</h3>
+        <div class="related-list">
+          <a href="wbs-common-mistakes.html" class="related-item">
+            <div class="related-title">為什麼專案一直延期？WBS 拆解的 3 個常見錯誤</div>
+            <div class="related-date">2026-03-29</div>
+          </a>
+          <a href="pmp-renewal-guide.html" class="related-item">
+            <div class="related-title">PMP 證照過期怎麼辦？完整續證流程與 PDU 取得攻略</div>
+            <div class="related-date">2026-03-17</div>
+          </a>
+          <a href="av-integration-pitfalls.html" class="related-item">
+            <div class="related-title">會議室 AV 系統整合常見的 5 個坑（與如何避開）</div>
+            <div class="related-date">2026-03-20</div>
+          </a>
         </div>
       </div>
 
