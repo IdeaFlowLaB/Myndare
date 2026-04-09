@@ -134,10 +134,10 @@
       background-size: 60px 60px;
     }
 
-    section, nav, footer { position: relative; z-index: 1; }
+    section, body > nav, footer { position: relative; z-index: 1; }
 
     /* Nav */
-    nav {
+    body > nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
@@ -547,7 +547,7 @@
     .nav-mobile-menu .mobile-label { display: block; padding: 0.85rem 0 0.4rem; color: var(--text-muted); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.2rem; }
+      body > nav { padding: 1rem 1.2rem; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       section.content { padding: 3.5rem 1.2rem; }
