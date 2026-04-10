@@ -20,9 +20,10 @@
   <meta name="twitter:image" content="https://myndare.com/Myndare.png">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+  <link rel="preload" as="image" href="Myndare.png" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Schema.org JSON-LD for AEO -->
   <script type="application/ld+json">
@@ -35,13 +36,27 @@
     "description": "Myndare 打造簡潔、安靜、實用的 AI 工具，幫助個人專注本業、持續成長，不製造焦慮。",
     "foundingDate": "2026",
     "email": "hello@myndare.com",
-    "founder": {
-      "@type": "Person",
-      "name": "Wade Wang",
-      "jobTitle": "Founder",
-      "description": "8+ 年系統整合與專案管理經驗，PMP 認證持有者"
+    "founder": { "@id": "https://myndare.com/#founder" },
+    "sameAs": ["https://www.linkedin.com/in/wade-wan/"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://myndare.com/#founder",
+    "name": "Wade Wang",
+    "jobTitle": "Founder & Project Manager",
+    "description": "8+ 年系統整合與專案管理經驗，PMP 認證持有者，Myndare 創辦人",
+    "url": "https://myndare.com/",
+    "sameAs": ["https://www.linkedin.com/in/wade-wan/"],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Myndare",
+      "url": "https://myndare.com/"
     },
-    "sameAs": []
+    "knowsAbout": ["專案管理", "PMP", "證照管理", "AI 工具開發", "系統整合"]
   }
   </script>
 
@@ -256,8 +271,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      opacity: 0;
-      animation: fadeUp 1.2s ease forwards 0.5s;
+      opacity: 1;
     }
     .hero-logo-block img {
       width: clamp(260px, 30vw, 420px);
@@ -656,6 +670,24 @@
       transition: color 0.3s;
     }
     .footer-contact a:hover { color: var(--teal); }
+    .footer-legal {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+    .footer-legal a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-legal a:hover {
+      color: var(--teal);
+    }
+    .footer-legal span {
+      color: var(--text-muted);
+    }
     .footer-copy {
       margin-top: 1.5rem;
       font-size: 0.78rem;
@@ -824,7 +856,7 @@
     </div>
 
     <div class="hero-logo-block">
-      <img src="Myndare.png" alt="Myndare Logo">
+      <img src="Myndare.png" alt="Myndare Logo" width="420" height="420">
     </div>
   </section>
 
@@ -981,6 +1013,11 @@
     <div class="footer-brand">MYNDARE</div>
     <div class="footer-contact">
       <a href="mailto:hello@myndare.com">hello@myndare.com</a>
+    </div>
+    <div class="footer-legal">
+      <a href="/licenseking/privacy/">隱私權政策</a>
+      <span>·</span>
+      <a href="/licenseking/terms/">服務條款</a>
     </div>
     <div class="footer-copy">© 2026 Myndare. 用 AI 點燃你的成長之旅。</div>
   </footer>

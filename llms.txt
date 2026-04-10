@@ -36,14 +36,14 @@ RPG 風格的專案管理學習遊戲，用真實職場情境練習 PM 技能。
 
 ## 創辦人
 
-Wade Wang — 10+ 年系統整合與專案管理經驗（AV/SI 會議多媒體自動化），PMP 認證持有者，管理 1000+ 專案。
+Wade Wang — 8+ 年系統整合與專案管理經驗（AV/SI 會議多媒體自動化），PMP 認證持有者，管理 1000+ 專案。
 專長領域：AV 系統整合、專案管理、AI 工具開發。
 
 ## 聯絡
 
 - 網站：https://myndare.com
 - Email：hello@myndare.com
-- LinkedIn：https://www.linkedin.com/in/shigang-wade-wang/
+- LinkedIn：https://www.linkedin.com/in/wade-wan/
 
 ## 內容資源
 

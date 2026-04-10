@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="alternate" type="application/rss+xml" title="Myndare Blog RSS" href="/feed.xml">
   <title>一個中階主管的自白：我管了十幾個工程師，卻不知道他們的證照什麼時候到期 | Myndare Blog</title>
-  <meta name="description" content="做工程主管這幾年，追蹤員工證照到期日一直是個解決不好的問題。Excel 管不動、市場工具不合用，最後靠 AI 自己做了證照王（LicenseKing）。">
+  <meta name="description" content="做工程主管這幾年，追蹤十幾位工程師的證照到期日一直是解決不好的問題。Excel 管不動、市場工具不合用，最後靠 AI 自己做了證照王 LicenseKing。從痛點到產品的真實開發故事。">
   <meta property="og:title" content="一個中階主管的自白：我管了十幾個工程師，卻不知道他們的證照什麼時候到期">
   <meta property="og:description" content="做工程主管這幾年，追蹤員工證照到期日一直是個解決不好的問題。最後靠 AI 自己做了證照王。">
   <meta property="og:type" content="article">
@@ -20,7 +20,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
 
   <script type="application/ld+json">
   {
@@ -30,6 +30,12 @@
     "description": "做工程主管這幾年，追蹤員工證照到期日一直是個解決不好的問題。Excel 管不動、市場工具不合用，最後靠 AI 自己做了證照王。",
     "keywords": "證照管理, 證照王",
     "url": "https://myndare.com/blog/license-king-story.html",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://myndare.com/Myndare.png",
+      "width": 1024,
+      "height": 1024
+    },
     "datePublished": "2026-04-02",
     "dateModified": "2026-04-02",
     "author": {
@@ -351,33 +357,33 @@
 
   <nav>
     <div class="nav-logo">
-      <a href="../index.html"><img src="../Myndare.png" alt="Myndare"></a>
+      <a href="/"><img src="/Myndare.png" alt="Myndare"></a>
     </div>
     <ul class="nav-links">
-      <li><a href="../index.html#philosophy">理念</a></li>
-      <li><a href="../index.html#products">產品</a></li>
-      <li><a href="../blog/">Blog</a></li>
-      <li><a href="../index.html#about">關於</a></li>
-      <li><a href="../contact.html">聯絡</a></li>
+      <li><a href="/#philosophy">理念</a></li>
+      <li><a href="/#products">產品</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/#about">關於</a></li>
+      <li><a href="/contact.html">聯絡</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="開啟選單">
       <span></span><span></span><span></span>
     </button>
   </nav>
   <div class="nav-mobile-menu" id="mobileMenu">
-    <a href="../index.html#philosophy">理念</a>
+    <a href="/#philosophy">理念</a>
     <span class="mobile-label">產品</span>
     <a href="/licenseking/" class="mobile-sub">🪪 證照王</a>
-    <a href="../products/pm-simulator.html" class="mobile-sub">🎮 PM Simulator</a>
-    <a href="../blog/">Blog</a>
-    <a href="../index.html#about">關於</a>
-    <a href="../contact.html">聯絡</a>
+    <a href="/products/pm-simulator.html" class="mobile-sub">🎮 PM Simulator</a>
+    <a href="/blog/">Blog</a>
+    <a href="/#about">關於</a>
+    <a href="/contact.html">聯絡</a>
   </div>
 
   <main>
 
     <nav class="breadcrumb" aria-label="breadcrumb">
-      <a href="../index.html">首頁</a>
+      <a href="/">首頁</a>
       <span>/</span>
       <a href="index.html">Blog</a>
       <span>/</span>
@@ -424,8 +430,21 @@
       <p>
         所以我做了<strong>證照王（LicenseKing）</strong>。初衷很簡單，就是想幫自己解決這件事。
       </p>
+      <h2>做完才發現，問題比想像中多</h2>
       <p>
-        如果你也有一樣的困擾，可以試試看。免費，沒有廣告。
+        一開始的想法很單純：做一個免費的 App，能記錄證照資訊、到期前推播提醒，這樣就夠了。
+      </p>
+      <p>
+        但實際用了之後才發現，提醒只是第一步。證照過期被追著更新的時候，你還需要快速找到證照照片、下載出來交給公司或主管機關。這件事在手機上聽起來簡單，實際做起來卻不是。
+      </p>
+      <p>
+        為了讓使用者能輕鬆匯出和下載證照檔案，我花了好幾個禮拜研究 App 端的雲端儲存方案。結果又碰到下一個問題：雲端資料庫是有成本的。每個使用者的照片、資料同步、跨裝置存取，背後都是真金白銀的伺服器費用。
+      </p>
+      <p>
+        猶豫了一陣子，最後還是決定把這個功能做出來。因為我自己就是那個「換手機之後證照資料全部不見」的人，雲端同步和跨裝置存取對我來說不是加分題，是剛需。
+      </p>
+      <p>
+        所以現在的證照王分成兩種用法：如果你只需要在單一裝置上記錄證照、設定提醒，免費版就完全夠用，所有資料都安全地保存在你的手機裡。但如果你跟我一樣，需要雲端同步、跨裝置存取、隨時下載證照照片，歡迎<a href="/licenseking/">訂閱 Pro 方案</a>——這些成本需要有人一起分擔，而你的支持就是讓這個工具活下去的方式。
       </p>
 
       <!-- Related Posts -->
@@ -459,7 +478,7 @@
         <div class="author-avatar">👨‍💼</div>
         <div>
           <div class="author-name">Wade Wang</div>
-          <div class="author-bio">Myndare 創辦人 · 10+ 年專案管理經驗 · PMP 認證持有者</div>
+          <div class="author-bio">Myndare 創辦人 · 8+ 年專案管理經驗 · PMP 認證持有者</div>
         </div>
       </div>
 
