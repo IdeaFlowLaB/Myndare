@@ -1,0 +1,60 @@
+name: IndexNow 提交
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - 'sitemap.xml'
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: 找出變更的 HTML 檔案
+        id: changed
+        run: |
+          # 取得這次 push 變更的 HTML 檔案
+          CHANGED=$(git diff --name-only HEAD~1 HEAD -- '*.html' | grep -v '404.html' | grep -v 'products/license-king.html' || true)
+          if [ -z "$CHANGED" ]; then
+            echo "urls=" >> $GITHUB_OUTPUT
+            echo "沒有 HTML 變更，跳過提交"
+          else
+            # 把檔案路徑轉成完整 URL
+            URLS=""
+            for f in $CHANGED; do
+              # index.html → 目錄格式，其他保留 .html
+              url=$(echo "$f" | sed 's|^index\.html$||' | sed 's|/index\.html$|/|')
+              URLS="${URLS}https://myndare.com/${url}\n"
+            done
+            echo -e "$URLS"
+            echo "urls<<EOF" >> $GITHUB_OUTPUT
+            echo -e "$URLS" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 提交到 IndexNow
+        if: steps.changed.outputs.urls != ''
+        run: |
+          KEY="aa97865644cf2ad28729947d3fb1d183"
+
+          # 把 URL 列表轉成 JSON 陣列
+          URL_ARRAY=$(echo -e "${{ steps.changed.outputs.urls }}" | grep -v '^$' | jq -R -s 'split("\n") | map(select(length > 0))')
+
+          echo "提交 URL 到 IndexNow:"
+          echo "$URL_ARRAY" | jq .
+
+          # 批次提交（IndexNow 支援一次最多 10,000 個 URL）
+          curl -s -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"host\": \"myndare.com\",
+              \"key\": \"${KEY}\",
+              \"keyLocation\": \"https://myndare.com/${KEY}.txt\",
+              \"urlList\": ${URL_ARRAY}
+            }" \
+            -w "\nHTTP Status: %{http_code}\n"
