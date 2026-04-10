@@ -18,6 +18,7 @@
   <meta name="twitter:image" content="https://myndare.com/Myndare.png">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+  <link rel="preload" as="image" href="/Myndare.webp" type="image/webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
@@ -38,16 +39,23 @@
     },
     "datePublished": "2026-03-29",
     "dateModified": "2026-03-29",
+    "inLanguage": "zh-TW",
     "author": {
       "@type": "Person",
+      "@id": "https://myndare.com/#founder",
       "name": "Wade Wang",
       "jobTitle": "Founder, Myndare"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Myndare",
-      "url": "https://myndare.com",
-      "logo": "https://myndare.com/Myndare.png"
+      "url": "https://myndare.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://myndare.com/Myndare.png",
+        "width": 1024,
+        "height": 1024
+      }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -520,7 +528,7 @@
 
   <nav>
     <div class="nav-logo">
-      <a href="/"><img src="/Myndare.png" alt="Myndare"></a>
+      <a href="/"><picture><source srcset="/Myndare.webp" type="image/webp"><img src="/Myndare.png" alt="Myndare" width="40" height="40"></picture></a>
     </div>
     <ul class="nav-links">
       <li><a href="/#philosophy">理念</a></li>

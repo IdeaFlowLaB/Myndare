@@ -13,6 +13,7 @@
   <meta property="og:image" content="https://myndare.com/Myndare.png">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+  <link rel="preload" as="image" href="/Myndare.webp" type="image/webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
@@ -291,7 +292,7 @@
 
   <nav>
     <div class="nav-logo">
-      <a href="/"><img src="/Myndare.png" alt="Myndare"></a>
+      <a href="/"><picture><source srcset="/Myndare.webp" type="image/webp"><img src="/Myndare.png" alt="Myndare" width="40" height="40"></picture></a>
     </div>
     <ul class="nav-links">
       <li><a href="/#philosophy">理念</a></li>

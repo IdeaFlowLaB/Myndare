@@ -20,7 +20,7 @@
   <meta name="twitter:image" content="https://myndare.com/Myndare.png">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
-  <link rel="preload" as="image" href="Myndare.png" fetchpriority="high">
+  <link rel="preload" as="image" href="Myndare.webp" type="image/webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
@@ -30,10 +30,17 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": "https://myndare.com/#organization",
     "name": "Myndare",
     "url": "https://myndare.com/",
-    "logo": "https://myndare.com/Myndare.png",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://myndare.com/Myndare.png",
+      "width": 1024,
+      "height": 1024
+    },
     "description": "Myndare 打造簡潔、安靜、實用的 AI 工具，幫助個人專注本業、持續成長，不製造焦慮。",
+    "inLanguage": "zh-TW",
     "foundingDate": "2026",
     "email": "hello@myndare.com",
     "founder": { "@id": "https://myndare.com/#founder" },
@@ -49,6 +56,7 @@
     "name": "Wade Wang",
     "jobTitle": "Founder & Project Manager",
     "description": "8+ 年系統整合與專案管理經驗，PMP 認證持有者，Myndare 創辦人",
+    "inLanguage": "zh-TW",
     "url": "https://myndare.com/",
     "sameAs": ["https://www.linkedin.com/in/wade-wan/"],
     "worksFor": {
@@ -57,6 +65,21 @@
       "url": "https://myndare.com/"
     },
     "knowsAbout": ["專案管理", "PMP", "證照管理", "AI 工具開發", "系統整合"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://myndare.com/#website",
+    "url": "https://myndare.com/",
+    "name": "Myndare",
+    "description": "簡潔、安靜、實用的 AI 工具，幫助個人專注本業、持續成長",
+    "inLanguage": "zh-TW",
+    "publisher": {
+      "@id": "https://myndare.com/#organization"
+    }
   }
   </script>
 
@@ -806,7 +829,7 @@
   <!-- Nav -->
   <nav>
     <div class="nav-logo">
-      <img src="Myndare.png" alt="Myndare">
+      <picture><source srcset="Myndare.webp" type="image/webp"><img src="Myndare.png" alt="Myndare" width="40" height="40"></picture>
     </div>
     <ul class="nav-links">
       <li><a href="#philosophy">理念</a></li>
@@ -856,7 +879,7 @@
     </div>
 
     <div class="hero-logo-block">
-      <img src="Myndare.png" alt="Myndare Logo" width="420" height="420">
+      <picture><source srcset="Myndare.webp" type="image/webp"><img src="Myndare.png" alt="Myndare Logo" width="420" height="420"></picture>
     </div>
   </section>
 

@@ -18,6 +18,7 @@
   <meta name="twitter:image" content="https://myndare.com/Myndare.png">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+  <link rel="preload" as="image" href="/Myndare.webp" type="image/webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
@@ -31,27 +32,31 @@
     "operatingSystem": "iOS",
     "url": "https://myndare.com/licenseking/",
     "description": "一款 iOS App，幫你管理所有專業證照。OCR 拍照即建檔、條碼重新生成、到期智慧提醒、雲端同步備份。",
+    "inLanguage": "zh-TW",
     "offers": [
       {
         "@type": "Offer",
         "name": "免費版",
         "price": "0",
         "priceCurrency": "TWD",
-        "description": "可建檔 7 張證照，含 OCR 辨識、條碼重新生成、到期提醒、履歷卡，所有資料儲存於本機"
+        "description": "可建檔 7 張證照，含 OCR 辨識、條碼重新生成、到期提醒、履歷卡，所有資料儲存於本機",
+        "availability": "https://schema.org/PreOrder"
       },
       {
         "@type": "Offer",
         "name": "個人方案",
         "price": "30",
         "priceCurrency": "TWD",
-        "description": "月繳 NT$30 或年繳 NT$300，無上限證照建檔、雲端同步與備份"
+        "description": "月繳 NT$30 或年繳 NT$300，無上限證照建檔、雲端同步與備份",
+        "availability": "https://schema.org/PreOrder"
       },
       {
         "@type": "Offer",
         "name": "家庭方案",
         "price": "90",
         "priceCurrency": "TWD",
-        "description": "月繳 NT$90，包含個人方案所有功能，並可與最多 5 位家庭成員共享"
+        "description": "月繳 NT$90，包含個人方案所有功能，並可與最多 5 位家庭成員共享",
+        "availability": "https://schema.org/PreOrder"
       }
     ],
     "publisher": {
@@ -572,7 +577,7 @@
 
   <nav>
     <div class="nav-logo">
-      <a href="/"><img src="/Myndare.png" alt="Myndare"></a>
+      <a href="/"><picture><source srcset="/Myndare.webp" type="image/webp"><img src="/Myndare.png" alt="Myndare" width="40" height="40"></picture></a>
     </div>
     <ul class="nav-links">
       <li><a href="/#philosophy">理念</a></li>
