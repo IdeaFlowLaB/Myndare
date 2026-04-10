@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://myndare.com/about.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="alternate" type="application/rss+xml" title="Myndare Blog RSS" href="/feed.xml">
+  <title>關於 Myndare — 創辦人 Wade Wang 與品牌故事</title>
+  <meta name="description" content="Myndare 由 PMP 認證 PM Wade Wang 創辦，8+ 年系統整合與專案管理經驗，打造簡潔實用的 AI 工具，幫助專業人士專注本業、持續成長。">
+  <meta property="og:title" content="關於 Myndare — 創辦人 Wade Wang 與品牌故事">
+  <meta property="og:description" content="PMP 認證 PM、8+ 年專案管理經驗。用 AI 打造安靜實用的工具，讓你專注本業、持續成長。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://myndare.com/about.html">
+  <meta property="og:image" content="https://myndare.com/Myndare.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="關於 Myndare — 創辦人 Wade Wang 與品牌故事">
+  <meta name="twitter:description" content="PMP 認證 PM、8+ 年專案管理經驗。用 AI 打造安靜實用的工具，讓你專注本業、持續成長。">
+  <meta name="twitter:image" content="https://myndare.com/Myndare.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+  <link rel="preload" as="image" href="/Myndare.webp" type="image/webp" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "關於 Myndare",
+    "url": "https://myndare.com/about.html",
+    "description": "Myndare 由 PMP 認證 PM Wade Wang 創辦，打造簡潔實用的 AI 工具，幫助專業人士專注本業、持續成長。",
+    "inLanguage": "zh-TW",
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "https://myndare.com/#founder",
+      "name": "Wade Wang",
+      "jobTitle": "Founder & Project Manager",
+      "description": "8+ 年系統整合與專案管理經驗，PMP 認證持有者，管理超過 1000 個專案。Myndare 創辦人。",
+      "url": "https://myndare.com/about.html",
+      "sameAs": ["https://www.linkedin.com/in/wade-wan/"],
+      "worksFor": {
+        "@type": "Organization",
+        "@id": "https://myndare.com/#organization",
+        "name": "Myndare"
+      },
+      "knowsAbout": ["專案管理", "PMP", "證照管理", "AI 工具開發", "系統整合", "AV 會議系統"]
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://myndare.com/" },
+      { "@type": "ListItem", "position": 2, "name": "關於", "item": "https://myndare.com/about.html" }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --teal: #2dd4bf;
+      --teal-dim: rgba(45, 212, 191, 0.15);
+      --teal-glow: rgba(45, 212, 191, 0.4);
+      --purple: #a78bfa;
+      --purple-dim: rgba(167, 139, 250, 0.15);
+      --deep-blue: #0f172a;
+      --deep-blue-mid: #1e293b;
+      --deep-blue-light: #334155;
+      --mint: #6ee7b7;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--deep-blue); }
+    body {
+      font-family: 'Noto Sans TC', 'Outfit', sans-serif;
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 30%, rgba(45,212,191,0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 80% 70%, rgba(167,139,250,0.05) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body > nav, main, footer { position: relative; z-index: 1; }
+
+    body > nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(45, 212, 191, 0.1);
+    }
+    .nav-logo a { display: block; line-height: 0; }
+    .nav-logo img { height: 40px; width: auto; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 8rem 2rem 4rem;
+    }
+
+    .section-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.1s;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+
+    .hero-intro {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+      line-height: 1.9;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.3s;
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.4s;
+    }
+    .stat {
+      background: var(--deep-blue-mid);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 0.3rem;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Content sections */
+    .content-section {
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+    .content-section:nth-child(5) { animation-delay: 0.5s; }
+    .content-section:nth-child(6) { animation-delay: 0.6s; }
+    .content-section:nth-child(7) { animation-delay: 0.7s; }
+    .content-section:nth-child(8) { animation-delay: 0.8s; }
+
+    .content-section h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+    .content-section h2 .accent { color: var(--teal); }
+
+    .content-section p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+    .content-section p:last-child { margin-bottom: 0; }
+
+    /* Product cards */
+    .product-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .product-card {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      background: var(--deep-blue-mid);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      text-decoration: none;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .product-card:hover {
+      border-color: rgba(45,212,191,0.3);
+      transform: translateX(4px);
+    }
+    .product-card-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: var(--teal-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .product-card-text { flex: 1; }
+    .product-card-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+    .product-card-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .product-card-arrow {
+      color: var(--text-muted);
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+    .product-card:hover .product-card-arrow { color: var(--teal); }
+
+    /* CTA */
+    .cta-section {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: var(--deep-blue-mid);
+      border: 1px solid rgba(45,212,191,0.15);
+      border-radius: 16px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.9s;
+    }
+    .cta-section p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.2rem;
+    }
+    .cta-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-link:hover { transform: translateY(-2px); }
+    .cta-link-primary {
+      background: var(--teal);
+      color: var(--deep-blue);
+    }
+    .cta-link-primary:hover { box-shadow: 0 4px 20px var(--teal-glow); }
+    .cta-link-secondary {
+      background: transparent;
+      border: 1px solid rgba(167,139,250,0.4);
+      color: var(--purple);
+    }
+    .cta-link-secondary:hover { border-color: var(--purple); box-shadow: 0 4px 20px rgba(167,139,250,0.2); }
+
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid rgba(45,212,191,0.08);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    footer p { font-size: 0.85rem; color: var(--text-muted); margin: 0.2rem 0; }
+    footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--teal); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hamburger */
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text-secondary); border-radius: 2px; transition: transform 0.25s, opacity 0.25s, background 0.2s; }
+    .nav-hamburger:hover span { background: var(--teal); }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile-menu { display: none; position: fixed; top: 65px; left: 0; right: 0; background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(45, 212, 191, 0.1); padding: 1rem 1.5rem 1.5rem; z-index: 99; }
+    .nav-mobile-menu.open { display: block; }
+    .nav-mobile-menu a { display: block; padding: 0.85rem 0; color: var(--text-secondary); text-decoration: none; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); transition: color 0.2s; }
+    .nav-mobile-menu a:last-child { border-bottom: none; }
+    .nav-mobile-menu a:hover { color: var(--teal); }
+    .nav-mobile-menu .mobile-sub { padding-left: 1rem; font-size: 0.9rem; }
+    .nav-mobile-menu .mobile-label { display: block; padding: 0.85rem 0 0.4rem; color: var(--text-muted); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+    @media (max-width: 768px) {
+      body > nav { padding: 1rem 1.2rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      main { padding: 6rem 1.2rem 3rem; }
+      .stats { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+      .stat { padding: 1rem 0.5rem; }
+      .stat-number { font-size: 1.3rem; }
+      .stat-label { font-size: 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">
+      <a href="/"><picture><source srcset="/Myndare.webp" type="image/webp"><img src="/Myndare.png" alt="Myndare" width="40" height="40"></picture></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/#philosophy">理念</a></li>
+      <li><a href="/#products">產品</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/about.html" style="color:var(--teal);">關於</a></li>
+      <li><a href="/contact.html">聯絡</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="開啟選單">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="/#philosophy">理念</a>
+    <span class="mobile-label">產品</span>
+    <a href="/licenseking/" class="mobile-sub">證照王</a>
+    <a href="/products/pm-simulator.html" class="mobile-sub">PM Simulator</a>
+    <a href="/blog/">Blog</a>
+    <a href="/about.html">關於</a>
+    <a href="/contact.html">聯絡</a>
+  </div>
+
+  <main>
+    <div class="section-label">About</div>
+    <h1>做工具的人，<br>先是用工具的人</h1>
+    <p class="hero-intro">
+      我是 Wade Wang，Myndare 創辦人。8 年多的系統整合與專案管理經驗，管過超過 1,000 個專案，拿了 PMP 認證。Myndare 的每一個產品，都來自我在職場上真實遇到的問題——不是為了做產品而做，而是因為找不到好用的工具，所以自己動手。
+    </p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">8+</div>
+        <div class="stat-label">年業界經驗</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">1000+</div>
+        <div class="stat-label">專案管理經驗</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">PMP</div>
+        <div class="stat-label">國際認證</div>
+      </div>
+    </div>
+
+    <!-- TODO Wade 驗證：以下背景描述是否正確 -->
+    <div class="content-section">
+      <h2><span class="accent">/</span> 背景</h2>
+      <p>
+        我的本業是 AV 會議系統整合——從需求訪談、設備規劃到現場施工驗收，在這個領域待了 8 年多。做過的專案橫跨企業會議室、指揮中心、教育機構，累積了超過 1,000 個案子的實戰經驗。
+      </p>
+      <p>
+        專案管理是我的日常。考了 PMP 認證，不是為了履歷好看，而是因為做到後來發現，技術能力到了某個程度之後，真正拉開差距的是管理跟溝通的能力。
+      </p>
+    </div>
+
+    <!-- TODO Wade 驗證：證照王的起源故事是否需要調整 -->
+    <div class="content-section">
+      <h2><span class="accent">/</span> 為什麼做 Myndare</h2>
+      <p>
+        做工程主管這幾年，我一直有個解決不好的問題：追蹤底下十幾個工程師的證照到期日。用 Excel 管，資料很快就過時；市場上的工具要嘛太貴太重、要嘛太垂直特化。
+      </p>
+      <p>
+        後來 AI 工具越來越成熟，我想：與其繼續忍，不如自己做一個。這就是證照王的起點，也是 Myndare 的起點。
+      </p>
+      <p>
+        Myndare 不追流量、不做華而不實的功能。安靜地做好每一件小事，讓使用者把時間花在真正重要的地方。
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2><span class="accent">/</span> 品牌理念</h2>
+      <p>
+        <strong>簡單至上</strong> — 功能不在多，在有用。沒有功能膨脹、沒有廣告，只做你真正需要的。
+      </p>
+      <p>
+        <strong>成長不焦慮</strong> — AI 是你安靜的助手，不是推著你跑的鬧鐘。成長來自內在驅動力，不是外部壓力。
+      </p>
+      <p>
+        <strong>專注本業</strong> — 好工具讓你忘記工具的存在。用完就走，安靜不打擾，不破壞你的心流。
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2><span class="accent">/</span> 產品</h2>
+      <div class="product-cards">
+        <a href="/licenseking/" class="product-card">
+          <div class="product-card-icon">🪪</div>
+          <div class="product-card-text">
+            <div class="product-card-name">證照王 License King</div>
+            <div class="product-card-desc">iOS App — 專業證照管理。OCR 建檔、到期提醒、雲端同步、家人共管。</div>
+          </div>
+          <div class="product-card-arrow">→</div>
+        </a>
+        <a href="/products/pm-simulator.html" class="product-card">
+          <div class="product-card-icon">🎮</div>
+          <div class="product-card-text">
+            <div class="product-card-name">PM Simulator 專案經理模擬器</div>
+            <div class="product-card-desc">RPG 風格的 PM 學習遊戲 — AI 驅動 NPC、1000+ 真實職場情境。Coming Soon。</div>
+          </div>
+          <div class="product-card-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <p>想聊產品合作、內容邀稿，或只是打個招呼？</p>
+      <div class="cta-links">
+        <a href="mailto:hello@myndare.com" class="cta-link cta-link-primary">✉️ hello@myndare.com</a>
+        <a href="https://www.linkedin.com/in/wade-wan/" target="_blank" rel="noopener noreferrer" class="cta-link cta-link-secondary">💼 LinkedIn</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-brand">MYNDARE</div>
+    <p><a href="mailto:hello@myndare.com">hello@myndare.com</a></p>
+    <p style="margin-top:0.8rem;">© 2026 Myndare</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
