@@ -321,6 +321,21 @@
       transition: border-color 0.3s, color 0.3s;
     }
     .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+    .btn-waitlist {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+    .btn-waitlist:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,158,11,0.3); }
 
     /* Sections */
     section.content {
@@ -628,6 +643,7 @@
         </p>
         <div class="hero-cta">
           <a href="#" id="appstore-cta" class="btn-primary disabled" aria-disabled="true">📱 即將上架 App Store</a>
+          <a href="https://forms.gle/AMnY8yoxKP8EnZoY9" target="_blank" rel="noopener noreferrer" class="btn-waitlist">📋 加入等候清單</a>
           <a href="#features" class="btn-ghost">了解功能 ↓</a>
         </div>
       </div>
@@ -736,8 +752,9 @@
     </p>
     <div class="reveal">
       <a href="#" id="appstore-cta-bottom" class="btn-primary disabled" aria-disabled="true">📱 即將上架 App Store</a>
+      <a href="https://forms.gle/AMnY8yoxKP8EnZoY9" target="_blank" rel="noopener noreferrer" class="btn-waitlist" style="margin-left:1rem;">📋 加入等候清單</a>
     </div>
-    <p class="cta-note reveal">上架後本頁面的下載按鈕會自動更新。</p>
+    <p class="cta-note reveal">上架後我們會第一時間通知等候清單上的你。</p>
   </section>
 
   <footer>
