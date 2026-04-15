@@ -632,7 +632,7 @@
 
       <h3>功能性證照（政府法規要求）</h3>
       <p>
-        最典型的就是各類職業安全衛生教育訓練結業證書。依照<a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0060010" target="_blank" rel="noopener">職業安全衛生教育訓練規則</a>第 17-1 條規定，不同類別的人員有不同的在職教育訓練（回訓）要求：
+        最典型的就是各類職業安全衛生教育訓練結業證書。依照<a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0060010" target="_blank" rel="noopener" onclick="gtag('event', 'outbound_click', {url: this.href});">職業安全衛生教育訓練規則</a>第 17-1 條規定，不同類別的人員有不同的在職教育訓練（回訓）要求：
       </p>
       <ul>
         <li>職業安全衛生業務主管：每<strong>兩年</strong>至少 <strong>6</strong> 小時</li>
@@ -647,12 +647,12 @@
 
       <h3>金融證照</h3>
       <p>
-        依據<a href="https://www.tabf.org.tw/" target="_blank" rel="noopener">台灣金融研訓院</a>的規範，「金融市場常識與職業道德」測驗成績有效期限為<strong>五年</strong>。超過五年如欲另行登錄執業，需重新參加測驗。其他如人身保險業務員等也有各自的效期規定和展延條件，建議直接查閱各發證公會的最新規範。
+        依據<a href="https://www.tabf.org.tw/" target="_blank" rel="noopener" onclick="gtag('event', 'outbound_click', {url: this.href});">台灣金融研訓院</a>的規範，「金融市場常識與職業道德」測驗成績有效期限為<strong>五年</strong>。超過五年如欲另行登錄執業，需重新參加測驗。其他如人身保險業務員等也有各自的效期規定和展延條件，建議直接查閱各發證公會的最新規範。
       </p>
 
       <h3>國際專業認證</h3>
       <p>
-        以專案管理領域的 <a href="https://www.pmi.org/certifications/certification-resources/maintain" target="_blank" rel="noopener">PMP（Project Management Professional）</a>為例，PMI 要求持證者每<strong>三年</strong>累積 <strong>60 個 PDU</strong>（Professional Development Units）才能換證。未在期限內完成的話，證照會先進入停權狀態，超過停權期就會失效，屆時必須重新考試。其他如 AWS、CCNA、Google Cloud 等認證也都有各自的有效期限和換證機制，建議持證者務必查閱各發證機構官網的最新規定。
+        以專案管理領域的 <a href="https://www.pmi.org/certifications/certification-resources/maintain" target="_blank" rel="noopener" onclick="gtag('event', 'outbound_click', {url: this.href});">PMP（Project Management Professional）</a>為例，PMI 要求持證者每<strong>三年</strong>累積 <strong>60 個 PDU</strong>（Professional Development Units）才能換證。未在期限內完成的話，證照會先進入停權狀態，超過停權期就會失效，屆時必須重新考試。其他如 AWS、CCNA、Google Cloud 等認證也都有各自的有效期限和換證機制，建議持證者務必查閱各發證機構官網的最新規定。
       </p>
 
       <h3>永久有效的技術士證照</h3>
@@ -754,5 +754,32 @@
     });
   </script>
 
+<script>
+(function() {
+  var scrollPoints = [25, 50, 75, 100];
+  var fired = [];
+  function getScrollPercent() {
+    var h = document.documentElement;
+    var b = document.body;
+    var scrollable = (h.scrollHeight || b.scrollHeight) - h.clientHeight;
+    if (scrollable <= 0) return 0;
+    return Math.round(((h.scrollTop || b.scrollTop) / scrollable) * 100);
+  }
+  window.addEventListener('scroll', function() {
+    var p = getScrollPercent();
+    scrollPoints.forEach(function(point) {
+      if (p >= point && fired.indexOf(point) === -1) {
+        fired.push(point);
+        if (typeof gtag === 'function') {
+          gtag('event', 'scroll_depth', {
+            percent: point,
+            article: window.location.pathname
+          });
+        }
+      }
+    });
+  }, { passive: true });
+})();
+</script>
 </body>
 </html>

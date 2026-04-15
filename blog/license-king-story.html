@@ -524,5 +524,32 @@
     });
   </script>
 
+<script>
+(function() {
+  var scrollPoints = [25, 50, 75, 100];
+  var fired = [];
+  function getScrollPercent() {
+    var h = document.documentElement;
+    var b = document.body;
+    var scrollable = (h.scrollHeight || b.scrollHeight) - h.clientHeight;
+    if (scrollable <= 0) return 0;
+    return Math.round(((h.scrollTop || b.scrollTop) / scrollable) * 100);
+  }
+  window.addEventListener('scroll', function() {
+    var p = getScrollPercent();
+    scrollPoints.forEach(function(point) {
+      if (p >= point && fired.indexOf(point) === -1) {
+        fired.push(point);
+        if (typeof gtag === 'function') {
+          gtag('event', 'scroll_depth', {
+            percent: point,
+            article: window.location.pathname
+          });
+        }
+      }
+    });
+  }, { passive: true });
+})();
+</script>
 </body>
 </html>
