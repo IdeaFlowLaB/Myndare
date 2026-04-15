@@ -69,8 +69,8 @@
   <url>
     <loc>https://myndare.com/about.html</loc>
     <lastmod>2026-04-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://myndare.com/contact.html</loc>
