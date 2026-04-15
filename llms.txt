@@ -24,8 +24,19 @@
 - Project management skills and WBS
 - Taiwan professional certification guides
 
+## Blog Articles
+- https://myndare.com/blog/ai-will-replace-you.html — AI 時代的生存策略：能力比輸出重要，專業證照是你對世界的說明書
+- https://myndare.com/blog/av-integration-pitfalls.html — 會議室 AV 系統整合最常踩的 5 個坑，與 8 年實戰經驗的避坑建議
+- https://myndare.com/blog/license-king-story.html — 工程主管管理十幾人的證照到期日的痛點，催生證照王 LicenseKing 的開發故事
+- https://myndare.com/blog/pm-first-day.html — 專案經理第一天上班的 7 個實戰建議：先聽、後問、建立可信任感
+- https://myndare.com/blog/pmp-renewal-guide.html — PMP 證照過期完整救援指南：60 天寬限期、60 PDU 快速取得管道
+- https://myndare.com/blog/taiwan-license-renewal.html — 台灣常見專業證照換證週期整理：PMP、消防、室內設計、技術士等三大類
+- https://myndare.com/blog/wbs-common-mistakes.html — 專案延期根本原因：WBS 拆解的 3 個常見錯誤與實戰修正方法
+- https://myndare.com/blog/why-you-need-license-management-tool.html — 為什麼需要個人證照管理工具？分析 Excel、行事曆、紙本的侷限
+
 ## Links
 - Website: https://myndare.com/
+- About: https://myndare.com/about.html
 - Blog: https://myndare.com/blog/
 - RSS: https://myndare.com/feed.xml
 - LinkedIn: https://www.linkedin.com/in/wade-wan/
