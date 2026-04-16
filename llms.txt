@@ -1,6 +1,6 @@
 # Myndare
-> Myndare is a product studio building quiet, practical AI-powered tools
-> for personal and professional growth.
+> Myndare is a product studio building quiet, practical AI tools that amplify
+> who you are — not replace you.
 
 ## Products
 ### License King (證照王)
