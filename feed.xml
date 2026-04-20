@@ -5,7 +5,7 @@
     <link>https://myndare.com/blog/</link>
     <description>專案管理實戰、AI 工具應用、個人成長心法。PMP 認證 PM 的第一手分享。</description>
     <language>zh-tw</language>
-    <lastBuildDate>Wed, 08 Apr 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://myndare.com/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://myndare.com/Myndare.png</url>
@@ -13,14 +13,26 @@
       <link>https://myndare.com/blog/</link>
     </image>
     <item>
+      <title>AI 證照貶值時代，證照還值得考嗎？一個 PMP 的觀察</title>
+      <link>https://myndare.com/blog/ai-certification-inflation.html</link>
+      <guid isPermaLink="true">https://myndare.com/blog/ai-certification-inflation.html</guid>
+      <description>AI 讓考證照變簡單了，但不是所有證照都在貶值。一個 8 年 PM 的觀察：證照可以分三類，但它完全不同。從市場角度想清楚，到底你需要考什麼。該放棄什麼。</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0800</pubDate>
+      <author>hello@myndare.com (Wade Wang)</author>
+      <category>AI</category>
+      <category>職涯發展</category>
+      <category>證照管理</category>
+      <category>證照王</category>
+    </item>
+    <item>
       <title>為什麼你需要一個個人證照管理工具？</title>
       <link>https://myndare.com/blog/why-you-need-license-management-tool.html</link>
       <guid isPermaLink="true">https://myndare.com/blog/why-you-need-license-management-tool.html</guid>
       <description>如果你手上有超過兩張需要追蹤到期日的專業證照，這篇文章會幫你理解為什麼你應該認真看待個人證照管理。</description>
       <pubDate>Wed, 08 Apr 2026 00:00:00 +0800</pubDate>
       <author>hello@myndare.com (Wade Wang)</author>
-      <category>證照管理</category>
-      <category>個人工具</category>
+      <category>專業證照管理</category>
+      <category>個人證照管理工具</category>
       <category>證照王</category>
     </item>
     <item>
@@ -41,7 +53,7 @@
       <description>做工程主管這幾年，追蹤員工證照到期日一直是個解決不好的問題。最後靠 AI 自己做了證照王。</description>
       <pubDate>Thu, 02 Apr 2026 00:00:00 +0800</pubDate>
       <author>hello@myndare.com (Wade Wang)</author>
-      <category>證照管理</category>
+      <category>專業證照管理</category>
       <category>證照王</category>
     </item>
     <item>
@@ -73,8 +85,8 @@
       <description>台灣各類專業證照換證週期完整整理，從職業証照到國際認證，一篇搞清楚哪些需要定期更新。</description>
       <pubDate>Mon, 23 Mar 2026 00:00:00 +0800</pubDate>
       <author>hello@myndare.com (Wade Wang)</author>
-      <category>證照管理</category>
-      <category>換證</category>
+      <category>專業證照管理</category>
+      <category>證照換證</category>
       <category>證照王</category>
     </item>
     <item>
@@ -96,8 +108,11 @@
       <pubDate>Tue, 17 Mar 2026 00:00:00 +0800</pubDate>
       <author>hello@myndare.com (Wade Wang)</author>
       <category>PMP</category>
-      <category>證照管理</category>
+      <category>專業證照管理</category>
       <category>證照王</category>
+      <category>PDU</category>
+      <category>PDU 取得</category>
+      <category>PMP 續證費用</category>
     </item>
   </channel>
 </rss>
