@@ -8,16 +8,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="alternate" type="application/rss+xml" title="Myndare Blog RSS" href="/feed.xml">
   <title>PM Simulator 專案經理模擬器 — 用真實職場情境練出頂尖 PM 實力 | Myndare</title>
-  <meta name="description" content="PM Simulator 是一款 RPG 風格的專案管理學習遊戲，以 AI 驅動 NPC 對話、1000+ 真實職場情境，練出頂尖 PM 實力。Coming Soon。">
+  <meta name="description" content="PM Simulator 是一款 RPG 風格的專案管理模擬遊戲，以 AI 驅動 NPC 對話與真實職場情境，練出頂尖 PM 實力。創辦人 8+ 年實戰經驗改編，第一章已開放免費試玩。">
   <meta property="og:title" content="PM Simulator 專案經理模擬器 — 用真實職場情境練出頂尖 PM 實力">
-  <meta property="og:description" content="RPG 風格的專案管理學習遊戲。AI 驅動 NPC、真實職場情境、推理扣分板機制。Coming Soon。">
+  <meta property="og:description" content="RPG 風格的專案管理模擬遊戲。AI 驅動 NPC、真實職場情境、偵探式推理板機制。第一章現已開放免費試玩。">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:url" content="https://myndare.com/products/pm-simulator.html">
   <meta property="og:image" content="https://myndare.com/Myndare.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="PM Simulator 專案經理模擬器 — 用真實職場情境練出頂尖 PM 實力">
-  <meta name="twitter:description" content="RPG 風格的專案管理學習遊戲。AI 驅動 NPC、真實職場情境、推理扣分板機制。">
+  <meta name="twitter:description" content="RPG 風格的專案管理模擬遊戲。AI 驅動 NPC、真實職場情境、偵探式推理板機制。第一章現已開放免費試玩。">
   <meta name="twitter:image" content="https://myndare.com/Myndare.png">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
@@ -70,10 +70,10 @@
       },
       {
         "@type": "Question",
-        "name": "PM Simulator 什麼時候上線？",
+        "name": "現在可以玩了嗎？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "目前正在積極開發中，預計先推出 Web 版 MVP，讓玩家搶先體驗核心玩法。可以加入等候名單，上線時第一時間通知你。"
+          "text": "PM Simulator 第一章已開放免費試玩，到 https://pm-simulator.myndare.com 即可進入，不需註冊。後續章節持續開發中。"
         }
       }
     ]
@@ -405,21 +405,150 @@
       padding: 1.8rem;
       text-align: center;
     }
-    .audience-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .audience-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: var(--purple-dim);
+      margin: 0 auto 1rem;
+    }
     .audience-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
     .audience-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
 
-    /* CTA */
-    .cta-section { text-align: center; }
-    .cta-section h2 { text-align: center; }
-    .waitlist-input-row {
-      display: flex;
-      gap: 0.8rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
+    /* Belief（信念書） */
+    .belief p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+      max-width: 720px;
     }
-    .cta-note { font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem; }
+    .belief blockquote {
+      border-left: 3px solid var(--purple);
+      padding: 0.4rem 0 0.4rem 1.5rem;
+      margin: 2rem 0 0;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--text-primary);
+      font-weight: 500;
+      max-width: 720px;
+    }
+    .belief blockquote span { display: block; }
+
+    /* Acts（章節牌） */
+    .acts-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .act-card {
+      background: var(--deep-blue-mid);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-left: 3px solid var(--teal);
+      border-radius: 12px;
+      padding: 1.8rem 2rem;
+    }
+    .act-card .act-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    .act-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.8rem; }
+    .act-card p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75; }
+    .act-card .act-tags {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    .act-divider {
+      height: 1px;
+      max-width: 200px;
+      margin: 1rem auto;
+      background: linear-gradient(90deg, transparent, rgba(167,139,250,0.4), transparent);
+    }
+
+    .act-card.finale {
+      background: linear-gradient(180deg, var(--deep-blue-mid) 0%, rgba(30, 41, 59, 0.6) 100%);
+      border: 1px solid rgba(167,139,250,0.25);
+      border-left: 3px solid var(--purple);
+      padding: 2.4rem 2rem;
+      box-shadow: 0 0 40px rgba(167,139,250,0.08);
+    }
+    .act-card.finale .act-label { color: var(--purple); }
+    .act-card.finale h3 { font-size: 1.4rem; }
+    .act-card.finale blockquote {
+      margin-top: 1.4rem;
+      padding-left: 1.2rem;
+      border-left: 2px solid rgba(167,139,250,0.4);
+      font-style: italic;
+      color: var(--text-primary);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .act-card.finale blockquote span { display: block; }
+
+    /* Value-prose（價值轉換器） */
+    .value-prose {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .value-prose p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: 1.2rem;
+    }
+    .value-prose p:last-child { margin-bottom: 0; }
+    .value-prose strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    /* Creator-note（創辦人誠實話） */
+    .creator-note {
+      background: var(--teal-dim);
+      border: 1px solid rgba(45,212,191,0.2);
+      border-radius: 14px;
+      padding: 2.2rem 2.2rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .creator-note h2 {
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      margin-bottom: 1.5rem;
+    }
+    .creator-note p {
+      font-size: 0.98rem;
+      color: var(--text-primary);
+      line-height: 1.85;
+      margin-bottom: 1.1rem;
+    }
+    .creator-note p:last-child { margin-bottom: 0; }
+    .creator-note .signature {
+      font-family: 'Outfit', sans-serif;
+      color: var(--teal);
+      letter-spacing: 0.05em;
+      font-weight: 500;
+      margin-top: 1.6rem;
+    }
+
+    /* CTA-final（結尾 CTA） */
+    .cta-final {
+      text-align: center;
+      padding-top: 4rem;
+      padding-bottom: 5rem;
+    }
+    .cta-final .btn-primary {
+      padding: 1.05rem 2.6rem;
+      font-size: 1rem;
+    }
+    .cta-final .cta-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 1.2rem;
+    }
 
     /* FAQ */
     .faq-list { display: flex; flex-direction: column; gap: 1rem; }
@@ -531,16 +660,20 @@
   <div class="hero">
     <div class="hero-inner">
       <div class="hero-text">
-        <span class="hero-badge">Web Game · Coming Soon</span>
+        <span class="hero-badge">Web Game · 搶鮮遊玩中</span>
         <h1>
           <span class="en">PM Simulator</span>
           <span class="accent">專案經理模擬器</span>
         </h1>
-        <p class="hero-tagline">用真實職場情境，練出頂尖 PM 實力</p>
+        <p class="hero-tagline">
+          在虛擬辦公室裡當一次 PM。<br>
+          用 AI 對話，把那些教科書沒寫的事，練到變本能。
+        </p>
         <div class="hero-cta">
-          <a href="#features" class="btn-primary">了解特色 ↓</a>
-          <a href="#cta" class="btn-ghost">加入等候名單</a>
+          <a href="https://pm-simulator.myndare.com" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event', 'pm_sim_play_click', {location: 'hero'});">立即試玩第一章 →</a>
+          <a href="#why" class="btn-ghost">了解更多 ↓</a>
         </div>
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:1.2rem;">第一章完全免費，玩完再決定要不要繼續。</p>
       </div>
       <div class="hero-icon">
         <div class="icon-box">🗂️</div>
@@ -550,62 +683,97 @@
 
   <div class="section-divider"><hr></div>
 
+  <!-- Why（信念書） -->
+  <section id="why" class="belief">
+    <div class="section-label reveal">Why</div>
+    <h2 class="reveal">為什麼做一個 PM 模擬器</h2>
+    <p class="reveal">這幾年 PMP 教材越做越厚，YouTube 教學影片越拍越長。但走進辦公室的那一刻，你會發現——</p>
+    <p class="reveal">工程師說「我們有 30 年沒人這樣管過我」的時候，教科書沒有教你怎麼回。客戶在 LINE 群組丟一句「這不是當初講的」的時候，題庫沒有標準選項。深夜被叫起來說伺服器掛了的時候，沒有四個選項給你選 A B C D。</p>
+    <blockquote class="reveal">
+      <span>真實的 PM 工作不是答題，是判斷。</span>
+      <span>而判斷沒辦法用看的，要練。</span>
+    </blockquote>
+    <p class="reveal" style="margin-top:1.6rem;">PM Simulator 把 8+ 年、跨過上百個專案經歷中最具代表性的場景，變成你可以反覆走進去、踩錯、再來一次的練功場。</p>
+  </section>
+
+  <div class="section-divider"><hr></div>
+
   <!-- Features -->
   <section id="features">
     <div class="section-label reveal">Features</div>
-    <h2 class="reveal">不是教科書，是真實的職場練兵場</h2>
+    <h2 class="reveal">不是選 A 或 B</h2>
     <div class="features-grid">
       <div class="feature-card reveal">
-        <div class="feature-icon">🎮</div>
-        <h3>RPG 風格開放世界</h3>
-        <p>你就是那個 PM。在虛擬的職場開放世界中，自由探索任務、建立關係、面對危機。每一個決策都會影響專案走向。</p>
+        <div class="feature-icon"></div>
+        <h3>AI 驅動的 NPC 對話</h3>
+        <p>每個 NPC 都有自己的個性、底線、情緒波動。你不是在選罐頭對話，是在跟一個會記住你說過什麼、會被你說服或惹怒的角色相處。同樣的場景、不同的態度，會走出完全不同的結局。</p>
       </div>
       <div class="feature-card reveal">
-        <div class="feature-icon">🤖</div>
-        <h3>AI 驅動 NPC 對話</h3>
-        <p>工程師、設計師、利害關係人都由 AI 驅動，反應真實、個性鮮明。沒有標準答案，只有更好或更壞的選擇。</p>
+        <div class="feature-icon"></div>
+        <h3>偵探式推理板</h3>
+        <p>線索藏在對話裡，一頁一頁靠點選滑鼠收集。你問了什麼、聽到了什麼、串連了什麼，最後會在一張軟木板上拼成整件事件的真相。在做出判斷之前，先把證據看清。</p>
       </div>
       <div class="feature-card reveal">
-        <div class="feature-icon">📊</div>
-        <h3>1000+ 真實職場情境</h3>
-        <p>所有劇情來自創辦人 8+ 年、1000+ 專案的第一手經驗。踩過的坑、處理過的危機，都變成你練功的素材。</p>
+        <div class="feature-icon"></div>
+        <h3>沒有正確答案，只有代價</h3>
+        <p>每個選項都有人受傷、有人不爽、有什麼東西被犧牲。這不是你做人能不能更圓融，是 PM 工作本來的樣子。遊戲幫你看清楚：你選擇了什麼，又放棄了什麼。</p>
       </div>
       <div class="feature-card reveal">
-        <div class="feature-icon">🔍</div>
-        <h3>推理扣分板機制</h3>
-        <p>每個決策都會被評分。推理板讓你回顧「為什麼這個選擇是錯的」，從失敗中學到教科書學不到的東西。</p>
+        <div class="feature-icon"></div>
+        <h3>來自職場的真實質地</h3>
+        <p>不是西方教科書那套乾淨流程。這裡有面子、有人情、有階層、有「你懂我意思嗎」、有「這個我等下處理」之後沒下文的那種日常。對台灣 PM 玩家來說，對，就是這樣。</p>
       </div>
     </div>
   </section>
 
   <div class="section-divider"><hr></div>
 
-  <!-- Scenarios -->
-  <section id="scenarios">
-    <div class="section-label reveal">Scenarios</div>
-    <h2 class="reveal">你會遇到什麼情境？</h2>
-    <div class="scenario-list">
-      <div class="scenario-item reveal">
-        <div class="scenario-num">01</div>
-        <div>
-          <h3>死亡行軍——專案即將延期</h3>
-          <p>距離 deadline 剩 3 週，功能還剩一半。工程師說加班沒問題，但客戶要求不能減範疇。你要怎麼處理？學會取捨、溝通與風險管理。</p>
-        </div>
+  <!-- Acts（故事章節） -->
+  <section id="acts">
+    <div class="section-label reveal">Story</div>
+    <h2 class="reveal">從入門到地獄</h2>
+    <div class="acts-list">
+      <div class="act-card reveal">
+        <div class="act-label">第一章 · 被忽視的工程師</div>
+        <h3>50 歲的工程師把工卡丟到桌上，說「這個案子我不做了」。</h3>
+        <p>但他真的不是工時的問題，是面子的問題。</p>
+        <p class="act-tags">→ 跨世代溝通、找出真正的訴求、向上同理</p>
       </div>
-      <div class="scenario-item reveal">
-        <div class="scenario-num">02</div>
-        <div>
-          <h3>跨部門資源爭奪戰</h3>
-          <p>你的專案和另一個高優先度的內部項目搶同一個工程師。主管沒有明確表態，資源就這樣懸在空中。學會向上管理與跨部門協調。</p>
-        </div>
+      <div class="act-card reveal">
+        <div class="act-label">第二章 · 用小巧妙裝的政治戰</div>
+        <h3>合作多年的設計公司在週會議上突然反對你規格上的安排。</h3>
+        <p>這不是技術問題，是有人想換掉你。</p>
+        <p class="act-tags">→ 識讀隱性管理、利害關係人分析、向上回報的時機</p>
       </div>
-      <div class="scenario-item reveal">
-        <div class="scenario-num">03</div>
-        <div>
-          <h3>需求範疇蔓延危機</h3>
-          <p>客戶在第三週提出「小小的新需求」，但你知道那會讓整個時程崩潰。拒絕太強硬，答應又會讓團隊崩潰。你怎麼說？</p>
-        </div>
+
+      <div class="act-divider reveal"></div>
+
+      <div class="act-card finale reveal">
+        <div class="act-label">最終章 · 午夜的伺服器（一夜戲）</div>
+        <h3>凌晨三點，客戶系統當機。</h3>
+        <p>在公司全睡、電話接不到的時候，你只剩 30 秒決定誰要被叫醒、什麼話要先說。但這只是開始。</p>
+        <p class="act-tags">→ 危機應變、合縱連橫、承諾管理</p>
+        <p class="act-tags">→ 一夜串聯結構，本作最大規模情境</p>
+        <p class="act-tags">→ 完整通關約 60–90 分鐘</p>
+        <blockquote>
+          <span>你前面所有訓練的所有東西，</span>
+          <span>在這裡會一次被測試。</span>
+        </blockquote>
       </div>
+    </div>
+  </section>
+
+  <div class="section-divider"><hr></div>
+
+  <!-- Value（你會獲得什麼） -->
+  <section id="value">
+    <div class="section-label reveal">Value</div>
+    <h2 class="reveal">你會獲得什麼</h2>
+    <div class="value-prose reveal">
+      <p>不是 PMP 證書，不是 PDU 點數。</p>
+      <p>是當你下一次走進會議室的時候，你會記得遊戲裡那個工程師怎麼被你惹砸的，你會想起那次你選錯說話順序之後發生的事。</p>
+      <p>這些記憶會在你需要的那一刻，比任何一段 PMBOK 條文跳出來得快。</p>
+      <p>如果你正在準備 PMP，這裡的每一個情境都對應到 PMBOK 第七版的核心知識領域，但你不是在背知識，你是在用它。</p>
     </div>
   </section>
 
@@ -614,41 +782,38 @@
   <!-- Audience -->
   <section id="audience">
     <div class="section-label reveal">Who Is This For</div>
-    <h2 class="reveal">這款遊戲適合你嗎？</h2>
+    <h2 class="reveal">這款遊戲為誰而做</h2>
     <div class="audience-grid">
       <div class="audience-card reveal">
-        <div class="audience-icon">🌱</div>
-        <h3>PM 新手</h3>
-        <p>沒有實戰經驗？在遊戲中安全地犯錯，比在真實專案中踩坑學得更快。</p>
+        <div class="audience-icon"></div>
+        <h3>在職 PM</h3>
+        <p>做了幾年，身上的刀夠多了，但還是會在某些場景卡住。這裡有你似曾相識的人物，可以練起來。</p>
       </div>
       <div class="audience-card reveal">
-        <div class="audience-icon">🔄</div>
-        <h3>想轉職 PM 的人</h3>
-        <p>了解 PM 日常究竟在做什麼，確認自己是否真的適合這條路，再做決定。</p>
+        <div class="audience-icon"></div>
+        <h3>PMP 備考者</h3>
+        <p>題庫刷到第三題開始厭世的人。換個方式吧，把知識練進自己擅長拿出來的判斷裡。</p>
       </div>
       <div class="audience-card reveal">
-        <div class="audience-icon">🚀</div>
-        <h3>想提升軟實力的主管</h3>
-        <p>溝通、談判、危機處理——這些軟實力在遊戲中反覆練習，比讀書更有效。</p>
+        <div class="audience-icon"></div>
+        <h3>考慮轉 PM 的人</h3>
+        <p>跨進這條路之前先知道自己適不適合。玩過一輪，比看 100 篇心得更清楚。</p>
       </div>
     </div>
   </section>
 
   <div class="section-divider"><hr></div>
 
-  <!-- CTA -->
-  <section id="cta" class="cta-section">
-    <div class="section-label reveal" style="text-align:center;">Coming Soon</div>
-    <h2 class="reveal">加入等候名單</h2>
-    <p class="reveal" style="color:var(--text-secondary); max-width:480px; margin:0 auto 1.5rem;">
-      PM Simulator 正在積極開發中，Web 版 MVP 即將推出。搶先加入，第一時間獲得測試資格。
-    </p>
-    <div class="reveal">
-      <a href="https://forms.gle/L6mJej6bqKBwBxN27" target="_blank" rel="noopener noreferrer" class="btn-primary" onclick="gtag('event', 'waitlist_click', {form_id: 'pm-simulator'});">
-        📬 加入等候名單，搶先體驗
-      </a>
+  <!-- Creator note（創辦人誠實話） -->
+  <section id="creator">
+    <div class="creator-note reveal">
+      <h2>一些誠實的話</h2>
+      <p>我是 Wade，做了 8 年+ PM、管過上百個專案，也考了 PMP，知道學習這件事最痛苦、最孤獨的。</p>
+      <p>PM Simulator 是我自己做的、自己有問題會生氣、自己決定不接外部投資、不加付費功能、不做廣告的產品。</p>
+      <p>它現在是 MVP 階段。畫面不華麗，bug 還會修，內容還在補。但它是一個能玩、有靈魂、會讓你產生「對，就是這樣」的東西。</p>
+      <p>如果你還在猶豫，先玩免費的第一章。玩完不喜歡，當作上了一堂故事，沒事。玩完想要更多——歡迎你進來。</p>
+      <p class="signature">— Wade</p>
     </div>
-    <p class="cta-note reveal">只在 MVP 上線時通知，不發送其他廣告信。</p>
   </section>
 
   <div class="section-divider"><hr></div>
@@ -660,17 +825,31 @@
     <div class="faq-list">
       <div class="faq-item reveal">
         <h3>PM Simulator 是什麼類型的遊戲？</h3>
-        <p>結合互動小說、管理模擬和推理扣分的混合類型遊戲。玩家扮演一名專案經理，在開放世界中面對真實職場情境做出決策，AI 驅動的 NPC 會根據你的選擇給出不同反應。</p>
+        <p>結合互動小說、管理模擬和推理解謎的混合類型遊戲。玩家扮演一個專案經理，在真實職場情境中做出決策，AI 驅動的 NPC 會根據你的選擇給出不同反應。</p>
       </div>
       <div class="faq-item reveal">
         <h3>需要有專案管理經驗才能玩嗎？</h3>
-        <p>不需要。遊戲設計從零開始引導，新手可以在遊戲中自然學習 PM 知識與軟實力；有經驗的 PM 則可以挑戰高難度情境，驗證自己的判斷力。</p>
+        <p>不需要。第一章有引導機制，0 經驗也能進入。真正的 PM 玩家會更有共鳴，但不是門檻。</p>
       </div>
       <div class="faq-item reveal">
-        <h3>PM Simulator 什麼時候上線？</h3>
-        <p>目前正在積極開發中，預計先推出 Web 版 MVP，讓玩家搶先體驗核心玩法。加入等候名單後，上線時會第一時間通知你。</p>
+        <h3>跟 PMP 教材有什麼不同？</h3>
+        <p>PMP 教你「應該怎麼做」；這裡讓你體驗「實際做了會怎樣」。互補關係，不是替代關係。</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>之後會上 Steam 嗎？</h3>
+        <p>有計畫。Web 版穩定後，會打包桌面版上 Steam Early Access。</p>
       </div>
     </div>
+  </section>
+
+  <div class="section-divider"><hr></div>
+
+  <!-- CTA Final -->
+  <section id="cta" class="cta-final">
+    <div class="reveal">
+      <a href="https://pm-simulator.myndare.com" target="_blank" rel="noopener" class="btn-primary" onclick="gtag('event', 'pm_sim_play_click', {location: 'footer_cta'});">立即試玩第一章 →</a>
+    </div>
+    <p class="cta-note reveal">不需要註冊，30 秒進入遊戲。</p>
   </section>
 
   <footer>
