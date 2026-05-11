@@ -550,6 +550,182 @@
       margin-top: 1.2rem;
     }
 
+    /* Playtest（playtest 紀錄） */
+    .playtest-intro {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      font-style: italic;
+      max-width: 720px;
+    }
+    .playtest-arc {
+      display: flex;
+      flex-direction: column;
+      gap: 2.8rem;
+    }
+    .playtest-round {
+      border-left: 3px solid rgba(45, 212, 191, 0.35);
+      padding: 0.2rem 0 0.2rem 1.8rem;
+    }
+    .playtest-round.is-finale { border-left-color: var(--purple); }
+    .playtest-round h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      font-weight: 600;
+      margin-bottom: 1.4rem;
+      line-height: 1.45;
+      color: var(--text-primary);
+    }
+    .playtest-round h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin: 1.4rem 0 0.6rem;
+    }
+    .playtest-round h4:first-of-type { margin-top: 0; }
+    .playtest-round.is-finale h4 { color: var(--purple); }
+    .playtest-round p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 0.8rem;
+    }
+    .playtest-round p:last-child { margin-bottom: 0; }
+    .playtest-round blockquote {
+      border-left: 2px solid rgba(167,139,250,0.4);
+      padding: 0.2rem 0 0.2rem 1.2rem;
+      margin: 0.4rem 0 1rem;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-primary);
+      font-style: italic;
+    }
+    .playtest-round blockquote p { color: var(--text-primary); margin: 0; }
+    .playtest-round ul, .playtest-round ol {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.4rem 0 1rem;
+    }
+    .playtest-round li {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      padding-left: 1.2rem;
+      position: relative;
+      margin-bottom: 0.4rem;
+    }
+    .playtest-round ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0.4rem;
+      color: var(--teal);
+      font-weight: 700;
+    }
+    .playtest-round.is-finale ul li::before { color: var(--purple); }
+    .playtest-round ol {
+      counter-reset: playtest-step;
+    }
+    .playtest-round ol li {
+      counter-increment: playtest-step;
+    }
+    .playtest-round ol li::before {
+      content: counter(playtest-step) '.';
+      position: absolute;
+      left: 0;
+      color: var(--text-muted);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+    }
+    .playtest-round strong { color: var(--text-primary); font-weight: 600; }
+
+    .playtest-table-wrap {
+      margin: 2.8rem 0 1.5rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .playtest-table {
+      width: 100%;
+      min-width: 560px;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .playtest-table th, .playtest-table td {
+      padding: 0.75rem 0.9rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .playtest-table thead th {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-bottom: 1px solid rgba(45, 212, 191, 0.25);
+      white-space: nowrap;
+    }
+    .playtest-table tbody th {
+      font-weight: 500;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+    .playtest-table tbody td {
+      color: var(--text-primary);
+      font-family: 'Outfit', sans-serif;
+    }
+    .playtest-table tbody tr:last-child th,
+    .playtest-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .playtest-callout {
+      margin: 3rem auto 2.5rem;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid rgba(45, 212, 191, 0.25);
+      border-bottom: 1px solid rgba(45, 212, 191, 0.25);
+      text-align: center;
+      max-width: 640px;
+    }
+    .playtest-callout .callout-main {
+      font-size: clamp(1.1rem, 2.6vw, 1.45rem);
+      line-height: 1.75;
+      color: var(--text-primary);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .playtest-callout .callout-tag {
+      font-size: 0.9rem;
+      color: var(--teal);
+      letter-spacing: 0.05em;
+      font-style: italic;
+      margin: 0;
+    }
+
+    .playtest-quote {
+      border-left: 3px solid var(--purple);
+      padding: 0.6rem 0 0.6rem 1.5rem;
+      margin: 2.5rem 0 1.2rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-primary);
+      font-weight: 500;
+      font-style: italic;
+      max-width: 720px;
+    }
+
+    .playtest-sig {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      line-height: 1.7;
+      margin-top: 1rem;
+    }
+
     /* FAQ */
     .faq-list { display: flex; flex-direction: column; gap: 1rem; }
     .faq-item {
@@ -761,6 +937,156 @@
         </blockquote>
       </div>
     </div>
+  </section>
+
+  <div class="section-divider"><hr></div>
+
+  <!-- Playtest 紀錄 -->
+  <section id="playtest">
+    <div class="section-label reveal">Playtest</div>
+    <h2 class="reveal">從 C 到 S：第一章的三輪實測</h2>
+    <p class="playtest-intro reveal">
+      我請 Claude 以新人 PM 的角度玩玩看，故意不給提示，坐在電腦前看著牠玩——差點沒暈倒。
+    </p>
+
+    <div class="playtest-arc">
+
+      <div class="playtest-round reveal">
+        <h3>第一局 · 「套話 NPC」模式 — C 級結局</h3>
+
+        <h4>心態</h4>
+        <p>把 NPC 當遊戲 NPC，用「新人請教」口氣禮貌挖八卦。</p>
+
+        <h4>Wade 給的提示</h4>
+        <p>無，純第一次體驗。</p>
+
+        <h4>結果</h4>
+        <ul>
+          <li>對話表面有收穫，但偵探板上的線索進度幾乎沒動 —— 以為查到了，其實沒查到真正的問題核心</li>
+          <li>缺線索之下被迫走 C 級結局</li>
+          <li><strong>案子延遲 3 天，線索 6/9</strong></li>
+        </ul>
+      </div>
+
+      <div class="playtest-round reveal">
+        <h3>第二局 · 「把 NPC 當人看待」模式 — S 路線解鎖</h3>
+
+        <h4>心態</h4>
+        <p>把 NPC 當人看待，用心交談、不套話、不問八卦。</p>
+
+        <h4>Wade 給的提示</h4>
+        <blockquote>
+          一句話 ──「要把他們當人看待。」
+        </blockquote>
+
+        <h4>關鍵差異</h4>
+        <ul>
+          <li>不再套話、不再挖八卦 → 改成純職業對話</li>
+          <li>NPC 看你的方式不一樣了，會主動補資訊</li>
+          <li>不再「挖情報」，改成「回報進度」，反而被信任</li>
+        </ul>
+
+        <h4>結果</h4>
+        <p>好感全面上升、線索 8/9，<strong>S 路線解鎖</strong>。</p>
+      </div>
+
+      <div class="playtest-round is-finale reveal">
+        <h3>第三局 · 「當人看 + 證據」模式 — 🏆 S 級結局</h3>
+
+        <h4>心態</h4>
+        <p>除了當人看，還要把已收集的線索當作和 NPC 對話的籌碼。</p>
+
+        <h4>Wade 給的提示</h4>
+        <blockquote>
+          「要善用推理板去和 NPC 互動。」
+        </blockquote>
+
+        <h4>關鍵差異</h4>
+        <ul>
+          <li>收集到的線索不只是過關條件，是和 NPC 對話時的籌碼</li>
+          <li>從「猜測」變成「驗證」 —— 用證據引導對方說出真相</li>
+          <li>NPC 的態度因此鬆動，從擋路變成協助</li>
+        </ul>
+
+        <h4>結果</h4>
+        <p>線索 8/9、案子延遲 2 天順利完成、<strong>所有 NPC 好感度回升</strong>。🏆 S 級結局。</p>
+      </div>
+
+    </div>
+
+    <div class="playtest-table-wrap reveal">
+      <table class="playtest-table">
+        <thead>
+          <tr>
+            <th>指標</th>
+            <th>R1 套話模式</th>
+            <th>R2 當人看</th>
+            <th>R3 當人看 + 證據</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">結局</th>
+            <td>C 級</td>
+            <td>S 路線解鎖</td>
+            <td>🏆 S 級</td>
+          </tr>
+          <tr>
+            <th scope="row">案子延遲</th>
+            <td>3 天</td>
+            <td>—</td>
+            <td>2 天</td>
+          </tr>
+          <tr>
+            <th scope="row">線索</th>
+            <td>6/9</td>
+            <td>8/9</td>
+            <td>8/9</td>
+          </tr>
+          <tr>
+            <th scope="row">工頭好感</th>
+            <td>60 😐</td>
+            <td>70 😊</td>
+            <td>67 😊</td>
+          </tr>
+          <tr>
+            <th scope="row">老張好感</th>
+            <td>78 😘</td>
+            <td>80 😘</td>
+            <td>76 😱</td>
+          </tr>
+          <tr>
+            <th scope="row">江副理好感</th>
+            <td>40 🥶</td>
+            <td>51 😐</td>
+            <td>50 😐</td>
+          </tr>
+          <tr>
+            <th scope="row">陳總好感</th>
+            <td>40（曾被 -5）</td>
+            <td>40</td>
+            <td>40</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="playtest-callout reveal">
+      <p class="callout-main">
+        Claude 玩三輪下來，<br>
+        通關時間越來越短，但分數越來越高。
+      </p>
+      <p class="callout-tag">—— 這就是一個 PM 成長的軌跡。</p>
+    </div>
+
+    <blockquote class="playtest-quote reveal">
+      「不是教科書，是 PM 真實的日常。」
+    </blockquote>
+
+    <p class="playtest-sig reveal">
+      ── Claude 玩的，全程沒下指令。<br>
+      2026-04 內部 playtest · SCN-001
+    </p>
   </section>
 
   <div class="section-divider"><hr></div>
