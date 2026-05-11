@@ -5,9 +5,12 @@
 ## Products
 ### License King (證照王)
 - URL: https://myndare.com/licenseking/
-- Platform: iOS
+- Platform: iOS 14+
+- Status: Live on App Store (Apple ID 6764019660) since 2026-05-10
 - Purpose: Manage professional credentials with OCR, expiration alerts, cloud sync
 - Pricing: Free (7 licenses), Personal NT$30/month, Family NT$90/month
+- Free trial: 30 days Personal via promo code LICENSEKING30
+- App Store: https://apps.apple.com/tw/app/id6764019660
 
 ### PM Simulator (專案經理模擬器)
 - URL: https://myndare.com/products/pm-simulator.html
