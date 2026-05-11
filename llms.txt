@@ -5,7 +5,7 @@
 ## Products
 ### License King (證照王)
 - URL: https://myndare.com/licenseking/
-- Platform: iOS 14+
+- Platform: iOS 18.5+
 - Status: Live on App Store (Apple ID 6764019660) since 2026-05-10
 - Purpose: Manage professional credentials with OCR, expiration alerts, cloud sync
 - Pricing: Free (7 licenses), Personal NT$30/month, Family NT$90/month
