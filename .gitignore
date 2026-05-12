@@ -1,2 +1,9 @@
 plan/
 .playwright-mcp/
+
+# GSC Tools credentials (never commit)
+.gsc-tools/
+
+# Claude Code local settings (machine-specific, don't commit)
+.claude/settings.json
+.claude/settings.local.json

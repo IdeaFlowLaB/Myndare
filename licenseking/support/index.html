@@ -35,6 +35,38 @@
     "mainEntity": [
       {
         "@type": "Question",
+        "name": "證照王可以管理哪些類型的證件和證照？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "證照王同時涵蓋「身分證件」與「專業證照」兩大類，目標是把一個人會用到的所有卡片證書集中管理。內建模板包含身分證、駕照、健保卡、護照、員工證、廠區通行證，欄位辨識都針對台灣格式調校。專業證照方面，PMP、CCNA、AWS、職業安全衛生、技術士等都可建檔，含證號、發證機構、有效期限、複訓期限等結構化欄位。如果有沒覆蓋到的證件類型，歡迎來信告訴我們，我們會根據需求陸續擴充。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "證照王跟一般的到期提醒 App 有什麼不同？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "一般提醒 App 只能設「事件 + 日期」，沒辦法把證件本身結構化保存。證照王針對證件做了四個一般提醒做不到的事：(1) OCR 拍照即建檔，免手動 key 證號／發證機構／有效期限；(2) 內建台灣證件模板，身分證、駕照、健保卡、護照等欄位都有對應；(3) 影像儲存，把實體證件的照片跟資料一起留存；(4) 條碼重新生成，員工證／會員卡掃進來後手機就能掃。再加上家庭群組可以一起照顧全家證件，這是通用提醒 App 不會處理的場景。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "OCR 辨識支援哪些證件？辨識準確率高嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OCR 對內建模板（身分證、駕照、健保卡、護照、員工證、廠區通行證）做了專門的欄位對應，台灣常見證件能直接抓出證號、姓名、發證機構、有效期限等欄位。整個辨識過程完全在你的 iPhone 本機完成，照片不會送到任何雲端伺服器。準確率受拍攝環境影響，光線充足、平拍、無反光的情況下準確度最高；若有欄位辨識錯也可隨時手動修正。身分證、駕照這類沒有到期日的證件一樣可以用來集中保管，方便需要時調出資料。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "可以建議新的證件模板嗎？例如職業駕照、特定證照？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "非常歡迎！如果你有想看到的證件或證照模板（職業駕照、教師證、特定行業執照、學生證等），請來信 support@myndare.com 告訴我們。為了讓 OCR 跟欄位解析做得準，最希望你能提供一張該證照的範本照片（可以遮蓋個資後再寄），讓我們針對欄位排版優化辨識邏輯。我們是台灣的小團隊，每一封需求信都會親自看，被許多用戶提到的模板會優先排入更新。"
+        }
+      },
+      {
+        "@type": "Question",
         "name": "免費版可以儲存幾張證照？",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -43,18 +75,50 @@
       },
       {
         "@type": "Question",
-        "name": "證照王可以管理哪些類型的證件？",
+        "name": "免費版和付費版有什麼差別？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "除了專業證照（如職安衛、技術士、PMP、AWS、CCNA 等），證照王也支援台灣常見的個人身分證件管理。內建模板包含身分證、駕照、健保卡、護照、員工證、廠區通行證，欄位辨識都針對台灣格式調校。沒有對應模板的證件也可以用「自訂類型」自行建檔。"
+          "text": "免費版可建檔最多 7 張證照，含所有核心功能（OCR、條碼重生、到期提醒、履歷卡），所有資料只存在你的手機本機，不用註冊帳號。個人方案（NT$30 / 月，年繳 NT$300）解鎖無上限建檔、雲端同步與備份，換手機或多裝置都能無縫接續。家庭方案（NT$90 / 月）包含個人方案所有功能，再加上家庭群組。首頁也會不定時舉辦新用戶試用、優惠等活動，最新方案優惠請看產品頁 https://myndare.com/licenseking/。"
         }
       },
       {
         "@type": "Question",
-        "name": "訂閱付費方案後，我的資料存在哪裡？",
+        "name": "家庭群組怎麼使用？最多可以加幾個人？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "啟用雲端同步後，資料會以 HTTPS / TLS 加密傳輸至 Supabase（基礎設施由 AWS 提供）。每位使用者的資料皆受 Row Level Security（RLS）保護，僅本人可存取。您也可以隨時於設定中切換為「僅儲存於本機」模式。"
+          "text": "家庭群組是家庭方案的功能，訂閱後可建立一個群組，含你自己最多 5 人（也就是再邀請最多 4 位家人加入）。每張證照可單獨標記「與家人共用」或「僅儲存於本機」：標共用的會同步到雲端、群組內其他成員看得到；標僅本機的只有本人能看見、連雲端都不會上傳。常見用法是父母把長輩的健保卡、慢箋集中管理，或夫妻一起照顧小孩的健保卡跟學生證。家庭成員加入時，會以電子郵件辨識成員身份，方便確認誰加入了群組。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "我的證件照片和資料存在哪裡？安全嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "免費版的資料只存在你的 iPhone 本機，受 iOS 內建加密保護，裝置鎖屏時連我們也看不到。啟用雲端同步（個人方案或家庭方案）之後，資料會用加密連線傳輸到我們位於亞太區域的雲端伺服器，並用嚴格的存取規則鎖住——只有你本人（或你所屬的家庭群組）能讀到自己的證照。OCR 拍照辨識的過程則完全在你的手機本機完成，照片不會傳到雲端，也不會傳給任何第三方。如果你想，隨時可以在設定裡切回「僅儲存於本機」模式。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "證照王支援 PDF 或圖片匯出嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "支援。每張證照可以匯出成 PDF 或圖片，方便需要紙本備查、寄給雇主、上傳到投標／合約系統時使用。履歷卡也可以整理成單一檔案輸出，把一整批專業證照一次呈現。如果你有特定的輸出排版需求（例如要含浮水印、要中英雙語、要 A4 直式／橫式），歡迎來信 support@myndare.com 告訴我們，我們會評估加入更多選項。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "會支援證件照片浮水印嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "浮水印（給影印備查或上傳系統時加上「僅用於 XX 用途」等安全標記）是我們正在規劃的功能，預計後續版本會推出，但具體時程還沒鎖定。如果這對你的工作場景很重要，請來信 support@myndare.com 告訴我們你最需要的浮水印樣式（半透明斜向文字？特定日期戳？自訂文字？），會幫我們優先排序這項功能。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "履歷卡功能會繼續優化嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "會繼續優化。履歷卡的核心是讓你快速自訂挑選相關證照／證件，一鍵輸出 PDF 或圖片，方便應徵 contractor 案件、整理投標文件、寄送雇主時使用。後續會持續迭代，加入更多排版選項與欄位自訂。如果你正在用履歷卡找工作、應徵 contractor 案件、整理投標文件，很歡迎來信 support@myndare.com 告訴我們你希望的輸出長什麼樣，這些回饋會直接影響我們的下個版本。"
         }
       },
       {
@@ -62,7 +126,7 @@
         "name": "如何取消訂閱？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "請開啟 iPhone 的「設定」→ 點選最上方您的「Apple ID」→「訂閱項目」→ 找到「證照王 License King」→ 點選「取消訂閱」。取消後您仍可使用付費功能至當期計費週期結束。"
+          "text": "請開啟 iPhone 的「設定」→ 點選最上方您的「Apple ID」→「訂閱項目」→ 找到「證照王 License King」→ 點選「取消訂閱」。取消後您仍可使用付費功能至當期計費週期結束。取消後資料如何處理，請看下一題。"
         }
       },
       {
@@ -70,7 +134,7 @@
         "name": "取消訂閱後，我的資料會消失嗎？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "不會。本機資料會完整保留，您仍可繼續以免費版方式使用本 App。雲端同步功能會停止，但既有的本機資料不受影響。"
+          "text": "不會。本機資料會完整保留，您仍可繼續以免費版方式使用本 App。雲端同步功能會停止上傳新變更，但既有的雲端資料仍會保留，您可以下載查看（唯讀）；資料只會在您主動「刪除帳號」時才會永久清除。"
         }
       },
       {
@@ -94,7 +158,7 @@
         "name": "如何刪除我的帳號？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "請開啟 App，前往「設定」頁面底部，點選「刪除帳號」並確認。帳號刪除後，您所有的雲端資料將於 30 天內永久清除，無法復原。本機資料如要清除請另外移除 App。"
+          "text": "請開啟 App，前往「設定」頁面底部，點選「刪除帳號」並確認。帳號刪除後，您所有的雲端資料將立即永久清除，無法復原。本機資料如要清除請另外移除 App。"
         }
       },
       {
@@ -514,47 +578,87 @@
     <section class="faq-section">
       <h2 class="reveal">常見問題</h2>
       <div class="faq-list">
-        <div class="faq-card reveal">
+        <div class="faq-card reveal" id="faq-supported-types">
+          <h3><span class="q">Q.</span>證照王可以管理哪些類型的證件和證照？</h3>
+          <p>證照王同時涵蓋「身分證件」與「專業證照」兩大類，目標是把一個人會用到的所有卡片證書集中管理。內建模板包含<strong>身分證、駕照、健保卡、護照、員工證、廠區通行證</strong>，欄位辨識都針對台灣格式調校。<strong>專業證照</strong>方面，PMP、CCNA、AWS、職業安全衛生、技術士等都可建檔，含證號、發證機構、有效期限、複訓期限等結構化欄位。如果有沒覆蓋到的證件類型，歡迎來信告訴我們（見<a href="#faq-suggest-template">下方關於新模板的說明</a>），我們會根據需求陸續擴充。</p>
+        </div>
+
+        <div class="faq-card reveal" id="faq-vs-generic-reminder">
+          <h3><span class="q">Q.</span>證照王跟一般的到期提醒 App 有什麼不同？</h3>
+          <p>一般提醒 App 只能設「事件 + 日期」，沒辦法把證件本身結構化保存。證照王針對證件做了四個一般提醒做不到的事：(1) <strong><a href="#faq-ocr-support">OCR 拍照即建檔</a></strong>，免手動 key 證號／發證機構／有效期限；(2) <strong>內建台灣證件模板</strong>，身分證、駕照、健保卡、護照等欄位都有對應；(3) <strong>影像儲存</strong>，把實體證件的照片跟資料一起留存；(4) <strong>條碼重新生成</strong>，員工證／會員卡掃進來後手機就能掃。再加上<a href="#faq-family-group">家庭群組</a>可以一起照顧全家證件，這是通用提醒 App 不會處理的場景。</p>
+        </div>
+
+        <div class="faq-card reveal" id="faq-ocr-support">
+          <h3><span class="q">Q.</span>OCR 辨識支援哪些證件？辨識準確率高嗎？</h3>
+          <p>OCR 對內建模板（身分證、駕照、健保卡、護照、員工證、廠區通行證）做了專門的欄位對應，台灣常見證件能直接抓出證號、姓名、發證機構、有效期限等欄位。整個辨識過程<strong>完全在你的 iPhone 本機完成</strong>，照片不會送到任何雲端伺服器。準確率受拍攝環境影響，光線充足、平拍、無反光的情況下準確度最高；若有欄位辨識錯也可隨時<a href="#faq-ocr-inaccurate">手動修正</a>。<strong>身分證、駕照這類沒有到期日的證件</strong>一樣可以用來集中保管，方便需要時調出資料。</p>
+        </div>
+
+        <div class="faq-card reveal" id="faq-suggest-template">
+          <h3><span class="q">Q.</span>可以建議新的證件模板嗎？例如職業駕照、特定證照？</h3>
+          <p>非常歡迎！如果你有想看到的證件或證照模板（職業駕照、教師證、特定行業執照、學生證等），請來信 <a href="mailto:support@myndare.com">support@myndare.com</a> 告訴我們。為了讓 OCR 跟欄位解析做得準，<strong>最希望你能提供一張該證照的範本照片</strong>（可以遮蓋個資後再寄），讓我們針對欄位排版優化辨識邏輯。我們是台灣的小團隊，每一封需求信都會親自看，被許多用戶提到的模板會優先排入更新。</p>
+        </div>
+
+        <div class="faq-card reveal" id="faq-free-limit">
           <h3><span class="q">Q.</span>免費版可以儲存幾張證照？</h3>
           <p>免費版可建檔最多 <strong>7 張證照</strong>，並提供完整核心功能：OCR 自動辨識、條碼重新生成、到期提醒、履歷卡建立。所有資料儲存於本機，無需註冊帳號。</p>
         </div>
 
-        <div class="faq-card reveal">
-          <h3><span class="q">Q.</span>證照王可以管理哪些類型的證件？</h3>
-          <p>除了專業證照（如職安衛、技術士、PMP、AWS、CCNA 等），證照王也支援台灣常見的個人身分證件管理。內建模板包含<strong>身分證、駕照、健保卡、護照、員工證、廠區通行證</strong>，欄位辨識都針對台灣格式調校。沒有對應模板的證件也可以用「自訂類型」自行建檔。</p>
+        <div class="faq-card reveal" id="faq-free-vs-paid">
+          <h3><span class="q">Q.</span>免費版和付費版有什麼差別？</h3>
+          <p>免費版可建檔最多 <strong>7 張證照</strong>，含所有核心功能（OCR、條碼重生、到期提醒、履歷卡），所有資料只存在你的手機本機，不用註冊帳號。<strong>個人方案（NT$30 / 月，年繳 NT$300）</strong>解鎖無上限建檔、雲端同步與備份，換手機或多裝置都能無縫接續。<strong>家庭方案（NT$90 / 月）</strong>包含個人方案所有功能，再加上<a href="#faq-family-group">家庭群組</a>。首頁也會不定時舉辦新用戶試用、優惠等活動，最新方案優惠請看 <a href="/licenseking/">產品頁</a>。</p>
         </div>
 
-        <div class="faq-card reveal">
-          <h3><span class="q">Q.</span>訂閱付費方案後，我的資料存在哪裡？</h3>
-          <p>啟用雲端同步後，資料會以 HTTPS / TLS 加密傳輸至 Supabase（基礎設施由 AWS 提供）。每位使用者的資料皆受 Row Level Security（RLS）保護，僅本人可存取。您也可以隨時於設定中切換為「僅儲存於本機」模式。</p>
+        <div class="faq-card reveal" id="faq-family-group">
+          <h3><span class="q">Q.</span>家庭群組怎麼使用？最多可以加幾個人？</h3>
+          <p>家庭群組是<strong>家庭方案</strong>的功能，訂閱後可建立一個群組，<strong>含你自己最多 5 人</strong>（也就是再邀請最多 4 位家人加入）。每張證照可單獨標記「<strong>與家人共用</strong>」或「<strong>僅儲存於本機</strong>」：標共用的會同步到雲端、群組內其他成員看得到；標僅本機的只有本人能看見、連雲端都不會上傳。常見用法是父母把長輩的健保卡、慢箋集中管理，或夫妻一起照顧小孩的健保卡跟學生證。家庭成員加入時，會以<strong>電子郵件</strong>辨識成員身份，方便確認誰加入了群組。</p>
         </div>
 
-        <div class="faq-card reveal">
+        <div class="faq-card reveal" id="faq-data-storage">
+          <h3><span class="q">Q.</span>我的證件照片和資料存在哪裡？安全嗎？</h3>
+          <p>免費版的資料<strong>只存在你的 iPhone 本機</strong>，受 iOS 內建加密保護，裝置鎖屏時連我們也看不到。啟用雲端同步（個人方案或家庭方案）之後，資料會用加密連線傳輸到我們位於<strong>亞太區域的雲端伺服器</strong>，並用嚴格的存取規則鎖住——只有你本人（或你所屬的<a href="#faq-family-group">家庭群組</a>）能讀到自己的證照。OCR 拍照辨識的過程則<strong>完全在你的手機本機完成</strong>，照片不會傳到雲端，也不會傳給任何第三方。如果你想，隨時可以在設定裡切回「僅儲存於本機」模式。</p>
+        </div>
+
+        <div class="faq-card reveal" id="faq-pdf-export">
+          <h3><span class="q">Q.</span>證照王支援 PDF 或圖片匯出嗎？</h3>
+          <p>支援。每張證照可以匯出成 PDF 或圖片，方便需要紙本備查、寄給雇主、上傳到投標／合約系統時使用。<a href="#faq-resume-card">履歷卡</a>也可以整理成單一檔案輸出，把一整批專業證照一次呈現。如果你有特定的輸出排版需求（例如要含<a href="#faq-watermark">浮水印</a>、要中英雙語、要 A4 直式／橫式），歡迎來信 <a href="mailto:support@myndare.com">support@myndare.com</a> 告訴我們，我們會評估加入更多選項。</p>
+        </div>
+
+        <div class="faq-card reveal" id="faq-watermark">
+          <h3><span class="q">Q.</span>會支援證件照片浮水印嗎？</h3>
+          <p>浮水印（給影印備查或上傳系統時加上「僅用於 XX 用途」等安全標記）是我們<strong>正在規劃</strong>的功能，預計後續版本會推出，但具體時程還沒鎖定。如果這對你的工作場景很重要，請來信 <a href="mailto:support@myndare.com">support@myndare.com</a> 告訴我們你最需要的浮水印樣式（半透明斜向文字？特定日期戳？自訂文字？），會幫我們優先排序這項功能。</p>
+        </div>
+
+        <div class="faq-card reveal" id="faq-resume-card">
+          <h3><span class="q">Q.</span>履歷卡功能會繼續優化嗎？</h3>
+          <p>會繼續優化。履歷卡的核心是讓你<strong>快速自訂挑選相關證照／證件，一鍵<a href="#faq-pdf-export">輸出 PDF 或圖片</a></strong>，方便應徵 contractor 案件、整理投標文件、寄送雇主時使用。後續會持續迭代，加入更多排版選項與欄位自訂。如果你正在用履歷卡找工作、應徵 contractor 案件、整理投標文件，<strong>很歡迎來信 <a href="mailto:support@myndare.com">support@myndare.com</a> 告訴我們你希望的輸出長什麼樣</strong>，這些回饋會直接影響我們的下個版本。</p>
+        </div>
+
+        <div class="faq-card reveal" id="faq-cancel-subscription">
           <h3><span class="q">Q.</span>如何取消訂閱？</h3>
-          <p>請開啟 iPhone 的「設定」→ 點選最上方您的「Apple ID」→「訂閱項目」→ 找到「證照王 License King」→ 點選「取消訂閱」。取消後您仍可使用付費功能至當期計費週期結束。</p>
+          <p>請開啟 iPhone 的「設定」→ 點選最上方您的「Apple ID」→「訂閱項目」→ 找到「證照王 License King」→ 點選「取消訂閱」。取消後您仍可使用付費功能至當期計費週期結束。取消後資料如何處理，請看<a href="#faq-after-cancel">下一題</a>。</p>
         </div>
 
-        <div class="faq-card reveal">
+        <div class="faq-card reveal" id="faq-after-cancel">
           <h3><span class="q">Q.</span>取消訂閱後，我的資料會消失嗎？</h3>
-          <p>不會。本機資料會完整保留，您仍可繼續以免費版方式使用本 App。雲端同步功能會停止，但既有的本機資料不受影響。</p>
+          <p>不會。本機資料會完整保留，您仍可繼續以免費版方式使用本 App。<strong>雲端同步功能會停止上傳新變更</strong>，但既有的雲端資料仍會保留，您可以下載查看（唯讀）；資料只會在您主動「<a href="#faq-delete-account">刪除帳號</a>」時才會永久清除。</p>
         </div>
 
-        <div class="faq-card reveal">
+        <div class="faq-card reveal" id="faq-ocr-inaccurate">
           <h3><span class="q">Q.</span>OCR 辨識不準確怎麼辦？</h3>
           <p>OCR 結果可隨時手動修正。為了提升辨識準確度，建議在光線充足的環境下平拍證件，避免反光、傾斜或陰影。如果證件有複雜背景，可以裁切後再重新辨識。</p>
         </div>
 
-        <div class="faq-card reveal">
+        <div class="faq-card reveal" id="faq-barcode-scan">
           <h3><span class="q">Q.</span>條碼重新生成後在門禁掃描不到怎麼辦？</h3>
           <p>請先確認該門禁系統是否支援螢幕條碼掃描（部分舊型雷射掃描器只能讀實體卡片）。建議將螢幕亮度調至最高、開啟全螢幕模式、確保螢幕清潔無刮痕。如果仍無法掃描，可能需要使用實體卡片。</p>
         </div>
 
-        <div class="faq-card reveal">
+        <div class="faq-card reveal" id="faq-delete-account">
           <h3><span class="q">Q.</span>如何刪除我的帳號？</h3>
-          <p>請開啟 App，前往「設定」頁面底部，點選「刪除帳號」並確認。帳號刪除後，您所有的雲端資料將於 30 天內永久清除，無法復原。本機資料如要清除請另外移除 App。</p>
+          <p>請開啟 App，前往「設定」頁面底部，點選「刪除帳號」並確認。帳號刪除後，您所有的雲端資料將立即永久清除，無法復原。本機資料如要清除請另外移除 App。</p>
         </div>
 
-        <div class="faq-card reveal">
+        <div class="faq-card reveal" id="faq-refund">
           <h3><span class="q">Q.</span>如何申請退費？</h3>
           <p>本 App 不直接處理退費。請至 Apple 的退費頁面 <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer">reportaproblem.apple.com</a> 申請。退費是否成立由 Apple 依其退費政策決定。</p>
         </div>
@@ -582,6 +686,35 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+  <script>
+    // FAQ in-page anchor scroll with fixed-nav offset
+    // Uses offsetTop (not getBoundingClientRect) so reveal-animation transform doesn't skew the position.
+    const NAV_OFFSET = 90;
+    function scrollToHash(hash, smooth) {
+      if (!hash || hash === '#') return;
+      const target = document.getElementById(hash.slice(1));
+      if (!target) return;
+      target.classList.add('visible');  // skip reveal animation for the target itself
+      let top = 0;
+      let el = target;
+      while (el) { top += el.offsetTop; el = el.offsetParent; }
+      window.scrollTo({ top: top - NAV_OFFSET, behavior: smooth ? 'smooth' : 'auto' });
+    }
+    document.querySelectorAll('a[href^="#faq-"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const hash = a.getAttribute('href');
+        const target = document.getElementById(hash.slice(1));
+        if (!target) return;
+        e.preventDefault();
+        scrollToHash(hash, true);
+        history.pushState(null, '', hash);
+      });
+    });
+    // Handle deep-link on page load
+    if (location.hash && location.hash.startsWith('#faq-')) {
+      window.addEventListener('load', () => setTimeout(() => scrollToHash(location.hash, false), 50));
+    }
   </script>
   <script>
     const hamburger = document.getElementById('hamburger');
