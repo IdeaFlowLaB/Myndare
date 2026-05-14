@@ -19,6 +19,7 @@ const QR_CODE_API = (url) =>
 // ============ Supabase Client ============
 // 注意：本地變數不能叫 supabase——CDN UMD bundle 已把 supabase 註冊為全域 var，
 // 用 const supabase = ... 會撞名拋 "Identifier 'supabase' has already been declared"
+// 導致整個 script parse 失敗、loadPage() 不執行、spinner 永遠轉。
 const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // ============ 進入點 ============

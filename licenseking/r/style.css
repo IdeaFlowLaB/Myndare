@@ -111,10 +111,13 @@ body {
   padding: 8px 24px;
 }
 
+/* v1.1.2 改成直向排版：大圖優先（橫式 A4 / 直式證照都用 object-fit: contain 保比例）
+   理由：履歷卡公開頁的核心是「被分享者看到證照本體」，原本 130x90 縮圖佔比太小 */
 .license-item {
   display: flex;
-  gap: 16px;
-  padding: 18px 0;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px 0;
   border-bottom: 1px solid var(--border);
 }
 
@@ -124,12 +127,13 @@ body {
 
 .license-item img,
 .license-item .img-placeholder {
-  width: 130px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 8px;
-  flex-shrink: 0;
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  border-radius: 12px;
   background: var(--bg);
+  display: block;
 }
 
 .license-info {
@@ -138,7 +142,7 @@ body {
 }
 
 .license-info h3 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   margin: 0 0 6px;
   color: var(--text-primary);
@@ -257,9 +261,9 @@ body {
   .resume-header { padding: 28px 20px 24px; }
   .holder-name { font-size: 26px; }
   .resume-body { padding: 4px 20px; }
-  .license-item { gap: 12px; padding: 14px 0; }
+  .license-item { gap: 10px; padding: 18px 0; }
   .license-item img,
-  .license-item .img-placeholder { width: 100px; height: 70px; }
-  .license-info h3 { font-size: 15px; }
+  .license-item .img-placeholder { max-height: 360px; }
+  .license-info h3 { font-size: 16px; }
   .resume-footer { padding: 20px; }
 }
