@@ -42,6 +42,12 @@ const SKIP_DIRS = new Set([
   'plan',
 ]);
 
+// noindex utility 頁面：JS-only SPA 殼頁（需 query param 才渲染），不該被收錄
+// 跟 404.html 一樣只檢查 charset/viewport/favicon，不檢查 canonical/sitemap/JSON-LD/RSS
+const NOINDEX_UTILITIES = new Set([
+  'licenseking/r/index.html',
+]);
+
 // ============================================================================
 // 抽取工具
 // ============================================================================
@@ -192,6 +198,14 @@ function checkPage(file, sitemapLocs) {
   const isNoindex = /noindex/i.test(robots);
   // 404 頁的特徵：noindex 且檔名是 404.html
   const is404 = isNoindex && rel === '404.html';
+  // utility 頁：JS-only SPA 殼頁，需要白名單登記 + 必須有 noindex
+  const isNoindexUtility = NOINDEX_UTILITIES.has(rel);
+  if (isNoindexUtility && !isNoindex) {
+    issues.push({
+      rule: 'X-utility-noindex',
+      message: '工具頁面（NOINDEX_UTILITIES 白名單內）必須有 <meta name="robots" content="noindex,...">',
+    });
+  }
 
   // ---------- 共通必填項目 ----------
   if (!/<meta\s+charset="UTF-8"/i.test(html)) {
@@ -216,9 +230,9 @@ function checkPage(file, sitemapLocs) {
     }
   }
 
-  // 404 頁面只檢查到這裡（故意無 canonical / og:url / sitemap entry）
-  if (is404) {
-    return { rel, issues, kind: '404' };
+  // 404 / noindex utility 頁面只檢查到這裡（故意無 canonical / og:url / sitemap entry）
+  if (is404 || isNoindexUtility) {
+    return { rel, issues, kind: isNoindexUtility ? 'utility' : '404' };
   }
 
   // ---------- canonical 必須存在 ----------
@@ -320,7 +334,7 @@ function main() {
   let passCount = 0;
 
   for (const r of results) {
-    const tag = r.kind === '404' ? '[404]' : r.kind === 'redirect' ? '[redirect]' : '[page]';
+    const tag = r.kind === '404' ? '[404]' : r.kind === 'utility' ? '[utility]' : r.kind === 'redirect' ? '[redirect]' : '[page]';
     if (r.issues.length === 0) {
       console.log(`  ✓ ${tag.padEnd(11)} ${r.rel}`);
       passCount++;

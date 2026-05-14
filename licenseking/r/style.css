@@ -1,0 +1,265 @@
+/* v1.1 履歷卡分享連結公開頁
+   設計對齊 LicenseKing iOS app（teal / purple / 圓角卡片 / 漸層 header） */
+
+:root {
+  --teal: #2DD4BF;
+  --teal-dark: #14B8A6;
+  --purple: #A78BFA;
+  --bg: #FAFAFA;
+  --card: #FFFFFF;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --text-tertiary: #94A3B8;
+  --border: #E2E8F0;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+#app {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ============ Loading ============ */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  color: var(--text-secondary);
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--teal);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============ Resume Card ============ */
+.resume-card {
+  background: var(--card);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.resume-header {
+  background: linear-gradient(135deg, var(--teal), var(--purple));
+  padding: 36px 24px 28px;
+  color: white;
+  text-align: center;
+}
+
+.brand-tag {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin-bottom: 12px;
+}
+
+.holder-name {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 4px 0 6px;
+  line-height: 1.2;
+}
+
+.career {
+  font-size: 14px;
+  margin: 0 0 8px;
+  opacity: 0.9;
+}
+
+.license-count {
+  font-size: 12px;
+  margin: 8px 0 0;
+  opacity: 0.75;
+  letter-spacing: 0.3px;
+}
+
+/* ============ Body / License Items ============ */
+.resume-body {
+  padding: 8px 24px;
+}
+
+.license-item {
+  display: flex;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.license-item:last-child {
+  border-bottom: none;
+}
+
+.license-item img,
+.license-item .img-placeholder {
+  width: 130px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  background: var(--bg);
+}
+
+.license-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.license-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: var(--text-primary);
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.license-info .issuer {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0 0 4px;
+}
+
+.license-info .dates {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+/* ============ Footer ============ */
+.resume-footer {
+  padding: 24px;
+  background: var(--bg);
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.updated-at {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin: 0 0 20px;
+}
+
+.download-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.download-qr {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  background: white;
+  padding: 4px;
+}
+
+.download-text {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.download-link {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--teal-dark);
+  text-decoration: none;
+  margin-top: 4px;
+  padding: 6px 14px;
+  border: 1.5px solid var(--teal);
+  border-radius: 999px;
+  transition: background 0.15s;
+}
+
+.download-link:hover {
+  background: rgba(45, 212, 191, 0.08);
+}
+
+.brand-credit {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin: 16px 0 0;
+}
+
+.brand-credit strong {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* ============ Error State ============ */
+.error-state {
+  max-width: 480px;
+  margin: 60px auto;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 48px 32px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.error-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.error-state h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 12px;
+  color: var(--text-primary);
+}
+
+.error-state p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0 0 24px;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 480px) {
+  body { padding: 12px; }
+  .resume-header { padding: 28px 20px 24px; }
+  .holder-name { font-size: 26px; }
+  .resume-body { padding: 4px 20px; }
+  .license-item { gap: 12px; padding: 14px 0; }
+  .license-item img,
+  .license-item .img-placeholder { width: 100px; height: 70px; }
+  .license-info h3 { font-size: 15px; }
+  .resume-footer { padding: 20px; }
+}
