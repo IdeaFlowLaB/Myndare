@@ -253,7 +253,10 @@
       justify-content: center;
       font-size: 1.4rem;
       flex-shrink: 0;
+      overflow: hidden;
     }
+    .product-card-icon picture { display: block; width: 100%; height: 100%; }
+    .product-card-icon img { width: 100%; height: 100%; display: block; object-fit: cover; }
     .product-card-text { flex: 1; }
     .product-card-name {
       font-size: 0.95rem;
@@ -474,7 +477,12 @@
       <h2><span class="accent">/</span> 產品</h2>
       <div class="product-cards">
         <a href="/licenseking/" class="product-card">
-          <div class="product-card-icon">🪪</div>
+          <div class="product-card-icon">
+            <picture>
+              <source srcset="/licenseking/app-icon.webp" type="image/webp">
+              <img src="/licenseking/app-icon.png" alt="證照王 License King app icon" width="48" height="48" loading="lazy" decoding="async">
+            </picture>
+          </div>
           <div class="product-card-text">
             <div class="product-card-name">證照王 License King</div>
             <div class="product-card-desc">iOS App — 專業證照管理。OCR 建檔、到期提醒、雲端同步、家人共管。</div>

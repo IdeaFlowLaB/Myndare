@@ -490,9 +490,12 @@
       align-items: center;
       justify-content: center;
       font-size: 1.5rem;
+      overflow: hidden;
     }
     .product-icon.icon-license { background: linear-gradient(135deg, var(--teal-dim), var(--mint-dim)); }
     .product-icon.icon-pm { background: linear-gradient(135deg, var(--purple-dim), rgba(99, 102, 241, 0.15)); }
+    .product-icon picture { display: block; width: 100%; height: 100%; }
+    .product-icon img { width: 100%; height: 100%; display: block; object-fit: cover; }
     .product-info h3 {
       font-size: 1.15rem;
       font-weight: 600;
@@ -1053,7 +1056,12 @@
     </div>
     <div class="product-list">
       <a href="/licenseking/" class="product-card reveal" onclick="gtag('event', 'product_click', {product: 'licenseking', location: 'product_card'});">
-        <div class="product-icon icon-license">🪪</div>
+        <div class="product-icon icon-license">
+          <picture>
+            <source srcset="/licenseking/app-icon.webp" type="image/webp">
+            <img src="/licenseking/app-icon.png" alt="證照王 License King app icon" width="56" height="56" loading="lazy" decoding="async">
+          </picture>
+        </div>
         <div class="product-info">
           <h3>證照王 License King</h3>
           <p>iOS 證件管家。OCR 拍照即建檔，身分證、駕照、健保卡、護照、員工證一個 App 收齊。輸入 LICENSEKING30 免費試用 Pro 30 天。</p>
