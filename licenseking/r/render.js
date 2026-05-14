@@ -17,7 +17,9 @@ const QR_CODE_API = (url) =>
   `https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(url)}`;
 
 // ============ Supabase Client ============
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// 注意：本地變數不能叫 supabase——CDN UMD bundle 已把 supabase 註冊為全域 var，
+// 用 const supabase = ... 會撞名拋 "Identifier 'supabase' has already been declared"
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // ============ 進入點 ============
 async function loadPage() {
@@ -30,7 +32,7 @@ async function loadPage() {
   }
 
   // 呼叫 SECURITY DEFINER RPC（取代 view，對齊 codebase 既有 pattern）
-  const { data, error } = await supabase
+  const { data, error } = await sb
     .rpc('get_public_resume_page', { check_short_id: shortId });
 
   if (error) {
