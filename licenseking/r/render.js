@@ -71,7 +71,7 @@ function renderResume(snapshot, updatedAt) {
       </header>
 
       <main class="resume-body">
-        ${snapshot.licenses.map(renderLicenseItem).join('')}
+        ${snapshot.licenses.map(l => renderLicenseItem(l, updatedAt)).join('')}
       </main>
 
       <footer class="resume-footer">
@@ -85,10 +85,14 @@ function renderResume(snapshot, updatedAt) {
   `;
 }
 
-function renderLicenseItem(license) {
+function renderLicenseItem(license, updatedAt) {
   const dates = renderDates(license);
+  // 加 ?v=timestamp 破手機 / browser image cache。snapshot updated_at 變了 → URL 變了
+  // → 視為新 resource → 跳過 cache 載新圖。解決「自訂浮水印套用後手機看舊圖」問題
+  const cacheBust = updatedAt ? `?v=${new Date(updatedAt).getTime()}` : '';
+  const imgURL = license.watermarked_image_url + cacheBust;
   const imgTag = license.watermarked_image_url
-    ? `<img src="${escapeHtmlAttr(license.watermarked_image_url)}"
+    ? `<img src="${escapeHtmlAttr(imgURL)}"
             alt="${escapeHtmlAttr(license.name)}"
             loading="lazy" />`
     : `<div class="img-placeholder"></div>`;
