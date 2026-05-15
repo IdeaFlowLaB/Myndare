@@ -5,13 +5,24 @@
     <link>https://myndare.com/blog/</link>
     <description>專案管理實戰、AI 工具應用、個人成長心法。PMP 認證 PM 的第一手分享。</description>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 12 May 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 15 May 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://myndare.com/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://myndare.com/Myndare.png</url>
       <title>Myndare Blog</title>
       <link>https://myndare.com/blog/</link>
     </image>
+    <item>
+      <title>我們都是被時代推著走的人，既可憐又幸運：一個 PM 用 AI 做出證照王的開發心路歷程</title>
+      <link>https://myndare.com/blog/building-license-king-with-ai.html</link>
+      <guid isPermaLink="true">https://myndare.com/blog/building-license-king-with-ai.html</guid>
+      <description>從焦慮到動手做，一個 PM 在 AI 浪潮中沒做套殼產品、選擇回頭解決自己真實痛點的開發心路歷程。</description>
+      <pubDate>Fri, 15 May 2026 00:00:00 +0800</pubDate>
+      <author>hello@myndare.com (Wade Wang)</author>
+      <category>AI 開發</category>
+      <category>獨立開發</category>
+      <category>證照王</category>
+    </item>
     <item>
       <title>一個新手爸爸的證件管理自白：寶寶出生那個月，我才知道要辦的證件這麼多</title>
       <link>https://myndare.com/blog/newborn-document-checklist.html</link>

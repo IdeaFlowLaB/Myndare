@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://myndare.com/blog/building-license-king-with-ai.html">
+  <link rel="alternate" hreflang="zh-TW" href="https://myndare.com/blog/building-license-king-with-ai.html">
+  <link rel="alternate" hreflang="x-default" href="https://myndare.com/blog/building-license-king-with-ai.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="alternate" type="application/rss+xml" title="Myndare Blog RSS" href="/feed.xml">
+  <title>我們都是被時代推著走的人，既可憐又幸運：一個 PM 用 AI 做出證照王的開發心路歷程 | Myndare Blog</title>
+  <meta name="description" content="從焦慮到動手做，一個 PM 在 AI 浪潮中沒做套殼產品、選擇回頭解決自己真實痛點的開發心路歷程。證照王（LicenseKing）是怎麼從可行性研究、忍住誘惑、到實際上架的。">
+  <meta property="og:title" content="我們都是被時代推著走的人，既可憐又幸運：一個 PM 用 AI 做出證照王的開發心路歷程">
+  <meta property="og:description" content="從焦慮到動手做，一個 PM 在 AI 浪潮中沒做套殼產品、選擇回頭解決自己真實痛點的開發心路歷程。">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:url" content="https://myndare.com/blog/building-license-king-with-ai.html">
+  <meta property="og:image" content="https://myndare.com/Myndare.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="我們都是被時代推著走的人，既可憐又幸運：一個 PM 用 AI 做出證照王的開發心路歷程">
+  <meta name="twitter:description" content="從焦慮到動手做，一個 PM 在 AI 浪潮中沒做套殼產品、選擇回頭解決自己真實痛點的開發心路歷程。">
+  <meta name="twitter:image" content="https://myndare.com/Myndare.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png">
+  <link rel="preload" as="image" href="/Myndare.webp" type="image/webp" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Outfit:wght@400;600&display=swap" rel="stylesheet"></noscript>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "我們都是被時代推著走的人，既可憐又幸運：一個 PM 用 AI 做出證照王的開發心路歷程",
+    "description": "從焦慮到動手做，一個 PM 在 AI 浪潮中沒做套殼產品、選擇回頭解決自己真實痛點的開發心路歷程。",
+    "keywords": "AI 開發, 獨立開發, 證照王, vibe coding, 可行性研究",
+    "url": "https://myndare.com/blog/building-license-king-with-ai.html",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://myndare.com/Myndare.png",
+      "width": 1024,
+      "height": 1024
+    },
+    "datePublished": "2026-05-15",
+    "dateModified": "2026-05-15",
+    "inLanguage": "zh-TW",
+    "author": {
+      "@type": "Person",
+      "@id": "https://myndare.com/#founder",
+      "name": "Wade Wang",
+      "jobTitle": "Founder & Project Manager"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Myndare",
+      "url": "https://myndare.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://myndare.com/Myndare.png",
+        "width": 1024,
+        "height": 1024
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://myndare.com/blog/building-license-king-with-ai.html"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "首頁",
+        "item": "https://myndare.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://myndare.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "被時代推著走的開發心路歷程",
+        "item": "https://myndare.com/blog/building-license-king-with-ai.html"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --teal: #2dd4bf;
+      --teal-dim: rgba(45, 212, 191, 0.15);
+      --teal-glow: rgba(45, 212, 191, 0.4);
+      --purple: #a78bfa;
+      --purple-dim: rgba(167, 139, 250, 0.15);
+      --deep-blue: #0f172a;
+      --deep-blue-mid: #1e293b;
+      --deep-blue-light: #334155;
+      --mint: #6ee7b7;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--deep-blue); }
+    body {
+      font-family: 'Noto Sans TC', 'Outfit', sans-serif;
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 40% at 20% 20%, rgba(45,212,191,0.04) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body > nav, main, footer { position: relative; z-index: 1; }
+
+    body > nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(45, 212, 191, 0.1);
+    }
+    .nav-logo a { display: block; line-height: 0; }
+    .nav-logo img { height: 40px; width: auto; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 7rem 2rem 5rem;
+    }
+
+    .breadcrumb {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--teal); }
+    .breadcrumb span { color: var(--deep-blue-light); }
+
+    .article-header { margin-bottom: 2.5rem; }
+    .article-meta {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .article-date {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .article-tag {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.7rem;
+      border-radius: 100px;
+      border: 1px solid rgba(45,212,191,0.25);
+      color: var(--teal);
+    }
+    .article-tag.purple {
+      border-color: rgba(167,139,250,0.25);
+      color: var(--purple);
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+    .article-summary {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      padding: 1.2rem 1.5rem;
+      border-left: 3px solid var(--teal);
+      background: var(--teal-dim);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .article-body { margin-top: 2.5rem; }
+    .article-body h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      font-weight: 600;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(45,212,191,0.15);
+      color: var(--text-primary);
+    }
+    .article-body h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 1.8rem 0 0.7rem;
+      color: var(--teal);
+    }
+    .article-body p {
+      font-size: 0.97rem;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+    .article-body strong { color: var(--text-primary); font-weight: 600; }
+
+    /* Related Posts */
+    .related-posts {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(45,212,191,0.1);
+    }
+    .related-posts h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.2rem;
+    }
+    .related-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .related-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      background: rgba(30, 41, 59, 0.4);
+      border: 1px solid rgba(45,212,191,0.06);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .related-item:hover {
+      border-color: rgba(45,212,191,0.25);
+      background: rgba(30, 41, 59, 0.7);
+    }
+    .related-title { font-size: 0.92rem; color: var(--text-primary); line-height: 1.5; }
+    .related-date { font-size: 0.78rem; color: var(--text-muted); white-space: nowrap; flex-shrink: 0; }
+
+    .article-cta {
+      margin-top: 3rem;
+      background: linear-gradient(135deg, var(--teal-dim), var(--purple-dim));
+      border: 1px solid rgba(45,212,191,0.2);
+      border-radius: 14px;
+      padding: 2rem;
+      text-align: center;
+    }
+    .article-cta h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.6rem; }
+    .article-cta p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.2rem; line-height: 1.6; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.8rem;
+      background: linear-gradient(135deg, var(--teal), #14b8a6);
+      color: var(--deep-blue);
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--teal-glow); }
+
+    .author-block {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(45,212,191,0.1);
+    }
+    .author-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--teal-dim);
+      border: 1px solid rgba(45,212,191,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .author-name { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .author-bio { font-size: 0.82rem; color: var(--text-muted); }
+
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid rgba(45,212,191,0.08);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    footer p { font-size: 0.85rem; color: var(--text-muted); margin: 0.2rem 0; }
+    footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--teal); }
+
+    /* Hamburger */
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text-secondary); border-radius: 2px; transition: transform 0.25s, opacity 0.25s, background 0.2s; }
+    .nav-hamburger:hover span { background: var(--teal); }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile-menu { display: none; position: fixed; top: 65px; left: 0; right: 0; background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(45, 212, 191, 0.1); padding: 1rem 1.5rem 1.5rem; z-index: 99; }
+    .nav-mobile-menu.open { display: block; }
+    .nav-mobile-menu a { display: block; padding: 0.85rem 0; color: var(--text-secondary); text-decoration: none; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); transition: color 0.2s; }
+    .nav-mobile-menu a:last-child { border-bottom: none; }
+    .nav-mobile-menu a:hover { color: var(--teal); }
+    .nav-mobile-menu .mobile-sub { padding-left: 1rem; font-size: 0.9rem; }
+    .nav-mobile-menu .mobile-label { display: block; padding: 0.85rem 0 0.4rem; color: var(--text-muted); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+    @media (max-width: 768px) {
+      body > nav { padding: 1rem 1.2rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      main { padding: 5.5rem 1.2rem 4rem; }
+    }
+  </style>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NEQ6VJPDRH"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NEQ6VJPDRH');</script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","w9jgjr1woz");</script>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">
+      <a href="/"><picture><source srcset="/Myndare.webp" type="image/webp"><img src="/Myndare.png" alt="Myndare" width="40" height="40"></picture></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/#philosophy">理念</a></li>
+      <li><a href="/#products">產品</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/about.html">關於</a></li>
+      <li><a href="/contact.html">聯絡</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="開啟選單">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="/#philosophy">理念</a>
+    <span class="mobile-label">產品</span>
+    <a href="/licenseking/" class="mobile-sub">🪪 證照王</a>
+    <a href="/products/pm-simulator.html" class="mobile-sub">🎮 PM Simulator</a>
+    <a href="/blog/">Blog</a>
+    <a href="/about.html">關於</a>
+    <a href="/contact.html">聯絡</a>
+  </div>
+
+  <main>
+
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="/">首頁</a>
+      <span>/</span>
+      <a href="/blog/">Blog</a>
+      <span>/</span>
+      <span>被時代推著走的開發心路歷程</span>
+    </nav>
+
+    <header class="article-header">
+      <div class="article-meta">
+        <span class="article-date">2026-05-15</span>
+        <span class="article-tag">AI 開發</span>
+        <span class="article-tag">獨立開發</span>
+        <span class="article-tag purple">證照王</span>
+      </div>
+      <h1>我們都是被時代推著走的人，既可憐又幸運</h1>
+      <p class="article-summary">
+        一個 PM 在 AI 浪潮中沒做套殼產品、回頭解決自己真實痛點的開發心路歷程。
+      </p>
+    </header>
+
+    <article class="article-body">
+
+      <!-- 開場：被時代推著走的焦慮與幸運 -->
+      <p>
+        <!-- TODO：跟 Wade 一起寫開場段落。承接 H1 的情緒，把時代背景的焦慮與幸運感講出來，鋪陳「為什麼會走到動手做這一步」。 -->
+      </p>
+
+      <h2>時代的焦慮與幸運</h2>
+      <p>
+        <!-- TODO：展開時代背景。AI 浪潮下，PM/中階主管/非工程背景的人，既怕被甩開、又慶幸自己活在這個時點。可以拉個人對話、產業氛圍、或具體事件當錨點。 -->
+      </p>
+
+      <h2>PM 的本業視角：先做可行性研究</h2>
+      <p>
+        <!-- TODO：講 PM 的本能反應 — 不貿然 vibe coding，先做可行性研究。市場、痛點、TAM、自己能不能長期維護。把 PM 訓練怎麼變成獨立開發的優勢寫清楚。 -->
+      </p>
+
+      <h2>為什麼忍著不做套殼 AI 產品</h2>
+      <p>
+        <!-- TODO：講當時的取捨。AI wrapper 看起來最快、最潮，但長期沒護城河；產品差異化、定價權、留存率的考量。或許可以舉一兩個自己曾經想做但放棄的點子。 -->
+      </p>
+
+      <h2>回到自己真正解決的問題</h2>
+      <p>
+        <!-- TODO：連回〈中階主管自白〉那個證照管理痛點，這次補上「為什麼選這個」的內在邏輯。可內鏈到 license-king-story.html。 -->
+      </p>
+
+      <h2>動手之後才發現的事</h2>
+      <p>
+        <!-- TODO：講開發過程的真實摩擦。雲端成本、跨裝置同步、MVP 取捨、需求蔓延、孤獨。為什麼最後決定推 Pro 訂閱方案。 -->
+      </p>
+
+      <h2>給也被推著走的人</h2>
+      <p>
+        <!-- TODO：短結語。不是雞湯式的「你也可以」，而是誠實的邀請：如果你也被時代推著走，至少別空轉，從自己最在乎的問題開始。 -->
+      </p>
+
+      <!-- Related Posts -->
+      <div class="related-posts">
+        <h3>相關文章</h3>
+        <div class="related-list">
+          <a href="license-king-story.html" class="related-item">
+            <div class="related-title">一個中階主管的自白：我管了十幾個工程師，卻不知道他們的證照什麼時候到期</div>
+            <div class="related-date">2026-04-02</div>
+          </a>
+          <a href="ai-certification-inflation.html" class="related-item">
+            <div class="related-title">AI 證照貶值時代，證照還值得考嗎？一個 PMP 的觀察</div>
+            <div class="related-date">2026-04-20</div>
+          </a>
+          <a href="ai-will-replace-you.html" class="related-item">
+            <div class="related-title">AI 將取代你</div>
+            <div class="related-date">2026-04-03</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="article-cta">
+        <h3>一個 App，管理你所有的專業證照</h3>
+        <p>證照王（LicenseKing）幫你集中管理所有專業證照，到期前自動提醒，不怕忙中忘記換證。</p>
+        <a href="/licenseking/" class="btn-primary">了解證照王 License King →</a>
+      </div>
+
+      <!-- Author -->
+      <div class="author-block">
+        <div class="author-avatar">👨‍💼</div>
+        <div>
+          <div class="author-name"><a href="/about.html">Wade Wang</a></div>
+          <div class="author-bio">Myndare 創辦人 · 8+ 年專案管理經驗 · PMP 認證持有者</div>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-brand">MYNDARE</div>
+    <p><a href="mailto:hello@myndare.com">hello@myndare.com</a></p>
+    <p style="margin-top:0.8rem;">© 2026 Myndare</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+  </script>
+
+<script>
+(function() {
+  var scrollPoints = [25, 50, 75, 100];
+  var fired = [];
+  function getScrollPercent() {
+    var h = document.documentElement;
+    var b = document.body;
+    var scrollable = (h.scrollHeight || b.scrollHeight) - h.clientHeight;
+    if (scrollable <= 0) return 0;
+    return Math.round(((h.scrollTop || b.scrollTop) / scrollable) * 100);
+  }
+  window.addEventListener('scroll', function() {
+    var p = getScrollPercent();
+    scrollPoints.forEach(function(point) {
+      if (p >= point && fired.indexOf(point) === -1) {
+        fired.push(point);
+        if (typeof gtag === 'function') {
+          gtag('event', 'scroll_depth', {
+            percent: point,
+            article: window.location.pathname
+          });
+        }
+      }
+    });
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
