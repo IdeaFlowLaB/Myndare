@@ -41,8 +41,9 @@
     "url": "https://myndare.com/licenseking/",
     "downloadUrl": "https://apps.apple.com/tw/app/id6764019660",
     "installUrl": "https://apps.apple.com/tw/app/id6764019660",
-    "softwareVersion": "1.0",
+    "softwareVersion": "1.1",
     "datePublished": "2026-05-10",
+    "releaseNotes": "v1.1（即將推出）：新增 Face ID / Touch ID 解鎖、證件照浮水印、履歷卡 URL 分享功能。詳見 https://myndare.com/licenseking/#version",
     "description": "一款 iOS App，幫你管理所有專業證照與身分證件（身分證、駕照、健保卡、護照、員工證、廠區通行證）。OCR 拍照即建檔、條碼重新生成、到期智慧提醒、雲端同步備份。",
     "inLanguage": "zh-TW",
     "offers": [
@@ -415,6 +416,77 @@
       color: var(--text-primary);
     }
     .phil-card p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* Version Timeline */
+    .version-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .version-card {
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px solid rgba(45, 212, 191, 0.08);
+      border-left: 3px solid var(--teal);
+      border-radius: 12px;
+      padding: 1.6rem 1.8rem;
+    }
+    .version-card.latest {
+      border-left-color: var(--purple);
+      background: linear-gradient(180deg, rgba(167, 139, 250, 0.06), rgba(30, 41, 59, 0.5) 60%);
+    }
+    .version-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .version-number {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--text-primary);
+    }
+    .version-date {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+    .version-badge {
+      background: var(--purple-dim);
+      color: var(--purple);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+    }
+    .version-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .version-item {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+    }
+    .version-item-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+    .version-item-text strong {
+      color: var(--text-primary);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .version-item-text span {
       font-size: 0.92rem;
       color: var(--text-secondary);
       line-height: 1.7;
@@ -821,6 +893,64 @@
         <h3>換機不怕</h3>
         <p>雲端同步備份（Personal / Family 方案），換手機或多裝置都能無縫接續。資料以 HTTPS 加密傳輸，受 Row Level Security 保護，僅本人可存取。</p>
       </div>
+    </div>
+  </section>
+
+  <div class="section-divider"><hr></div>
+
+  <!-- Version Timeline -->
+  <section class="content" id="version">
+    <div class="section-label reveal">What's New</div>
+    <h2 class="reveal">更新紀錄</h2>
+    <p class="reveal" style="color:var(--text-secondary); margin-top:-1.5rem; margin-bottom:2.5rem;">證照王持續迭代，以下是每個版本帶來的新功能。</p>
+
+    <div class="version-timeline">
+      <article class="version-card latest reveal">
+        <header class="version-header">
+          <span class="version-number">v1.1</span>
+          <span class="version-date">即將推出</span>
+          <span class="version-badge">COMING SOON</span>
+        </header>
+        <div class="version-items">
+          <div class="version-item">
+            <span class="version-item-icon">🔐</span>
+            <div class="version-item-text">
+              <strong>Face ID / Touch ID 解鎖</strong>
+              <span>用生物辨識保護你的證照資料，驗證過程完全由 iOS 系統處理，不會傳至伺服器。</span>
+            </div>
+          </div>
+          <div class="version-item">
+            <span class="version-item-icon">🏷️</span>
+            <div class="version-item-text">
+              <strong>證件照浮水印</strong>
+              <span>自訂浮水印文字，匯出或分享時自動套用，全程在裝置上處理，照片不會上傳。</span>
+            </div>
+          </div>
+          <div class="version-item">
+            <span class="version-item-icon">🔗</span>
+            <div class="version-item-text">
+              <strong>履歷卡 URL 分享</strong>
+              <span>一鍵生成不可枚舉的分享連結，可隨時停用或刪除，完整掌握分享範圍。</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="version-card reveal">
+        <header class="version-header">
+          <span class="version-number">v1.0.0</span>
+          <span class="version-date">2026-05-10</span>
+        </header>
+        <div class="version-items">
+          <div class="version-item">
+            <span class="version-item-icon">🎉</span>
+            <div class="version-item-text">
+              <strong>首次上架 App Store</strong>
+              <span>OCR 拍照即建檔、條碼重新生成、到期智慧提醒、雲端同步備份、履歷卡功能。</span>
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 

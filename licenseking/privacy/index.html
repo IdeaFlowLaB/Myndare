@@ -360,7 +360,7 @@
     <div class="legal-wrapper">
       <div class="section-label">Privacy Policy</div>
       <h1>隱私權政策</h1>
-      <p class="last-updated">最後更新日期：2026 年 4 月 27 日</p>
+      <p class="last-updated">最後更新日期：2026 年 5 月 17 日</p>
 
       <div class="legal-content">
         <p>Myndare（以下簡稱「我們」）尊重您的隱私。本政策說明證照王 License King（以下簡稱「本 App」）如何蒐集、使用、儲存與保護您的資料。使用本 App 即代表您同意本政策的內容。</p>
@@ -419,6 +419,24 @@
         <h3>iCloud 備份</h3>
         <p>如果您在 iOS 設定中開啟了 iCloud 備份，您的證照資料可能會包含在備份中。這部分由 Apple 管理，受 Apple 隱私權政策保障。</p>
 
+        <h3>生物辨識資料（Face ID / Touch ID）</h3>
+        <p>本 App 自 v1.1 起支援 Face ID / Touch ID 解鎖：</p>
+        <ul>
+          <li>我們使用 iOS LocalAuthentication framework，<strong>生物辨識資料完全由 Apple 系統管理，不會傳輸至我們的伺服器</strong></li>
+          <li>本 App 僅接收「驗證成功 / 失敗」的結果，不接觸生物辨識原始資料</li>
+          <li>您可在「設定 → 安全性」中隨時啟用或停用此功能</li>
+          <li>若 Face ID / Touch ID 多次失敗，會自動 fallback 至系統密碼驗證</li>
+        </ul>
+
+        <h3>證件照浮水印</h3>
+        <p>本 App 自 v1.1 起支援自訂浮水印：</p>
+        <ul>
+          <li>浮水印文字 / 設定僅儲存於您的裝置本機</li>
+          <li>浮水印套用至證照照片的處理過程<strong>完全在裝置上完成（on-device）</strong></li>
+          <li><strong>我們不會將原始照片或浮水印照片傳輸至我們的伺服器</strong></li>
+          <li>您可隨時於 App 內修改或停用浮水印設定</li>
+        </ul>
+
         <h2><span class="num">04</span>OCR 技術</h2>
         <p>本 App 使用 Google ML Kit 的 on-device OCR 技術進行證照文字辨識。<strong>整個辨識過程完全在您的裝置本機完成，照片與辨識結果不會傳送至 Google 或任何第三方伺服器</strong>。</p>
 
@@ -449,10 +467,57 @@
           <li><strong>雲端資料</strong>：保留至您刪除帳號為止；帳號刪除後，所有雲端資料將立即永久清除（無法復原）</li>
         </ul>
 
-        <h2><span class="num">09</span>政策變更</h2>
+        <h2><span class="num">09</span>履歷卡 URL 分享機制</h2>
+        <p>本 App 自 v1.1 起支援將履歷卡生成分享連結，請仔細閱讀以下說明：</p>
+
+        <h3>您選擇分享的資料</h3>
+        <ul>
+          <li>履歷卡內容包含您<strong>主動勾選</strong>的證照清單與姓名等個人資料</li>
+          <li><strong>請特別注意：您加入履歷卡的證照將以原圖完整顯示給開啟連結的對象</strong>（包含證號、影像、有效期限等所有可見欄位）</li>
+          <li>若您不希望某張證照被分享，請從履歷卡中移除該證照，或手動停用、刪除您的分享 URL</li>
+        </ul>
+
+        <h3>URL 安全性</h3>
+        <ul>
+          <li>分享 URL 使用 <strong>32 字元 random token</strong>，<strong>不可枚舉、不可猜測</strong></li>
+          <li>任何人未經您主動分享拿不到 URL</li>
+        </ul>
+
+        <h3>資料儲存</h3>
+        <ul>
+          <li>履歷卡內容儲存於 <strong>Supabase（位於亞太區域）</strong>的雲端伺服器，採用加密傳輸（HTTPS）與加密儲存</li>
+        </ul>
+
+        <h3>資料保留期</h3>
+        <ul>
+          <li>v1.1 版本中：<strong>URL 永久有效，直到您手動停用或刪除</strong></li>
+          <li>未來版本將加入自動過期選項</li>
+          <li><strong>服務停止營運時的處理</strong>：若本服務因故終止營運，我們將於停止前以 App 內通知或電子郵件方式提前告知您，並於合理期限內停用所有分享 URL；停用後第三方將無法再透過 URL 存取您的履歷卡內容。我們建議您定期匯出履歷卡 PDF 或圖片作為備份。</li>
+        </ul>
+
+        <h3>您的控制權</h3>
+        <ul>
+          <li>每位使用者僅有一個分享 URL，可在「設定 → 已分享連結管理」頁面查看您的 URL 狀態</li>
+          <li>可一鍵<strong>停用</strong>您的 URL（連結失效，內容仍保留可重新啟用）</li>
+          <li>可<strong>永久刪除</strong>您的 URL（連結與內容同步刪除，不可復原）</li>
+        </ul>
+
+        <h3>第三方存取</h3>
+        <ul>
+          <li>持有 URL 的人可查看履歷卡內容，<strong>直到您停用該 URL</strong></li>
+          <li>我們無法控制 URL 被誰轉傳，請審慎判斷分享對象</li>
+        </ul>
+
+        <h3>資料用途</h3>
+        <ul>
+          <li>履歷卡資料<strong>僅用於分享給您指定對象</strong></li>
+          <li><strong>不</strong>用於廣告投放、<strong>不</strong>轉售、<strong>不</strong>做使用者行為分析</li>
+        </ul>
+
+        <h2><span class="num">10</span>政策變更</h2>
         <p>當本政策有重大變更時，我們會在 App 內通知您。建議您定期查看本頁以了解最新版本。繼續使用本 App 即代表您接受變更後的政策內容。</p>
 
-        <h2><span class="num">10</span>聯絡方式</h2>
+        <h2><span class="num">11</span>聯絡方式</h2>
         <p>如您對本政策有任何疑問或希望行使您的隱私權，請透過以下方式聯絡我們：</p>
         <ul>
           <li>電子郵件：<a href="mailto:support@myndare.com">support@myndare.com</a></li>

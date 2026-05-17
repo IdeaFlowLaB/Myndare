@@ -110,7 +110,7 @@
         "name": "會支援證件照片浮水印嗎？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "浮水印（給影印備查或上傳系統時加上「僅用於 XX 用途」等安全標記）是我們正在規劃的功能，預計後續版本會推出，但具體時程還沒鎖定。如果這對你的工作場景很重要，請來信 support@myndare.com 告訴我們你最需要的浮水印樣式（半透明斜向文字？特定日期戳？自訂文字？），會幫我們優先排序這項功能。"
+          "text": "好消息！v1.1 已正式推出浮水印功能。你可以到「設定 → 浮水印」自訂文字或上傳圖片，匯出 / 分享證照時自動套用，原始照片保持乾淨。詳細操作請看下方 v1.1 新功能說明區塊。"
         }
       },
       {
@@ -167,6 +167,150 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "本 App 不直接處理退費。請至 Apple 的退費頁面 https://reportaproblem.apple.com 申請。退費是否成立由 Apple 依其退費政策決定。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "如何啟用 Face ID 解鎖？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "打開 App，到「設定 → 安全性 → 啟用 Face ID 解鎖」，首次啟用會請你做一次 Face ID 驗證確認。啟用後每次打開 App 都會自動要求 Face ID。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Face ID 一直驗證失敗怎麼辦？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Face ID 連續失敗會自動 fallback 至你的 iOS 系統密碼，輸入後一樣能進入 App。如果問題持續，可到 iOS「設定 → Face ID 與密碼」檢查 Face ID 是否需要重新設定。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "換新手機後 Face ID 還能用嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "可以。新手機 iCloud 還原後，到證照王「設定 → 安全性」重新啟用 Face ID 即可。啟用過程會請你以新裝置的 Face ID 確認一次。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "我的生物辨識資料會被儲存嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "不會。生物辨識整個驗證流程都由 iOS 處理，我們只收到「成功 / 失敗」的結果，永遠看不到你的 Face ID 原始資料。詳見隱私權政策：https://myndare.com/licenseking/privacy/"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "如何停用 Face ID 解鎖？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "到「設定 → 安全性」關掉「Face ID 解鎖」即可。停用後 App 開啟不再要求 Face ID。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "如何設定自訂浮水印？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "到「設定 → 浮水印」，可輸入文字（最多 20 字）或上傳圖片。設定完成後，匯出或分享證照時會自動套用。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "浮水印會套用到哪些照片？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "浮水印只在你「匯出」或「分享」時即時套上，本機儲存的原始證照不會被改動。原始照片永遠保留乾淨版本。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "可以針對不同證照設定不同浮水印嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "v1.1 是全域設定（一個浮水印套用所有證照），未來版本 我們規劃要加入個別設定。如果這對你很重要，歡迎來信 support@myndare.com 告訴我們。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "浮水印文字字數限制？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "文字浮水印最多 20 個字；圖片浮水印支援 PNG 透明背景，建議解析度 512×512 以上。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "浮水印能完全去除嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "隨時可以！到「設定 → 浮水印 → 清除設定」即可移除。但已分享出去的照片需請對方刪除，我們無法替你收回。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "如何生成履歷卡分享 URL？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "打開「履歷卡 → 分享 → 生成 URL」，App 會立即建立連結並複製到剪貼簿，你可以直接貼到 LINE、Email 或任何通訊軟體。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "履歷卡 URL 會永久有效嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "v1.1 中 URL 會永久有效，直到你手動停用或刪除。未來版本 預計加入「自動過期」選項（例如 7 天 / 30 天後失效）。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "如何停用已分享的履歷卡 URL？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "到「設定 → 已分享連結管理」，找到該連結，點選「停用」。停用後該 URL 立即失效，第三方再開就看不到內容了。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "履歷卡 URL 的停用和刪除有什麼差別？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "停用：連結失效但內容保留，你之後可以重新啟用、URL 會繼續有效。永久刪除：連結與內容同步刪除，不可復原，需要分享時要重新建立履歷卡。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "履歷卡 URL 安全嗎？有人能猜到嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "安全。URL 使用 32 字元的隨機 token，數學上不可枚舉、不可猜測。但只要 URL 流出去，持有者就能看到內容，所以還是請你審慎判斷分享對象。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "我可以看到誰開過我的履歷卡 URL 嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "v1.1 暫不支援查看開啟紀錄。未來版本 我們規劃要加入「開啟次數」「最近開啟時間」等統計。如果你需要這項功能，歡迎來信告訴我們。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "如果不小心把履歷卡 URL 傳錯人怎麼辦？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "立刻到「設定 → 已分享連結管理」停用該 URL，原連結會馬上失效；然後再生成新的 URL 給對的人即可。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "履歷卡 URL 有使用次數限制嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "沒有次數限制，URL 可以被開啟無數次。但敏感資料分享出去之後，建議使用完就到「已分享連結管理」停用 URL，降低後續被轉傳或外洩的風險。"
         }
       }
     ]
@@ -445,6 +589,34 @@
     .faq-card p a { color: var(--teal); text-decoration: none; }
     .faq-card p a:hover { text-decoration: underline; }
 
+    /* v1.1 group block */
+    .faq-v101 { margin-top: 4rem; }
+    .faq-v101 h2 {
+      font-family: 'Outfit', sans-serif;
+      text-align: center;
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+    .faq-v101-subtitle {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+    }
+    .faq-group-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--teal);
+      margin: 2.4rem 0 1rem;
+      font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .faq-v101 .faq-group-title:first-of-type { margin-top: 0; }
+
     /* Reveal */
     .reveal {
       opacity: 0;
@@ -625,7 +797,7 @@
 
         <div class="faq-card reveal" id="faq-watermark">
           <h3><span class="q">Q.</span>會支援證件照片浮水印嗎？</h3>
-          <p>浮水印（給影印備查或上傳系統時加上「僅用於 XX 用途」等安全標記）是我們<strong>正在規劃</strong>的功能，預計後續版本會推出，但具體時程還沒鎖定。如果這對你的工作場景很重要，請來信 <a href="mailto:support@myndare.com">support@myndare.com</a> 告訴我們你最需要的浮水印樣式（半透明斜向文字？特定日期戳？自訂文字？），會幫我們優先排序這項功能。</p>
+          <p>好消息！<strong>v1.1 已正式推出</strong>浮水印功能。你可以到「設定 → 浮水印」自訂文字或上傳圖片，匯出 / 分享證照時自動套用，原始照片保持乾淨。詳細操作請看下方 <a href="#faq-watermark-setup">v1.1 新功能說明</a>。</p>
         </div>
 
         <div class="faq-card reveal" id="faq-resume-card">
@@ -661,6 +833,96 @@
         <div class="faq-card reveal" id="faq-refund">
           <h3><span class="q">Q.</span>如何申請退費？</h3>
           <p>本 App 不直接處理退費。請至 Apple 的退費頁面 <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer">reportaproblem.apple.com</a> 申請。退費是否成立由 Apple 依其退費政策決定。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- v1.1 新功能 FAQ -->
+    <section class="faq-v101">
+      <h2 class="reveal">v1.1 新功能說明</h2>
+      <p class="faq-v101-subtitle reveal">2026-05-17 推出的三項新功能：Face ID 解鎖、證件照浮水印、履歷卡 URL 分享。</p>
+
+      <h3 class="faq-group-title reveal">🔐 Face ID / Touch ID 解鎖</h3>
+      <div class="faq-list">
+        <div class="faq-card reveal" id="faq-faceid-enable">
+          <h3><span class="q">Q.</span>如何啟用 Face ID 解鎖？</h3>
+          <p>打開 App，到「設定 → 安全性 → 啟用 Face ID 解鎖」，首次啟用會請你做一次 Face ID 驗證確認。啟用後每次打開 App 都會自動要求 Face ID。</p>
+        </div>
+        <div class="faq-card reveal" id="faq-faceid-fail">
+          <h3><span class="q">Q.</span>Face ID 一直驗證失敗怎麼辦？</h3>
+          <p>Face ID 連續失敗會自動 fallback 至你的 iOS 系統密碼，輸入後一樣能進入 App。如果問題持續，可到 iOS「設定 → Face ID 與密碼」檢查 Face ID 是否需要重新設定。</p>
+        </div>
+        <div class="faq-card reveal" id="faq-faceid-newphone">
+          <h3><span class="q">Q.</span>換新手機後 Face ID 還能用嗎？</h3>
+          <p>可以。新手機 iCloud 還原後，到證照王「設定 → 安全性」重新啟用 Face ID 即可。啟用過程會請你以新裝置的 Face ID 確認一次。</p>
+        </div>
+        <div class="faq-card reveal" id="faq-faceid-privacy">
+          <h3><span class="q">Q.</span>我的生物辨識資料會被儲存嗎？</h3>
+          <p>不會。生物辨識整個驗證流程都由 iOS 處理，我們只收到「成功 / 失敗」的結果，永遠看不到你的 Face ID 原始資料。詳見<a href="/licenseking/privacy/">隱私權政策</a>。</p>
+        </div>
+        <div class="faq-card reveal" id="faq-faceid-disable">
+          <h3><span class="q">Q.</span>如何停用 Face ID 解鎖？</h3>
+          <p>到「設定 → 安全性」關掉「Face ID 解鎖」即可。停用後 App 開啟不再要求 Face ID。</p>
+        </div>
+      </div>
+
+      <h3 class="faq-group-title reveal">🏷️ 證件照浮水印</h3>
+      <div class="faq-list">
+        <div class="faq-card reveal" id="faq-watermark-setup">
+          <h3><span class="q">Q.</span>如何設定自訂浮水印？</h3>
+          <p>到「設定 → 浮水印」，可輸入文字（最多 20 字）或上傳圖片。設定完成後，匯出或分享證照時會自動套用。</p>
+        </div>
+        <div class="faq-card reveal" id="faq-watermark-when-applied">
+          <h3><span class="q">Q.</span>浮水印會套用到哪些照片？</h3>
+          <p>浮水印只在你「匯出」或「分享」時即時套上，本機儲存的原始證照<strong>不會被改動</strong>。原始照片永遠保留乾淨版本。</p>
+        </div>
+        <div class="faq-card reveal" id="faq-watermark-per-cert">
+          <h3><span class="q">Q.</span>可以針對不同證照設定不同浮水印嗎？</h3>
+          <p>v1.1 是<strong>全域設定</strong>（一個浮水印套用所有證照），未來版本 我們規劃要加入個別設定。如果這對你很重要，歡迎來信 <a href="mailto:support@myndare.com">support@myndare.com</a> 告訴我們。</p>
+        </div>
+        <div class="faq-card reveal" id="faq-watermark-limit">
+          <h3><span class="q">Q.</span>浮水印文字字數限制？</h3>
+          <p>文字浮水印<strong>最多 20 個字</strong>；圖片浮水印支援 PNG 透明背景，建議解析度 512×512 以上。</p>
+        </div>
+        <div class="faq-card reveal" id="faq-watermark-remove">
+          <h3><span class="q">Q.</span>浮水印能完全去除嗎？</h3>
+          <p>隨時可以！到「設定 → 浮水印 → 清除設定」即可移除。但<strong>已分享出去的照片</strong>需請對方刪除，我們無法替你收回。</p>
+        </div>
+      </div>
+
+      <h3 class="faq-group-title reveal">🔗 履歷卡 URL 分享</h3>
+      <div class="faq-list">
+        <div class="faq-card reveal" id="faq-share-create">
+          <h3><span class="q">Q.</span>如何生成履歷卡分享 URL？</h3>
+          <p>打開「履歷卡 → 分享 → 生成 URL」，App 會立即建立連結並複製到剪貼簿，你可以直接貼到 LINE、Email 或任何通訊軟體。</p>
+        </div>
+        <div class="faq-card reveal" id="faq-share-expire">
+          <h3><span class="q">Q.</span>URL 會永久有效嗎？</h3>
+          <p>v1.1 中 URL 會<strong>永久有效</strong>，直到你手動停用或刪除。未來版本 預計加入「自動過期」選項（例如 7 天 / 30 天後失效）。</p>
+        </div>
+        <div class="faq-card reveal" id="faq-share-disable">
+          <h3><span class="q">Q.</span>如何停用已分享的 URL？</h3>
+          <p>到「<strong>設定 → 已分享連結管理</strong>」，找到該連結，點選「停用」。停用後該 URL 立即失效，第三方再開就看不到內容了。</p>
+        </div>
+        <div class="faq-card reveal" id="faq-share-disable-vs-delete">
+          <h3><span class="q">Q.</span>停用和刪除有什麼差別？</h3>
+          <p><strong>停用</strong>：連結失效但內容保留，你之後可以重新啟用、URL 會繼續有效。<strong>永久刪除</strong>：連結與內容同步刪除，<strong>不可復原</strong>，需要分享時要重新建立履歷卡。</p>
+        </div>
+        <div class="faq-card reveal" id="faq-share-security">
+          <h3><span class="q">Q.</span>URL 安全嗎？有人能猜到嗎？</h3>
+          <p>安全。URL 使用 <strong>32 字元的隨機 token</strong>，數學上不可枚舉、不可猜測。但只要 URL 流出去，持有者就能看到內容，所以還是請你審慎判斷分享對象。</p>
+        </div>
+        <div class="faq-card reveal" id="faq-share-analytics">
+          <h3><span class="q">Q.</span>我可以看到誰開過我的 URL 嗎？</h3>
+          <p>v1.1 暫不支援查看開啟紀錄。未來版本 我們規劃要加入「開啟次數」「最近開啟時間」等統計。如果你需要這項功能，歡迎來信告訴我們。</p>
+        </div>
+        <div class="faq-card reveal" id="faq-share-wrong-recipient">
+          <h3><span class="q">Q.</span>如果不小心把 URL 傳錯人怎麼辦？</h3>
+          <p>立刻到「<a href="#faq-share-disable">設定 → 已分享連結管理</a>」停用該 URL，原連結會馬上失效；然後再生成新的 URL 給對的人即可。</p>
+        </div>
+        <div class="faq-card reveal" id="faq-share-usage-limit">
+          <h3><span class="q">Q.</span>URL 有使用次數限制嗎？</h3>
+          <p>沒有次數限制，URL 可以被開啟無數次。但敏感資料分享出去之後，建議使用完就到「已分享連結管理」<a href="#faq-share-disable">停用 URL</a>，降低後續被轉傳或外洩的風險。</p>
         </div>
       </div>
     </section>
